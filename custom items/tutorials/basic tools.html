@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <title>Tutorial - Basic item and tools</title>
+    </head>
+    <body>
+        <h1>Basic item and tools</h1>
+        <p>This tutorial will show you how to create a simple custom item as well as a sword and a pickaxe that can be 
+            crafted using that simple custom item. It will also demonstrate how to use the item set on a server.</p>
+        <h2>The editor</h2>
+        <p>If you haven't done this already, you should start by downloading the editor from BukkitDev. 
+            Download the latest Editor from the <a target="_blank" href="https://dev.bukkit.org/projects/custom-items-and-textures/files">Files section</a>.
+            It doesn't really matter where you put the editor you downloaded, but you should be able to find it later. </p>
+        <p>The editor is a java application, which means that you need to have Java installed on your computer in order to use it. 
+            If you are using Windows, Java was very likely installed by default, so you can use the editor right away. If you are using a Mac,
+            you probably have it as well, but I never tried that. If you are on Linux, it was probably not installed by default, but you should
+            know what you are doing if you choose to use Linux.</p>
+        <p>Now you should open your file explorer and navigate to wherever you put the editor when you downloaded it.
+            Then double click on it to start it. 
+            If everything is alright, you should see the following window (or something similar if you are using another version of the editor): </p>
+            <img width="400px" src="main menu.png" />
+            <p>Yeah yeah, it isn't pretty, but the alternative would be writing long configuration files and resourcepacks with many item models
+            and resourcepack predicates with some text editor.</p>
+        <h2>Creating the item set</h2>
+        <h3>Starting</h3>
+        <p>To use this plug-in, you will need to create your own item set in the editor. 
+            It will contain all items, textures, models, recipes and everything else related to the plug-in.
+            You can only use 1 item set at a time in your minecraft server, so you should usually have just 1 item set.
+        </p>
+        <p>To get started, click on the 'New item set'.
+            You should see a simple (and ugly) menu where you need to select the name of your item set.
+            If you just have 1 item set, the name doesn't really matter.
+            The name will be used to determine some file names for files that will be created later, so don't use special characters in the name.
+            To type the name, click on the edit field at the right of the 'Filename:'.
+            It should turn white when you click on it, which means it is waiting for you to type something.
+            Once you have typed the name, click on the 'Create' button.
+            If everything went well, you should see something like this:
+        </p>
+        <img width="400px" src="edit menu.png" />
+        <h3>The textures</h3>
+        <p>The whole point of this plug-in is that you can add custom items with their own textures without the need for any mods
+            or overwriting textures of other items.</p>
+        <h4>Creating the textures</h4>
+        <p>You will be the one that needs to create their textures. The editor is not an image editor, so you will need some other
+            program to create your images. 
+            I would recommend to use <a href="https://www.getpaint.net/">paint.NET</a> for this (it's an application, not a website).
+            However, you are free to pick whatever program you want. Use your image editor to create images of 16 by 16 pixels, 32 by 32,
+            64 by 64, 128 by 128, 256 by 256 or 512 by 512 images. You should save them on your computer and remember where you stored them.
+            Please note that all images you create will be put in a resourcepack and players will have to download that resourcepack the 
+            first time they join the server and whenever you update the item set on the server, so using many big images will cause them
+            to wait for a while because they would have to download a big resourcepack. Also, the editor will take more time to save and load
+            if there are many big images.
+        </p>
+        <h4>Loading the textures</h4>
+    </body>
+</html>
