@@ -115,28 +115,178 @@
         future.
     </p>
     <h3>The simple ruby item</h3>
-        Let's start with the ruby itself, which will be a 'Simple Item', so click on the 'Simple Item' button.
-        You should then see the following menu:
+    Let's start with the ruby itself, which will be a 'Simple Item', so click on the 'Simple Item' button.
+    You should then see the following menu:
     </p>
     <img width="400px" src="item edit menu.png" />
-    <p>As you can see, you can choose a 'Name' and a 'Display name'. The display name is the name players will see in-game.
+    <p>As you can see, you can choose a 'Name' and a 'Display name'. The display name is the name players will see
+        in-game.
         You can use uppercase characters and whitespaces within the display name to get it how you want it.
         You can also use the & character to use color codes in the display name if you like.
-        The 'Name' of the item is like the name of textures, normal players won't see it in-game and you can't use special
+        The 'Name' of the item is like the name of textures, normal players won't see it in-game and you can't use
+        special
         characters in it.
-        However, server operators can see the names of all custom items using the '/customitems list' command and will need
+        However, server operators can see the names of all custom items using the '/customitems list' command and will
+        need
         those names for the '/customitems give [custom item name]' command.
         For the 'Name', I will simply use 'ruby' and I will use 'Ruby' for the 'Display name'.
         Besides the name and display name, you will also need to select the Texture of the item.
         To select the texture, click on the 'None' button on the right of the 'Texture:' label.
         Then click on the 'ruby' label on the right of the ruby texture to choose it.
         As you can see, there are many other things like Attribute Modifiers and Item Flags.
-        For the simply ruby item, we will ignore these, but we will explain some of them when creating the sword and pickaxe.
+        For the simply ruby item, we will ignore these, but we will explain some of them when creating the sword and
+        pickaxe.
         Now click on the 'Create' button to add the ruby item to the item set.
     </p>
     <h3>The ruby sword</h3>
-    <p>Now that you have added the ruby item, it's time to add the ruby sword. 
+    <p>Now that you have added the ruby item, it's time to add the ruby sword.
         To start creating the sword, click on 'Create item' and then on 'Sword'.
+        You should then see a menu similar to the menu where you created the ruby, but with even more options.
+        The name and display name work the same as before, so you can just use 'Ruby Sword' as display name and
+        'ruby_sword' as name.
+        The texture also works the same as before, but choose ruby_sword as texture instead of just ruby.
+    </p>
+    <p>Until now, everything was basically the same as with the ruby item, but the next will be different.
+        First, let's determine how much damage the ruby sword is going to deal.
+        Changing the 'INTERNAL item damage' is <b>NOT</b> the way to do this.
+        There are only 2 ways to do this, and these ways are Attribute modifiers and Default enchantments (with damage
+        all/sharpness enchantment).
+        Using default enchantments for this would prevent players from enchantment the sword because it will be
+        enchanted immediathly when
+        it is crafted (and you can't enchant items that already have enchantments). Also, it would look really dirty in
+        general.
+        The right way to do this is using Attribute modifiers.
+        If you use them, everything will look normal.
+        To start adding attribute modifiers, click on the 'Change...' button on the right of the 'Attribute modifiers:'
+        label.
+        Then click on the 'New Attribute' button. You should then see the following:
+    </p>
+    <img width="400px" src="attribute mods.png" />
+    <p>Clicking on the red cross button on the left would remove the attribute modifiers from the item.
+        If you clicked it, just click on 'New Attribute' again.
+        The 'generic.attackDamage' is the attribute that determines the attack damage of players (and mobs), this is
+        what you will need.
+        If you click on it, you can choose another attribute modifier, but that's not what we want right now.
+        The 'mainhand' is the slot where the attribute modifier will have effect.
+        This means that players will get more attack damage when they hold the ruby sword in their main hand, which is
+        exactly what we want.
+        You could change the slot by clicking on it, but let's not do that now.
+        The 'Add' means that this sword will <b>increase</b> the attack damage of the player by the value of this
+        attribute modifier.
+        This is also how normal swords work, so let's keep it as it is.
+        Clicking on it allows you to choose another operation.
+        The 'Value' is how much the attack damage of the wielder will be increased.
+        This amount is given in half hearts, so the current value of 6 hearts means that the attack damage will be
+        increased by 3 hearts.
+        The default attack damage of players is a half heart, so the total damage when wielding the sword will be 3.5
+        hearts.
+        You can change the value if you want, but this value is quite reasonable, so I will keep it like this.
+        Click on 'Apply' to confirm your changes and go back to the previous menu.
+    </p>
+    <p> Next, you should choose the durability of your sword (the number of hits you can deal before it breaks).
+        You can do this by editing the edit field on the right of the 'Max uses:' label.
+        If you give it the value -1, the sword will become unbreakable, so it will never break no matter how often you
+        use it.
+        You can also choose the 'Internal item type' of the ruby sword. For simple custom items, this value is not
+        interesting.
+        But for swords, this has some effect. To change it, click on the 'Iron sword' button on the right of the
+        'Internal item type:'
+        label. You should be able to choose all minecraft sword types. The internal item type is the item you will see
+        when you disable
+        the resource pack. For swords, it determines the enchantability and the block break speed. The enchantability is
+        default minecraft
+        behavior, it affects the levels of the enchantments the item will get when it is enchanted. For instance, stone
+        swords will usually
+        get lower enchantments than golden swords.
+        The block break speed affects the speed at which the sword will be able to destroy blocks like cobwebs.
+        (Breaking cobwebs with wooden swords takes more time than doing it with golden swords.)
+        The ruby sword will get the same enchantability and block break speed as the internal item type has in normal
+        minecraft.
+        There are even more options to customize the sword, but this is all I will show in this tutorial.
+        Click on 'Create' to add the sword to the item set.
+    </p>
+    <h3>The ruby pickaxe</h3>
+    <p>Creating a pickaxe is almost the same as creating a sword, but there are some differences.
+        Like the sword, click on 'Create item'. But then click on 'Pickaxe' instead of sword.
+        Just like the ruby and the ruby sword, you can choose a name and a display name.
+        Just like the ruby sword, you can use attribute modifiers to set the attack damage of the pickaxe.
+        Also, you can set the max uses of the pickaxe just like the max uses of the sword.
+        For the internal item type, there are some differences.
+        Like swords, the internal item type determines enchantability and digging speed, but it also determines what
+        ores you can mine with it.
+        So the ruby pickaxe will only be able to mine obsidian if you choose 'Diamond pickaxe' as internal item type.
+        Also, the digging speed is usually much more important for pickaxes than it is for swords.
+        You could use default enchantments to increase the digging speed with the efficiency enchantment, but that will
+        prevent
+        players from enchanting the pickaxe.
+        When you have chosen the values you like, click on the 'Create' button to also add the ruby pickaxe to the item
+        set.
+    </p>
+    <h2>The crafting recipes</h2>
+    <p>
+        Now that you have created all the items, it's time to create their crafting recipes.
+        To get started, click on the 'Back' button (if you are still in the item overview) and then click on the
+        'Recipes' button.
+        That should bring you to the (currently empty) recipes overview.
+    </p>
+    <h3>The ruby recipe</h3>
+    <p>Let's first create a crafting recipe so that you can craft a ruby.
+    I will simply use redstone dust and an emerald for this in this tutorial.
+    Click on the 'Create shapeless recipe' button, you should then see the following menu:</p>
+    <img width="400px" src="shapeless recipe edit.png" />
+    <p>
+        This is the menu for creating shapeless recipes. 
+        For these recipes, it doesn't matter in which order players put the ingredients.
+        Click on 'Add ingredient' to choose the first ingredient.
+        You can use custom items and vanilla minecraft items in your recipes.
+        In this recipe, we will only use vanilla minecraft items, so click on 'Simple vanilla item'.
+        Then you will get to a menu where you can choose which vanilla item to use.
+        I suggest using the search edit field under the 'Search:' label to spare yourself some long scrolling.
+        Simply type 'emerald' there and the list of items should suddenly become very small.
+        Then click on 'emerald', which should bring you back to the shapeless recipe edit, but now with an emerald as ingredient.
+        Then add redstone as ingredient the same way you added emerald.
+        So far the ingredients of the recipe, now it's time to set the result of the recipe.
+        To change the result, click on the button below the 'Result' label. 
+        The text of that button shows the current result of the recipe, which is currently a diamond because that's the default.
+        Then click on the 'Change' button, which should bring you to a menu that seems familiar.
+        The result will be a ruby, which is a custom item, so click on 'Custom Item'.
+        Then click on 'Ruby', then on 'Select'. You should see that the text of the button below 'Result' has changed.
+        Now that you have chosen the ingredients and results, you are done with the recipe, so click on 'Apply'.
+    </p>
+    <h3>The ruby sword recipe</h3>
+    <p>
+        Next, we will create a crafting recipe to create the ruby sword.
+        This will be the basic sword recipe, so a stick at the bottom and a ruby in the middle and at the top.
+        Because it matters in which shape players place the ingredients, it will be a shaped recipe.
+        To start, click on 'Create shaped recipe', which should bring you to the following menu:
+    </p>
+    <img width="400px" src="shaped recipe edit.png" />
+    <p>
+        The 9 buttons containing 'empty' are supposed to represent the 3 by 3 crafting grid in-game.
+        The text of the button on the right shows the current result of the crafting recipe, which is an iron ingot by default.
+        But we want the result to be a ruby sword, so click on that button to change it.
+        This should bring you to a menu that seems very familiar.
+        Click on 'Change', then on 'Custom Item', then on 'ruby_sword' and then on 'Select'.
+        Now its time to choose the ingredients of the recipe.
+        Clicking on any button in the crafting grid will allow you to change the ingredient for that slot.
+        Let's start by clicking on the bottom-middle 'empty' button and then on 'Change' and then 'Simple vanilla item'.
+        Type 'stick' in the edit field below the 'Search:' label if you don't like scrolling all the way down to stick.
+        Then click on 'stick'.
+        The middle item in the grid should be a ruby, so click on the middle button, then 'Change', then 'Custom Item' and then 'ruby'.
+        Do the same for the top-middle 'empty' button and then the recipe is done. 
+        Click on 'Apply' to finish the recipe and add it to the item set.
+    </p>
+    <h3>The ruby pickaxe recipe</h3>
+    <p>Adding the pickaxe recipe is pretty much the same process as adding the sword recipe, so I won't discuss this.</p>
+    <h2>The block drop</h2>
+    <p>There is a crafting recipe for the ruby, but I will also show you how to add a block drop for the ruby.
+        Block drops allow you to give breaking blocks a chance to drop certain custom items.
+        In this case, I will give redstone ore a 25% chance to drop a ruby instead of redstone.
+        To do this, click on 'Back' (if you are still in the recipe overview) and then on 'Drops' and then on 'Block drops'.
+        That will bring you to the (currently empty) block drop overview.
+        Click on 'New block drop' to start adding the ruby block drop.
+        You should then see a simple menu to configure the block drop.
+        To change the block that will drop the ruby, click on the button on the right of the 'Block:' label.
     </p>
 </body>
 
