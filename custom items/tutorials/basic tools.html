@@ -9,7 +9,11 @@
 <body>
     <h1>Basic item and tools</h1>
     <p>This tutorial will show you how to create a ruby item as well as a ruby sword and pickaxe that can be
-        crafted using that ruby. It will also demonstrate how to use the item set on a server.</p>
+        crafted using that ruby. It will also demonstrate how to use the item set on a server.
+        This tutorial will not show you everything you can do with this plug-in (that would become a long tutorial).
+        I may or may not make more tutorials, depending on the number of requests I get to do so and on how much time I have.
+        This tutorial will assume you already have a (1.12.2) minecraft server and that you have access to its files.
+    </p>
     <h2>The editor</h2>
     <p>If you haven't done this already, you should start by downloading the editor from BukkitDev.
         Download the latest Editor from the <a target="_blank"
@@ -281,12 +285,103 @@
     <h2>The block drop</h2>
     <p>There is a crafting recipe for the ruby, but I will also show you how to add a block drop for the ruby.
         Block drops allow you to give breaking blocks a chance to drop certain custom items.
-        In this case, I will give redstone ore a 25% chance to drop a ruby instead of redstone.
+        In this case, I will give emerald ore a 25% chance to drop a ruby instead of an emerald.
         To do this, click on 'Back' (if you are still in the recipe overview) and then on 'Drops' and then on 'Block drops'.
         That will bring you to the (currently empty) block drop overview.
         Click on 'New block drop' to start adding the ruby block drop.
         You should then see a simple menu to configure the block drop.
         To change the block that will drop the ruby, click on the button on the right of the 'Block:' label.
+        I strongly recommend using the search field and type 'em' rather than scrolling through the entire list.
+        Then click on 'emerald ore' to choose it.
+        Now that we have chosen the block, it's time to configure the rest of the drop.
+        Click on the 'None' button on the right of the 'Drop:' label.
+        You should then see the following menu:
+    </p>
+    <img width="400px" src="drop edit.png" />
+    <p>We want it to drop a ruby, so click on the 'None' button on the right of the 'Item to drop:' label and then on 'ruby'.
+        We only want a 25% chance to drop a ruby upon breaking emerald ore, so replace the current 100% with 25%.
+        Since we only want to drop a single ruby each time, we keep the minimum and maximum amount on 1.
+        If you check 'Prevent other drops', no emerald will be dropped whenever a ruby is dropped.
+        If you keep it unchecked, breaking emerald ore will always drop an emerald, but sometimes <b>also</b> a ruby.
+        In this tutorial, I will check it.
+        Now that we have configured everything, click on 'Apply' and then on 'Create'.
+        The block drop should now be shown in the block drop overview:
+    </p>
+    <img width="400px" src="drop overview.png" />
+    <h2>Exporting</h2>
+    <p>The item set for this tutorial is now finished.
+        In order to actually use the item set on a server, we need to export it first.
+        First, click twice on the 'Back' button (if you are still in the block drop overview).
+        Then, you need to click on the 'Export' button.
+        If everything went well, you should be brought to the main menu.
+        Then you can click on the 'Exit editor' button, which should close the editor.
+        When you clicked on 'Export', the editor did a few things:
+        <ul>
+            <li>It saved the item set in the ruby.cisb file (or whatever you called your item set).
+                The editor will need to read this file whenever you want to continue working on this item set.
+                This file will contain all data about your item set and copies of all textures you loaded.
+                If you encounter issues with the plug-in or editor, you should include this file when asking for help
+                because it will contain everything I need.
+                If you delete this file, you will need to use a back-up in order to continue working on the item set.
+            </li>
+            <li>It created a back-up of the ruby.cisb file within a 'backups' folder. If the backups folder start claiming
+                too much disk space, you can delete older back-ups to reclaim the space.
+            </li>
+            <li>It created a ruby.cis file. This plug-in will need (a copy of) this file to be in the plugins/CustomItems folder.
+                This file contains all data about the item set, but without the textures and eventual other resources.
+                If you delete this file, you can recreate it by clicking 'Export' again.
+            </li>
+            <li>It created a ruby.zip file. This will be the (server) resourcepack for this item set. It will contain all textures
+                and other resources of the item set, but not the data.
+                If you delete this file, you can recreate it by clicking 'Export' again.
+            </li>
+        </ul>
+        All these files should be located inside a 'Custom Item Sets' folder, which should be inside your documents folder.
+    </p>
+    <h2>Using the item set on a minecraft server</h2>
+    <h3>Setting up the plug-in</h3>
+    <p>
+        This tutorial assumes that you already have a minecraft server to use the plug-in for.
+        To use the plug-in, you need to download <a target="_blank" href="https://dev.bukkit.org/projects/custom-items-and-textures/files?filter-status=1&filter-game-version=">Custom Items</a>
+        and <a target="_blank" href="https://dev.bukkit.org/projects/knokko-core/files">Knokko Core</a>.
+        For custom items, you should pick the latest version (the plug-in, not the editor).
+        For knokko core, you should pick the latest version for the minecraft version of your server.
+        The first version after the 'Knokko Core' of each version indicates the minecraft version.
+        You should put <b>both</b> plug-in jars in the plugins folder of your server. 
+        (Really, you won't get far without Knokko Core.)
+        Within the plugins folder, you should create a new folder called 'CustomItems'. 
+        You need to put the ruby.cis file in that 'CustomItems' folder.
+    </p>
+    <h3>Setting up the resource pack</h3>
+    <p>
+        For the server resourcepack, I recommend using <a target="_blank" href="https://minepack.net">minepack</a>.
+        You can use this site to host resourcepacks for free, which is what we need because server resourcepacks must always
+        be accessible from the internet. To use it, click on the 'Choose File' button.
+        Then navigate to ruby.zip and select that file. Then click on the green 'Upload' button.
+        After clicking that button, you should be able to copy the url and sha1 hash of the server resourcepack.
+        The url I just uploaded is <b>https://download.nodecdn.net/containers/nodecraft/minepack/bb3a5f314cf5d8964fba3ba0e91fa08f.zip</b>
+        and my sha1 hash is <b>feba1af35418319a68d4e883d19a2507fb4e9c59</b>.
+        The sha1 hash probably seems terrifying, but you don't need to know what it is, you will only need to copy and paste it.
+        Now you need to modify your server.properties file and change the "resource-pack" and "resource-pack-sha1" to the values you copied.
+        Then you should save your changes and (re)start the server.
+    </p>
+    <h3>Testing your item set</h3>
+    <p>Once your server has (re)started, you should join it with your minecraft account.
+        If nothing went wrong, everything should work now.
+        When you are asked whether or not you want to use the server resourcepack, you should of course accept it.
+        To test the crafting, pick some emeralds, some redstone dust, some sticks and a crafting table from your creative inventory.
+        Place the crafting table and right click it. 
+        When you put the redstone and emerald in the crafting matrix, you should see the ruby in the result slot and be able to take it.
+        Craft a few more to test the ruby sword and pickaxe recipe.
+        You might notice that stacking the rubies won't work well in creative mode, but it should work in survival mode.
+        Finally, you can test the block drops by taking some emerald ore from your creative inventory and place some in the world.
+        Don't bother going to survival mode because custom block drops will also work in creative mode.
+        If you keep placing and breaking emerald ore, a ruby should be dropped soon (but remember there is only 25% per block).
+    </p>
+    <h3>Questions and problems</h3>
+    <p>
+        If you have questions or encounter bugs, you can post comments on <a href="https://dev.bukkit.org/projects/custom-items-and-textures">BukkitDev</a> or discord.
+        <a href="https://discordapp.com/invite/bmF3Zvu">This is the invite link for the discord server.</a>
     </p>
 </body>
 
