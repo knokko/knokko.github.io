@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <title>Exporting an item set</title>
+    </head>
+    <body>
+        <p>
+            Exporting an item set prepares it for being used in a minecraft server. 
+            In the <a href="index.html">edit menu</a>, there is an export button for each minecraft version supported by this plug-in.
+            You are supposed to click on the button for the minecraft version of your server.
+        </p>
+        <h3>The Custom Item Sets folder</h3>
+        <p>
+            After clicking on an export button, you should go to the 'Custom Item Sets' folder on your computer.
+            The exact location of that folder depends on the operating system of your computer.
+            <ul>
+                <li>On Windows, it should be inside your Documents folder.</li>
+                <li>On Linux, it should be inside your home folder.</li>
+                <li>I never tried it on a Mac, but it will probably be in or near your documents folder.</li>
+            </ul>
+            Future versions of the editor will tell you where exactly that folder is located.
+        </p>
+        <p>
+            If your item set is called 'ruby', the Custom Item Sets folder should contain the following files:
+            <ul>
+                <li>
+                    ruby.cisb, this file is used by the editor to save and load all data about the ruby item set.
+                    You normally don't need to touch this file. It's a binary file, so don't bother trying to read it.
+                </li>
+                <li>
+                    ruby.zip, this file is the (server) resourcepack you need to use. Feel free to look what's inside it
+                    if you're curious how things work. You can even edit it, but note that you will need to re-edit it
+                    each time you export.
+                </li>
+                <li>
+                    ruby.cis, this file is needed by the plug-in and needs to be put in the ServerFolder/plugins/CustomItems folder.
+                    Note that the CustomItems folder will not exist until you create it manually. Also, if you run the server with
+                    the plugin installed, it should create the folder automatically. This file is binary, so don't bother trying to
+                    read it.
+                </li>
+                <li>
+                    ruby.txt, this file can be used as alternative for ruby.cis and is made for hosts that do not allow
+                    server owners to directly upload files to the server. If you would like to use this file, you need to put it
+                    inside ServerFolder/plugins/CustomItems (just like you would if you used ruby.cis). This file is sort of binary:
+                    you can open it with a text editor and copy/paste the 'text', but don't bother trying to understand it.
+                </li>
+            </ul>
+            Additionally, there should be a 'backups' and 'logs' folder, but you can ignore those for now.
+            Now that you know what the files are, it's time to use them.
+        </p>
+        <h3>Installing the plug-in itself</h3>
+        <p>
+            If you haven't done so already, you need to put the CustomItems plugin and the KnokkoCore for the right minecraft version
+            in your plugins folder. You can find the available versions for CustomItems 
+            <a href="https://dev.bukkit.org/projects/custom-items-and-textures/files">here</a>. You need to pick a file that starts
+            with "Custom Items" and the file must be at least as new as the Editor you used to create the ruby.cis file.
+        </p>
+        <p>
+            You can find the versions for KnokkoCore <a href="https://dev.bukkit.org/projects/knokko-core/files">here</a>.
+            The names include the minecraft version it is for and the edition. For instance, "Knokko Core for minecraft 1.13 3"
+            must be used for minecraft 1.13.x servers and is the third edition of KnokkoCore for minecraft 1.13.x.
+            I recommend always using the latest one for your minecraft version, because <b>you will get errors if your KnokkoCore is too old</b>.
+            Put both CustomItems and KnokkoCore in the plugins folder of your server.
+        </p>
+        <h3>Uploading your item set</h3>
+        <p>
+            Then create a folder called 'CustomItems' in the plugins folder of your server (if it doesn't exist already).
+            In that folder, you should put either ruby.cis or ruby.txt (not both). 
+            If your server host doesn't allow you to upload files, you will need to create a new file called ruby.txt in
+            the 'CustomItems' folder you just created. 
+            Then open the ruby.txt file in the 'Custom Item Sets' folder (on your computer), copy everything and paste
+            everything into the ruby.txt in plugins/CustomItems/ruby.txt.
+            If your host also doesn't allow you to create any files in your server folder, you need a better host...
+        </p>
+        <h3>Uploading the resourcepack</h3>
+        <p>
+            For the server resourcepack, I recommend using <a target="_blank" href="https://minepack.net">minepack</a>.
+            You can use this site to host resourcepacks for free, which is what we need because server resourcepacks must always
+            be accessible from the internet. To use it, click on the 'Choose File' button.
+            Then navigate to ruby.zip and select that file. Then click on the green 'Upload' button.
+            After clicking that button, you should be able to copy the url and sha1 hash of the server resourcepack.
+            Now you need to modify your server.properties file and change the "resource-pack" and "resource-pack-sha1" to the values you copied.
+            Then you should save your changes and (re)start the server.
+            If you then visit your server, you should be asked if you would like to have the server resourcepack and you should accept it.
+            If not, check <a href="troubleshooting.html">the troubleshooting page</a>.
+        </p>
+        <h3>Tips</h3>
+        <p>
+            If you quickly want to test an item set, you could instead of uploading the resourcepack as server resourcepack just put
+            it in your own resourcepacks folder (AppData/Roaming/.minecraft/resourcepacks). This should have the same effect as a 
+            server resourcepack <b>for you</b>, but is quicker.
+        </p>
+    </body>
+</html>

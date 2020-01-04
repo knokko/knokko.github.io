@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <title>Troubleshooting</title>
+    </head>
+    <body>
+        <p>
+            When things don't work (as they should), here are some simple things to check:
+            <ul>
+                <li>
+                    The plugins folder of your server contains 'Custom Items.jar' or 'Custom+Items.jar' 
+                    (downloading it might replace the space in the name with a plus, but that's fine).
+                </li>
+                <li>
+                    The plugins folder of your server contains a file starting with 'Knokko+Core' or 'Knokko Core'.
+                </li>
+                <li>
+                    The plugins folder of your server contains a folder called 'CustomItems', which contains a file
+                    ending with '.cis' or '.txt'.
+                </li>
+                <li>
+                    The 'resource-pack' and 'resource-pack-sha1' in your server.properties aren't empty.
+                </li>
+            </ul>
+            If any of the things above is missing, things are not going to work.
+            If you changed anything, restart the server to test if it works now.
+            If it still doesn't work, do the following checks:
+            <ul>
+                <li>
+                    Is the CustomItems version you are using the latest released version?
+                    If not, replace your current version with the latest version and restart your server.
+                </li>
+                <li>
+                    Is your KnokkoCore version the latest for your minecraft version?
+                    If not, replace it with the latest version and restart your server.
+                </li>
+            </ul>
+            If you did everything I mentioned above, it is likely that the mistake is mine.
+            In that case, please do the following steps.
+            <ul>
+                <li>
+                    Use the '/plugins' command and check that 'CustomItems' and 'KnokkoCore' are listed.
+                </li>
+                <li>
+                    Use the '/customitems list' command and check that it lists all your custom items.
+                </li>
+                <li>
+                    Check your server console/log, copy it entirely, paste it in the box below and click on the 'Check console' button.
+                </li>
+            </ul>
+            Post all results from the previous 3 steps mentioned above on the <a href="https://discordapp.com/invite/bmF3Zvu">discord</a>
+            or <a href="https://dev.bukkit.org/projects/custom-items-and-textures">BukkitDev</a>.
+        </p>
+        <script src="troubleshooting.js"></script>
+        <textarea id="console-dump"></textarea><br>
+        <button onclick="processConsoleDump()">Check console</button>
+        <div id="check-output"></div>
+    </body>
+</html>
