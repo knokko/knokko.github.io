@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <title>Bow texture edit</title>
+    </head>
+    <body>
+        <p>
+            In the bow texture edit menu, you can load a new bow texture or edit an existing one.
+            It should initially look like this:
+        </p>
+        <img src="bow edit.png" width="50%" />
+        <p>
+            The bow texture edit menu contains everything the <a href="edit.html">normal texture edit menu</a> has, but more:
+            An 'Add pull' button and a pull entry for each pull the bow texture has. 
+            By default, there are 3 pull entries: 0.0, 0.65 and 0.9.
+            The pull entries are for the pull animation of the bow and each pull entry has its own value and texture.
+            <ul>
+                <li>A pull entry with value 0.0 will display its texture as soon as a player starts pulling the bow until
+                    a pull entry with a higher value will display its texture. </li>
+                <li>A pull entry with value 0.5 will display its texture as soon as the player is halfway with reaching the maximum
+                    pull of the bow.</li>
+                <li>A pull entry with value 1.0 would display its texture when the player has reached the maximum
+                    pull.</li>
+            </ul>
+            I chose the default values 0.0, 0.65 and 0.9 because minecraft also uses those values and has textures for them.
+            You can use the following textures as example for creating your own:
+            <p>
+                Base texture:<br>
+                <img src="bow_standby.png" /><br>
+                Texture for pull 0.0:<br>
+                <img src="bow_pulling_0.png" /><br>
+                Texture for pull 0.65:<br>
+                <img src="bow_pulling_1.png" /><br>
+                Texture for pull 0.9:<br>
+                <img src="bow_pulling_2.png" /><br>
+                When right-clicking the images shown above, you should get some 'save as...' or 'copy'
+                options (depending on your browser), which allow you to save them as image on your computer.
+                Then you can open them with an image editor and edit them (for instance simple replace color stuff).
+            </p>
+            <p>
+                If you would like to use lesser or more pull textures, that is possible, but will require you to
+                draw the shapes of the bows yourself. You can use the 'Add pull' button to add a new empty pull entry
+                you can then edit.
+                To remove pull entries, you can click on the red cross on the top-right of its orange-like box (<b>
+                    not the red cross on the top-right of the editor window
+                </b>).
+            </p>
+        </p>
+    </body>
+</html>
