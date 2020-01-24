@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <title>Base item edit menu</title>
+    </head>
+    <body>
+        <p>
+            This page describes the shared properties of all custom item types.
+            Every custom item that can be made will have the properties that are explained here.
+            Contrary to most other pages in the documentation, there is no direct menu for this page itself.
+            The image below shows how this menu would probably look like if it would exist:
+        </p>
+        <img src="base.png" width="50%" />
+        <h2>Buttons</h2>
+        <p>
+            This 'menu' contains a 'Cancel' button and an 'Apply' or 'Create' button.
+            When creating a new item, it will be a 'Create' button.
+            When editing an existing item, it will be an 'Apply' button.
+        </p>
+        <h3>Cancel</h3>
+        <p>
+            Clicking the 'Cancel' button when creating a new custom item will bring you back to the 
+            <a href="../overview.html">item overview</a> <b>without</b> adding the item in progress.
+            Clicking the 'Cancel' button when editing an existing custom item will discard all changes
+            made to that item and bring you back to the <a href="../overview.html">item overview</a>.
+        </p>
+        <h3>Apply/Create</h3>
+        <p>
+            Clicking the 'Apply' button will run a lot of validation checks to make sure everything is 
+            ok. If so, it will apply all changes made and then bring you back to the <a href="../overview.html">item overview</a>.
+            Clicking the 'Create' button will run similar validation checks. If everything is alright,
+            the new custom item will be added to the item set and you will then be brought back to the
+            <a href="../overview.html">item overview</a>.
+        </p>
+        <h2>Properties</h2>
+        <p>
+            The rest of the buttons and labels on this menu is dedicated to the properties of the custom item 
+            that is being modified. Although there are a lot of properties, the only two properties that you 
+            have to choose when creating a new item are the Name and Texture: all other properties are either 
+            not required or will have a valid default value.
+        </p>
+        <h3>Name</h3>
+        <p>
+            The unique name of the custom item: no two custom items in the same item set can have the same name.
+            The name will be used as filenames in the resourcepacks the editor will generate and the name can be
+            used in the <b>/customitems give</b> command. Note that the name of the custom item is <b>not</b> its
+            display name: there is another field for that. Players will normally not see the names of custom items
+            (unless they open up the server resourcepack with some archive manager). Currently, the rules for valid 
+            names are very strict: only characters in the alphabet and underscores are allowed.
+        </p>
+        <h3>Internal item type</h3>
+        <p>
+            The vanilla item type of the custom item that will be used in the plug-in.
+            The button on the right of 'Internal item type:' will display the currently chosen item type.
+            Clicking on that button will allow you to choose another one, but which ones you can choose depends
+            on the custom item type of the item you are editing/creating.
+            For instance, simple custom items can choose between hoes and shears while custom bows have no choise
+            but to use a bow. Most of the properties of the custom item can be overruled with for instance attribute
+            modifiers, but the following properties are still determined by the internal item type:
+            <ul>
+                <li>The mining speed (important for pickaxes mostly)</li>
+                <li>The enchantability (only for tools)</li>
+                <li>The texture when players don't use the resoucepack</li>
+            </ul>
+            The internal item type will <b>not</b> affect the following properties:
+            <ul>
+                <li>The attack damage of the item (can be done with attribute modifiers)</li>
+                <li>The maximum durability of the item (can be done with 'Max uses')</li>
+            </ul>
+        </p>
+        <h3>Internal item damage</h3>
+        <p>
+            <script>
+                function toggleInternalDamageSpoiler(){
+                    const spoilerElement = document.getElementById("internal-damage-spoiler");
+                    spoilerElement.hidden = !spoilerElement.hidden;
+                }
+            </script>
+            This is <b>NOT</b> the attack damage of the custom item (that can be done with
+            attribute modifiers). Instead, it's some internal value needed for the resoucepack.
+            All you need to know is that no two custom items are allowed to have both the same
+            internal item type and internal item damage. Modern versions of the editor will
+            automatically assign correct values to this, so users no longer need to worry about it.
+            Click <a onclick="toggleInternalDamageSpoiler()" style="color: blue; cursor: pointer;">here</a> 
+            to show/hide detailed information about the internal item damage.
+            <div id="internal-damage-spoiler" hidden>
+                <div>
+                    Minecraft introduced resourcepack predicates in version 1.9.
+                    These allow resourcepacks to give tools different textures based on the durability
+                    they have lost and whether or not the tool is unbreakable.
+                    Custom items will always be 'Unbreakable' (not to be confused with the unbreaking enchantment)
+                    tools that have lost durability.
+                    The internal item damage is the amount of durability the tool is 'missing'.
+                </div>
+                <div>
+                    Since unbreakable tools can't be obtained legitimately in minecraft, they are nice to use as 
+                    custom items. However, since unbreakable tools could also have different purposes on some servers
+                    , this plug-in will only claim textures of those unbreakable tools that also lost durability 
+                    (unbreakable tools can't lose durability).
+                    I can't imagine any situation in which a server would need unbreakable tools with missing durability
+                    (except this plug-in of course), so I consider these tools safe to claim for my plug-in.
+                </div>
+                <div>
+                    The resourcepacks generated by the editor will make sure that unbreakable tools
+                    that miss durability will get the textures of the right custom items.
+                    The plug-in has, just like other plug-ins, the power to bypass some minecraft rules.
+                    In this case, it has the power to forge unbreakable items that miss durability, which will
+                    thus take the custom texture.
+                </div>
+            </div>
+        </p>
+        <h3>Display name</h3>
+        <p>
+            The display name of the custom item.
+            Unlike the name of the custom item, the display name is actually shown to players in-game and
+            has almost no naming restrictions: it is allowed to have basically any character you can get inserted
+            into its edit field. You can use the &-character for color codes; they will automatically be replaced
+            with the real color character that is somewhat annoying to insert.
+        </p>
+        <h3>Lore</h3>
+        <p>
+            The item lore that will be given to the custom item in-game. 
+            Clicking on the 'Change...' button on the right of the 'Lore:' will bring you to a 
+            <a href="../../text list.html">text list edit menu</a> where you will be able to type the lines of lore.
+            You can use color codes in lines of lore. To do so, you need to type either the '&'-character or the
+            real color code character. Upon clicking on 'Apply', any & will be replaced by the color character.
+        </p>
+        <h3>Attribute modifiers</h3>
+        <p>
+            Attribute modifiers are the right way to configure the attack damage of custom swords and the
+            armor of custom armor pieces. They can also be used for a lot of other stuff.
+            For those who are already familiar with attribute modifiers, this should be quite straightforward.
+            For those who aren't, attribute modifiers can be used to change attack damage, attack speed, movement speed,
+            max health and some other attributes of players when they have a certain item equipped in the right slot (for instance
+            main hand or helmet).
+        </p>
+        <p>
+            To change the attribute modifiers this custom item will get in-game, click on the 'Change...' button on the right
+            of 'Attribute modifiers:'. That should bring you to the <a href="attributes.html">attribute modifier edit menu</a>.
+        </p>
+        <h3>Default enchantments</h3>
+        <p>
+            Default enchantments are the enchantments custom items will automatically get whenever they are created (or dropped).
+            Note that giving any default enchantments to custom items will prevent them from being enchanted in an enchanting
+            table because it's not possible to enchant items that are already enchanted.
+            To change the default enchantments of the custom item, click on the 'Change...' button on the right of 'Default enchantments:'.
+            Doing that should bring you to the <a href="enchantments.html">default enchantment edit menu</a> where you can change them.
+        </p>
+        <h3>Item flags</h3>
+        <p>
+            Item flags can be used to hide some properties of (custom) items like attributes or enchantments.
+            To change the item flags of custom items in-game, click on the 'Change...' button on the right of 'Item flags:'.
+            That will bring you to the <a href="flags.html">item flag selection menu</a> where you can choose which item flags 
+            you wan't and don't wan't.
+        </p>
+        <h3>Texture</h3>
+        <p>
+            The texture is probably the reason you are using this plug-in. 
+            It allows you to select the image of the custom item in-game. 
+            To select (or change) the texture, click on the button on the right of 'Texture:',
+            which will bring you to the <a href="texture.html">texture selection menu</a> where you can select a texture you loaded.
+        </p>
+        <h3>Model</h3>
+        <p>
+            The model allows you to assign a custom item model file to the custom item.
+            This is a somewhat advanced resourcepack feature of minecraft, but those
+            who are already familiar with creating resourcepacks will probably know what they are.
+            For those who do not know what they are, it's probably better to ignore this.
+            Clicking on the 'Change...' button on the right of 'Model:' will bring you to the 
+            <a href="model.html">model edit menu</a> where you can choose a model.
+        </p>
+    </body>
+</html>
