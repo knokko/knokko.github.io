@@ -11,7 +11,7 @@ function findError(log){
         return "You need to paste the console log in the box above before clicking on this.";
     }
 
-    if (log.includes("Editor")) {
+    if (log.includes("Could not load 'plugins\\Editor")) {
         return "It looks like you put the editor in the plugins folder. Please don't do that.";
     }
 
