@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <title>Create Shaped Recipe menu</title>
+    </head>
+    <body>
+        <p>
+            The create shaped recipe menu is the menu from which you can add, edit and delete crafting ingredients for a shaped recipe.
+            It should look like this:
+        </p>
+        <img src="shaped.png" width="50%" />
+        <p>
+            For more information about a shaped recipe, visit the respective page on the 
+            <a href="https://minecraft.gamepedia.com/Crafting#Java_.26_Bedrock_Edition_crafting_system">Minecraft Wiki</a>
+            The menu consists out of a grid of 3 by 3 buttons, a cancel button, a create button and a result button.
+            The 3 by 3 grid represents the crafting grid found in a crafting table.
+            Each slot is a direct correspondance to that same slot in the crafting table.
+            This can be used to create shaped recipes to for instance create tools from a raw material, or armour pieces from a raw material.
+            Note that these recipes only work in a crafting table, even if you only use a 2x2 grid, the recipe will NOT work when crafting from your inventory.
+        </p>
+        <h2>Buttons</h2>
+        <h3>Cancel</h3>
+        <p>
+            The 'Cancel' button will take you back to the <a href="overview.html">Recipe Menu</a>, disregarding the changes you made.
+            There is no way to recover any changes you have made after you pressed the 'Cancel' button.
+        </p>
+        <h3>Result</h3>
+        <p>
+            The leftmost purple/pinkish button is the resul button, that when clicked opens up a submenu where you can select which type of item will be crafted with the current crafting recipe.
+            For more information, visit <a href="type select.html">this</a> page.
+        </p>
+        <h3>Add ingredient</h3>
+        <p>
+            The 'Add ingredient' button (those in the 3x3 grid) opens up a submenu with information about the current item in this slot of the crafting grid. 
+            Here you can click the 'Back' button to take you back to this page, or the 'Change' button which will upen up another submenu where you can select which type of item will be part of 
+            the crafting recipe. Do note that this is a special version of the <a href="type select.html">usual</a> submenu as there will be another type box present with the text empty.
+            Use that button when you want a slot to remain empty in the crafting recipe.
+            For more information, visit <a href="type select.html">this</a> page.
+            After adding an ingredient, the respective button should have changed it's text to the name of the item.
+        <h3>Create</h3>
+        <p>
+            The 'Create' button does the same thing as the 'Cancel' button except that it does remember the changes you have made.
+            Do note that the changes are not saved physically until you have pressed the 'Save' button in the <a href="../">Item Set Edit Menu</a>.
+        </p>
+    </body>
+</html>
