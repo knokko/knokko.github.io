@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <title>Tool edit menu</title>
+    </head>
+    <body>
+        <p>
+            The tool edit menu can be used to edit or create tools.
+            If you just started creating a new pickaxe, it should look like this:
+        </p>
+        <img src="tool.png" width="50%" />
+        <p>
+            This menu contains everything the <a href="base.html">base item edit menu</a> has,
+            but more. For a description of all other properties, check the link to the base item edit menu.
+            Additionally, this menu contains the common properties for all custom tools.
+            I will give a description of each property.
+        </p>
+        <h3>Allow enchanting</h3>
+        <p>
+            Whether this custom item can be enchanted in an enchantment table.
+            <ul>
+                <li>If this is disabled, players can't enchant this custom item in an enchanting table. </li>
+                <li>
+                    If this is enabled, players can enchant this custom item in an enchanting table 
+                    under the same conditions as which players can enchant a normal tool (they need
+                    enough xp, lapiz and the item must not be enchanted already).
+                </li>
+            </ul>
+            That yellow thing on the left of 'Allow enchanting' is supposed to look like a checkbox.
+            Checking it will enable enchanting and unchecking it will disable enchanting.
+            If this checkbox is checked, the custom tool is not allowed to have any default enchantments
+            (if it has default enchantments, the item is always enchanted and can therefore not be 
+            enchanted in an enchantint table).
+        </p>
+        <h3>Allow anvil actions</h3>
+        <p>
+            Whether this custom item can be manipulated (repaired, renamed, enchanted...) in an anvil.
+            <ul>
+                <li>If this is disabled, players won't be able to modify this custom item in an anvil at all.</li>
+                <li>
+                    If this is enabled, the plug-in will try to give the custom item the same behavior in the anvil 
+                    as a normal tool of that type. This works correctly most of the time, but sometimes repair costs
+                    are not displayed correctly (if that happens, players can just close the anvil gui and right click it again).
+                    Also, there are a few more minor issues where players can get kicked out of the anvil GUI (luckily without damage).
+                </li>
+            </ul>
+        </p>
+        <h3>Max uses and durability losses</h3>
+        <p>
+            The 'Max uses', 'Durability loss and attack' and 'Durability loss on block break' (some tools like tridents and bows
+            have even more of those) determine how many times the custom tool can be used before it breaks. Each time a custom tool 
+            is created in-game, it will start with a durability equal to the 'Max uses'. Each time a player attack someone (left-clicks)
+            with the tool, the durability will decrease by its 'Durability loss on attack'. Similarly, each time the player breaks a block 
+            with the tool, the durability will decrease by its 'Durability loss on block break'.
+        </p>
+        <p>
+            The default value of 'Max uses' will always be 500, but you should change this value to whatever you want it to be.
+            The default values of the durability losses will be equal to the values normal minecraft tools would have (
+            for instance, a pickaxe will lose twice as much durability when it's being used as weapon rathern than
+            being used to break blocks.) You can change these values if you would like, but should normally not do that.
+            You can even change (some of) those values to 0, which would indicate no durability loss at all.
+            If you would set them all to 0, the tool would become basically unbreakable, <b>but you should set the 'Max uses'
+            to -1 instead if you want to make the tool unbreakable.</b>
+        </p>
+        <h3>Repair item</h3>
+        <p>
+            The item that can be used to repair this custom tool in an anvil.
+            If anvil actions are not enabled, the repair item doesn't matter because it can't be used anyway.
+            To change the repair item, click on the button on the right of 'Repair item:' (initially, it will have 
+            text 'None'). Clicking it will take you, after clicking on 'Change' in the next menu, 
+            to the <a href="../../recipes/type select.html">item type selection menu</a>.
+            This menu was actually made to select crafting recipe ingredients, but turned out to be quite useful for repair items as well.
+        </p>
+    </body>
+</html>
