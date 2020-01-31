@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <title>Mob Drop menu</title>
+    </head>
+    <body>
+        <p>
+            The mob drop menu is the root menu from which you can add, edit and delete mob drops.
+            It should look like this:
+        </p>
+        <img src="empty.png" width="50%" />
+        <p>
+            The menu consist out of the back button and the new mob drop button.
+        </p>
+        <a>
+            The 'Back' button will remember the changes made and return you to the <a href="index.html">Drops Menu</a>. 
+            Do note that the changes are not saved until the 'Save' button is pressed in the <a href="../">Item Set Edit Menu</a>.
+        </p>
+        <p>
+            When pressing the 'New mob drop' button, a submenu opens up which should look like this:
+        </p>
+        <img src="new mob.png" width="50%" />
+        <p>
+            The 'Entity' and 'Drop' button both open up a submenu where you can change the mob (entity) that will get the drop, and the item that is dropped from the selected mob.
+            For more information, please visit the respective pages.
+            <ul>
+                <li><a href="moblist.html">Entity</a></li>
+                <li><a href="drop.html">Drop</a></li>
+            </ul>
+        </p>
+        <p>
+            The 'Requires specific name' checkbox will (when ticked) show an input field where you can enter the name of an entity. This drop is then only applied to entities of the selected type,
+            with the specified name. This is such that unnamed (or different named) entities do not drop that item. Useful for bosses and the like.
+            The 'Cancel' button will bring you back to the previous menu (at the top of the page) without remembering the changes you have made.
+            The 'Create' button does the same thing as the 'Cancel' button but instead remembers the changes you have made. Do note that the Drop cannot be 'None', otherwise red text at the top
+            will tell you that a drop cannot be empty. After creating a drop, the overview menu should look like this (with different names for the different drops and mobs):
+        </p>
+        <img src="mob filled.png" width="50%" />
+        <p>
+            After a drop has been created, as such in the picture above, three buttons appear next to it. From now on we will refer to this as an entry. Every new drop will be an entry in the 
+            overview menu. This does not mean that all drops are applied to the same mob, or every mob drops the same thing. This just means that we have a list of all drops that will be 
+            added to the game. Each entry lists which item will be dropped by which mob, and three buttons: Edit, Copy and Delete.
+        </p>
+        <h2>Buttons</h2>
+        <h3>Edit</h3>
+        <p>
+            This button opens up the same submenu as the 'New mob drop' but with the right information filled in. This allows you to edit a drop, without recreating it from scratch.
+            Instead of 'Create' there will now be 'Apply'. Pressing this button does the same as that 'Create' does but instead of creating a new entry, it overwrites the entry you were editing.
+        </p>
+        <h3>Copy</h3>
+        <p>
+            The copy button does the same thing as the 'Edit' button but instead of overwriting the current entry, it creates a new one. This is done so that you can quickly add the same drop to 
+            multiple mobs.
+        </p>
+        <h3>Delete</h3>
+        <p>
+            The delete button deletes the entry from the list. After pressing this button, there is no way to recover the entry. If you want to get it back, you have to recreate it yourself
+            using the 'New mob drop' button.
+        </p>
+    </body>
+</html>
