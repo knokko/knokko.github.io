@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <title>Wand edit menu</title>
+    </head>
+    <body>
+        <p>
+            The wand edit menu can be used to modify or create (custom) wands. 
+            Please note that you need to create a <b>custom projectile</b> before you can create a wand.
+            If you just started creating a new wand, it should look like this:
+        </p>
+        <img src="wand.png" width="50%" />
+        <p>
+            This menu has everything the <a href="base.html">base item edit menu</a> has, but a little more.
+            Wands are much like simple custom items, but they can't stack and they can fire custom projectiles.
+            Before you can create a wand, you need to create at least 1 custom projectile at the 
+            <a href="../../projectiles/index.html">'Projectiles' section</a> of the Editor 
+            (just like there is a 'Textures', 'Items', 'Recipes' and 'Drops' section).
+        </p>
+        <h3>Projectile</h3>
+        <p>
+            This determines which custom projectile players can shoot with this wand.
+            The button on the right of 'Projectile:' displays the name of the currently
+            selected custom projectile, or 'None' if you haven't chosen one yet.
+            To change the custom projectile, you should click on that button, which will take you to the 
+            <a href="projectile selection.html">projectile selection menu</a> where you can choose which 
+            custom projectile this wand will shoot.
+        </p>
+        <h3>Charges</h3>
+        <p>
+            If you leave the Max charges 1, it will not have any effect.
+            If you give it a larger value than 1, players will need at least 1 charge in order to be able to fire the projectile
+            and firing a projectile will consume 1 charge. Also, a 'Recharge time' field should become visible.
+            The 'Recharge time' is the time in ticks it takes to generate a new charge.
+            Players will automatically start regenerating charges if they have less charges than 'Max charges' until they
+            reach the 'Max charges'.
+        </p>
+        <h3>Amount per shot</h3>
+        <p>
+            The amount of projectiles players will launch each time they fire.
+            The amount does <b>not</b> have any effect on the cooldown or charges:
+            If you change the 'Amount per shot' to 2, players will always fire 2 instances
+            of the Projectile at each shot, but that will only consume 1 charge and will
+            put the wand on the exact same Cooldown as if you kept the 'Amount per shot' 1.
+        </p>
+        <h3>Cooldown</h3>
+        <p>
+            The time in ticks players must wait between firing projectiles.
+            Whenever a player fires a projectile with the wand, the player won't be able to fire again
+            until the Cooldown has passed. 
+            If the Max charges are greater than 1, there are two restrictions for the player:
+        </p>
+        <ul>
+            <li>The wand must not be on cooldown</li>
+            <li>The player must have at least 1 charge</li>
+        </ul>
+        <p>
+            As long as any of those is not satiesfied, the player won't be able to fire.
+        </p>
+    </body>
+</html>
