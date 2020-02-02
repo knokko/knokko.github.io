@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <title>Damage resistances edit menu</title>
+    </head>
+    <body>
+        <p>
+            The damage resistances edit menu can be used to configure the protection a piece of custom armor gives
+            against invidividual damage causes. It should look like this:
+        </p>
+        <img src="damage resistances.png" width="50%" />
+        <p>
+            On the left are a 'Cancel' button and an 'Apply' button. 
+            The rest of the page is filled with edit fields for every damage cause at the time of writing this.
+        </p>
+        <ul>
+            <li>
+                The 'Cancel' button will take you back to the <a href="armor.html">armor edit menu</a> you came from,
+                <b>without</b> keeping any changes you made in this menu.
+            </li>
+            <li>
+                The 'Apply' button will also take you back to the <a href="armor.html">armor edit menu</a> you came from,
+                but it will <b>keep</b> the changes you made in this menu.
+            </li>
+            <li>
+                <p>
+                    For every damage cause, there is an edit field on its right that allows you to configure the resistance 
+                    against that particular damage cause (in percents). To demonstrate this, let's consider what happens if 
+                    you change the resistance against falling damage (the edit field on the right of 'Fall:').
+                </p>
+                <ul>
+                    <li>
+                        If you keep it at 0%, players wearing this armor piece will get falling damage like normal.
+                    </li>
+                    <li>
+                        If you change it to 50%, players wearing this armor piece will get only half of the falling damage.
+                    </li>
+                    <li>
+                        If you change it to 90%, players wearing this armor piece will get only 10% of the falling damage.
+                    </li>
+                    <li>
+                        If you change it to 100%, players wearing this armor piece will become completely immune to falling damage.
+                    </li>
+                    <li>
+                        If you change it to 150%, players wearing this armor piece will <b>heal</b> upon taking falling damage 
+                        for half of the damage they would have taken.
+                    </li>
+                    <li>
+                        If you change it to -100%, players wearing this armor piece will get twice as much falling damage.
+                    </li>
+                </ul>
+                <p>
+                    These were just examples, you can use any integer value you want, but it has to be between -10000% and
+                    10200% (why would you ever want to exceed such values anyway?). When players have multiple pieces of custom 
+                    armor with damage resistances equipped, the resistance percentages of the pieces will be summed up:
+                    If both the boots and the chestplate give 50% resistance against 'Fall', the player will get 100% 
+                    resistance and thus becomes completely immune to falling damage.
+                    A few more things to note:
+                </p>
+                <ul>
+                    <li>
+                        If you want players who wear the custom armor piece to become immune to all fire damage, you 
+                        should not only set the resistance to 'Fire' to 100%, but also those of 'Fire tick', 'Lava'
+                        and 'Hot floor'.
+                    </li>
+                    <li>
+                        When the resistance against a damage source is 100% or higher, the player will no longer
+                        become red, play hurt sounds or lose armor durability upon 'taking damage' from that damage source.
+                        When players take damage normally, they can temporarily not take any other damage (roughly half a second),
+                        so when players are swimming in lava, this causes the player to survive much longer because they only take 
+                        damage once or twice per second instead of the 20 times per second if that short damage immunity wouldn't exist.
+                        When the resistance against a damage cause is 100% or higher, that brief damage immunity will <b>not</b> be 
+                        given.
+                        So when the resistance against lava would be above 100%, the player will heal from it 20 times per second,
+                        which will heal very fast.
+                    </li>
+                    <li>
+                        The /kill command uses the 'Void' damage source. 
+                        So make sure not to let items reach the 100% resistance against 'Void' because that will make
+                        them immune to the /kill command. (You can still kick or ban them, but it's quite inconvenient.)
+                    </li>
+                </ul>
+            </li>
+        </ul>
+    </body>
+</html>
