@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <title>Projectile edit menu</title>
+    </head>
+    <body>
+        <p>
+            The projectile edit menu can be used to modify or create custom projectiles.
+            If you just started creating a new custom projectile, it should look like this:
+        </p>
+        <img src="edit.png" width="50%" />
+        <p>
+            On the top-left is a 'Cancel' button and on the bottom-left is a 'Create' button <b>or</b> an 'Apply' button. 
+            In the middle are edit fields for the basic properties of the custom projectile.
+            On the right are the buttons to change the projectile effects and the projectile cover.
+        </p>
+        <ul>
+            <li>
+                The 'Cancel' button will take you back to the <a href="overview.html">projectile overview</a>, <b>without</b>
+                keeping any changes you made in this edit menu: if you are creating a new custom projectile, it will <b>not</b>
+                be added to the item set and if you were editing an existing projectile, the changes you made since you started 
+                editing it will <b>not</b> be kept.
+            </li>
+            <li>
+                The 'Create' button will only be visible if you are creating a new projectile or copying an existing one.
+                Clicking it will take you back to the <a href="overview.html">projectile overview</a> and add the projectile 
+                you were configuring here to the item set.
+            </li>
+            <li>
+                The 'Apply' button will only be visible if you are editing an existing projectile.
+                Clicking it will take you back to the <a href="overview.html">projectile overview</a> and <b>keep</b>
+                all changes you made to it.
+            </li>
+        </ul>
+        <p>
+            The rest of this page will describe all the properties of custom projectiles.
+            There will be a heading for each property.
+        </p>
+        <h3>Name</h3>
+        <p>
+            Every custom projectile needs a name and no two projectiles can have the same name.
+            This is the name that will be shown in the projectile overview.
+        </p>
+        <h3>Impact damage</h3>
+        <p>
+            The impact damage is the damage that the custom projectile will deal (in half hearts) when it hits
+            mobs or players. It doesn't have to be an integer and you can set it to 0 if you don't want it to
+            deal damage on impact.
+        </p>
+        <h3>Launch angle</h3>
+        <p>
+            The minimum/maximum launch angles can be used to make the projectile less accurate.
+            When you would set them both to 0, the projectile will fly exactly in the direction
+            the player is looking at right after it's launched (although it will land lower due to the Gravity).
+            If you would instead set the minimum and maximum launch angles to 10, there will be an angle of 10
+            degrees between the direction in which the custom projectile will fly right after launch and the 
+            direction in which the shooter is looking.
+            If the minimum and maximum launch angle are not the same, the angle between the direction of the 
+            projectile and the direction the player is looking will be at least Minimum launch angle and at
+            most Maximum launch angle. It will be randomly chosen and can be different each shot.
+        </p>
+        <h3>Launch speed</h3>
+        <p>
+            The launch speed (in meter per tick) is the speed the projectile will have right after it has been 
+            launched. The launch speed the projectile will get will be at least Minimum launch speed and at most
+            Maximum launch speed. If they are not the same, the launch speed will be randomly chosen within that 
+            range. For the speed, note that 1 block is 1 meter long and that there are 20 ticks in 1 second, so 
+            a speed of 1 meter/tick means that the projectile will fly a distance of 20 blocks per second.
+        </p>
+        <h3>Maximum lifetime</h3>
+        <p>
+            The maximum lifetime determines how long the projectile can fly without hitting anything.
+            If it hasn't hit anything when it reaches the maximum lifetime, it will despawn.
+            The maximum lifetime must be given in ticks, so keeping it 200 will cause the projectile 
+            to despawn if it hasn't hit anything within 10 seconds after launch (there are 20 ticks in 1 second).
+        </p>
+        <h3>Gravity</h3>
+        <p>
+            The gravity determines how much the custom projectile will be affected by the gravity.
+            If you set it to 0, the projectile will ignore gravity completely and fly in a straight line
+            until it hits something or it runs out of lifetime.
+            If you keep it a positive number, the motion of the projectile will go more and more downwards
+            the longer it lives. The best way of determining the right Gravity for your custom projectile is 
+            probably by just trying values and see what makes it fly nicely (the default value of 0.02 should 
+            work well for the default launch speed, but not if you use a totally different launch speed).
+            I think the exact meaning of the value for the Gravity is too complex to understand for most
+            people, so I will leave that out.
+        </p>
+        <h3>Effects</h3>
+        <p>
+            Custom projectiles can be configured to perform special effects like spawning particles, accellerating
+            itself or creating explosions. You can use the In flight effects to let the custom projectile perform 
+            effects at regular intervals while it's flying and you can use Impact effects to let the projectile 
+            perform effects when it hits something or someone.
+        </p>
+        <p>
+            To change the In flight effects, click on the 'Change...' button on the right of 'In flight effects:',
+            which should take you to the <a href="effects/waves/overview.html">effect wave overview</a> where
+            you can configure the (special) effect waves of the projectile during its flight.
+        </p>
+        <p>
+            To change the Impact effects, click on the 'Change...' button on the right of 'Impact effects:',
+            which should take you to the <a href="effects/overview.html">effect overview</a> where you can 
+            configure a list of effects to perform when the projectile hits something or someone.
+        </p>
+    </body>
+</html>
