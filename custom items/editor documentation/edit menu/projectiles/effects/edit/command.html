@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <title>Command effect edit menu</title>
+    </head>
+    <body>
+        <p>
+            The command effect edit menu can be used to add a new command projectile effect or modify an existing one.
+            It should look like this:
+        </p>
+        <img src="command.png" width="50%" />
+        <p>
+            There is a 'Cancel' button, a 'Create' or 'Apply' button, an edit field for the command and a button to
+            choose who will execute the command.
+        </p>
+        <ul>
+            <li>
+                The 'Cancel' button will take you back to the <a href="../overview.html">effects overview</a> you came
+                from <b>without</b> keeping any changes or adding the new effect to the list.
+            </li>
+            <li>
+                If you are editing an existing command effect, there will be an 'Apply' button which will take
+                you back to the <a href="../overview.html">effects overview</a> you came from while keeping all changes
+                you made in this menu.
+            </li>
+            <li>
+                If you are adding a new command effect, there will be a 'Create' button which will take
+                you back to the <a href="../overview.html">effects overview</a> you came from and add this new command
+                effect to the effect list.
+            </li>
+            <li>
+                The long edit field on the right of 'Command:' is where you are supposed to insert the command you 
+                would like to be executed each time the effect is being performed. To make the command execution a 
+                little more flexible, there are a couple of 'substitutions' that will occur right before the actual
+                execution of the command:
+                <ul>
+                    <li>
+                        Every occurence of <b>%x%</b> will be replaced by the x-coordinate of the projectile.
+                        This will most likely <b>not</b> be an integer.
+                    </li>
+                    <li>
+                        Every occurence of <b>%y%</b> will be replaced by the y-coordinate of the projectile.
+                        This will most likely <b>not</b> be an integer.
+                    </li>
+                    <li>
+                        Every occurence of <b>%z%</b> will be replaced by the z-coordinate of the projectile.
+                        This will most likely <b>not</b> be an integer.
+                    </li>
+                    <li>
+                        Every occurence of <b>%bx%</b> will be replaced by the x-coordinate of the projectile 
+                        rounded down. This could be useful for block operations that require integers.
+                    </li>
+                    <li>
+                        Every occurence of <b>%by%</b> will be replaced by the y-coordinate of the projectile 
+                        rounded down. This could be useful for block operations that require integers.
+                    </li>
+                    <li>
+                        Every occurence of <b>%bz%</b> will be replaced by the z-coordinate of the projectile 
+                        rounded down. This could be useful for block operations that require integers.
+                    </li>
+                    <li>
+                        Every occurence of <b>%caster%</b> will be replaced by the name of the player who 
+                        fired the projectile.
+                    </li>
+                </ul>
+            </li>
+            <li>
+                <p>
+                    The button on the right of 'Executed by:' can be used to decide by who the command will be
+                    executed. The text of the button shows who is currently configured to execute the command,
+                    which is SHOOTER by default. You can change this by clicking on the button, which should 
+                    take you to a small menu where you can choose the executor of the command.
+                </p>
+                <p>
+                    The executor must be either the shooter of the projectile or the console. If you use the 
+                    shooter, <b>you need to make sure that all players have the right permissions to execute 
+                    the command</b>. If you choose the console, you might want to change the gamerules to 
+                    disable the 'spam' in the console.
+                </p>
+            </li>
+        </ul>
+    </body>
+</html>

@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <title>Subprojectile effect edit menu</title>
+    </head>
+    <body>
+        <p>
+            The subprojectile effect edit menu can be used to add a subprojectile effect or to reconfigure
+            an existing one. Subprojectile effects will cause the projectile to spawn another projectile at
+            its location. The menu should look like this:
+        </p>
+        <img src="projectile.png" width="50%" />
+        <p>
+            There should be a 'Cancel' button and an 'Apply' or 'Create' button.
+            Also, there should be a checkbox for the lifetime, an edit field for the minimum/maximum amount, 
+            the angle to the parent and a button to choose the child projectile.
+        </p>
+        <ul>
+            <li>
+                The 'Cancel' button will take you back to the <a href="../overview.html">effects overview</a> you came
+                from <b>without</b> keeping any changes or adding the new effect to the list.
+            </li>
+            <li>
+                If you are editing an existing subprojectile effect, there will be an 'Apply' button which will take
+                you back to the <a href="../overview.html">effects overview</a> you came from while keeping all changes
+                you made in this menu.
+            </li>
+            <li>
+                If you are adding a new subprojectile effect, there will be a 'Create' button which will take
+                you back to the <a href="../overview.html">effects overview</a> you came from and add this new command
+                effect to the effect list.
+            </li>
+            <li>
+                The 'Use parent lifetime' checkbox determines whether the subprojectile should get its own lifetime or 
+                share its lifetime with the 'parent' projectile that spawned it. <br>
+                The 'lifetime' of a projectile is the maximum time it can fly before despawning: If a projectile hasn't 
+                hit anything before its lifetime expires, it will despawn.<br>
+                <ul>
+                    <li>
+                        If you keep this checkbox unchecked, the subprojectile will get the same lifetime as it would have
+                        if it were directly launched by a player. In most of the cases, this is what you will want.
+                    </li>
+                    <li>
+                        <p>
+                            If you check this checkbox, the lifetime of the subprojectile will be the <b>remaining</b> lifetime 
+                            of the 'parent' projectile that launched it. So if the parent projectile fires the subprojectile when
+                            the parent almost expires, the subprojectile will have a short lifetime.
+                        </p>
+                        <p>
+                            This is usually not what you want, but this is very useful when the subprojectile is the 'same' custom 
+                            projectile as the parent (so for instance when a custom fireball with a lifetime of 20 seconds would fire 
+                            another custom fireball as subprojectile after 8 seconds have passed). 
+                        </p>
+                        <p>
+                            If in that scenario you didn't check this checkbox, the parent fireball would fire 
+                            another fireball as subprojectile after 8 seconds which in turn would spawn yet another fireball after 
+                            8 more seconds passed, which would also spawn yet another fireball...
+                        </p>
+                        <p>
+                            But if you did check this checkbox, the second fireball will be spawned with the remaining lifetime of
+                            the first fireball, namely 12 (= 20 - 8) seconds. 8 seconds later, it will spawn the third fireball, which 
+                            will only have a lifetime of 4 (= 12 - 8) seconds. That one will <b>not</b> spawn a fourth fireball because
+                            the third fireball will have been expired before it reaches the 8 seconds since it only has 4 seconds lifetime.
+                        </p>
+                    </li>
+                </ul>
+            </li>
+            <li>
+                The amount determines how many subprojectile will be spawned each time this effect is performed.
+                It will be a randomly generated number between Minimum amount and Maximum amount.
+                If the Angle to parent is not 0 or 180, each subprojectile should be launched in a different direction.
+            </li>
+            <li>
+                The Angle to parent determines the angle between the direction the parent projectile is flying and the 
+                direction in which the child projectile(s) will be launched.
+                <ul>
+                    <li>
+                        If this angle is 0, the child projectile will fly in the same direction as the parent projectile.
+                    </li>
+                    <li>
+                        If this angle is 180, the child projectile will be launched in the opposite direction of the parent 
+                        projectile, so it would fly back towards the shooter of the parent projectile.
+                    </li>
+                    <li>
+                        <p>
+                            If this angle is another number, there are multiple possible directions in which the child projectile 
+                            can be launched, and one of those directions will be picked randomly each time a child projectile is 
+                            launched. 
+                        </p>
+                        <p>
+                            To illustrate why there are multiple directions, consider the scenario where the parent 
+                            projectile is flying vertically (upwards, towards the sky) and the Angle to parent is 90 degrees.
+                            The direction of the child projectile must then be horizontally to make an angle of 90 degrees with 
+                            the vertical direction of the parent. However, any horizontal direction is allowed. For instance, it
+                            could fly towards the north, east, south and west (or north-east, or south-west...)
+                            since they are all horizontal.
+                        </p>
+                    </li>
+                </ul>
+            </li>
+            <li>
+                The Child projectile determines which type of custom projectile will be launched when this effect is performed.
+                The Child projectile must also be a custom projectile.
+                It is allowed to use the 'same' projectile as child projectile, but you can only do this when you are editing an 
+                existing projectile, not when you are creating a new one (because of mostly technical reasons).
+            </li>
+        </ul>
+    </body>
+</html>

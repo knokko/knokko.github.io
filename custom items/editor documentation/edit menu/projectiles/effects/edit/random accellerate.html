@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <title>Random accelleration effect edit menu</title>
+    </head>
+    <body>
+        <p>
+            This menu can be used to add or modify a random accelleration projectile effect.
+            These effects can be used to make projectiles move unpredictably.
+            This effect is useless as impact effect and only useful as in-flight effect.
+            The menu should look like this:
+        </p>
+        <img src="accellerate.png" width="50%" />
+        <p>
+            There should be a 'Cancel' button and an 'Apply' or 'Create' button.
+            Also, there should be edit fields for the minimum and maximum accelleration.
+        </p>
+        <ul>
+            <li>
+                The 'Cancel' button will take you back to the <a href="../overview.html">effects overview</a> you came
+                from <b>without</b> keeping any changes or adding the new effect to the list.
+            </li>
+            <li>
+                If you are editing an existing accelleration effect, there will be an 'Apply' button which will take
+                you back to the <a href="../overview.html">effects overview</a> you came from while keeping all changes
+                you made in this menu.
+            </li>
+            <li>
+                If you are adding a new accelleration effect, there will be a 'Create' button which will take
+                you back to the <a href="../overview.html">effects overview</a> you came from and add this new command
+                effect to the effect list.
+            </li>
+            <li>
+                <p>
+                    The edit fields are for the minimum and maximum accelleration.
+                    To explain what the accelleration effect will do, I will first explain how the motion of the projectile 
+                    works: Every flying custom projectile will have a position and a velocity.
+                    Every tick (20 times per second), the position of the projectile will be increased by its velocity.
+                    This projectile effect will change the velocity randomly each time the effect is performed.
+                    This means that the movement direction of the projectile will change each time this effect is performed
+                    and the direction in which it will change is random, so the projectile will fly very unpredictably if 
+                    this effect is performed often.
+                </p>
+                <p>
+                    Each time the effect is performed, 'the accelleration force' will be randomly chosen between the Minimum 
+                    and Maximum that you wrote in the edit fields. The bigger this value, the more effect the random accelleration 
+                    will have on the velocity. I think just trying values out is the easiest way to test which values are right for 
+                    you.
+                </p>
+            </li>
+        </ul>
+    </body>
+</html>

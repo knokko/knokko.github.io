@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <title>Straight accelleration effect edit menu</title>
+    </head>
+    <body>
+        <p>
+            This menu can be used to add or modify a straight accelleration projectile effect.
+            These effects can be used to make projectiles speed up or slow down during its flight.
+            This effect is useless as impact effect and only useful as in-flight effect.
+            The menu should look like this:
+        </p>
+        <img src="accellerate.png" width="50%" />
+        <p>
+            There should be a 'Cancel' button and an 'Apply' or 'Create' button.
+            Also, there should be edit fields for the minimum and maximum accelleration.
+        </p>
+        <ul>
+            <li>
+                The 'Cancel' button will take you back to the <a href="../overview.html">effects overview</a> you came
+                from <b>without</b> keeping any changes or adding the new effect to the list.
+            </li>
+            <li>
+                If you are editing an existing accelleration effect, there will be an 'Apply' button which will take
+                you back to the <a href="../overview.html">effects overview</a> you came from while keeping all changes
+                you made in this menu.
+            </li>
+            <li>
+                If you are adding a new accelleration effect, there will be a 'Create' button which will take
+                you back to the <a href="../overview.html">effects overview</a> you came from and add this new command
+                effect to the effect list.
+            </li>
+            <li>
+                The edit fields are for the minimum and maximum accelleration.
+                Each time the effect is performed, 'the accelleration force' will be randomly chosen between the Minimum 
+                and Maximum that you wrote in the edit fields. The bigger this value, the faster the projectile will 
+                accellerate. If the accelleration is negative, the projectile will slow down instead (or even start 
+                moving backwards). To see what is the 'right' accelleration value, it's probably easiest to just try it
+                out.
+            </li>
+        </ul>
+    </body>
+</html>

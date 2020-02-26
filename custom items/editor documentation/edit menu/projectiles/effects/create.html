@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <title>Effect creation menu</title>
+    </head>
+    <body>
+        <p>
+            The effect creation menu can be used to choose what kind of projectile effect you would
+            like to add to a list of projectile effects.
+            It should look like this:
+        </p>
+        <img src="create.png" width="50%" />
+        <p>
+            It has a 'Cancel' button and a button for every type of projectile effect you can create.
+            Clicking on the 'Cancel' button will take you back to the <a href="overview.html">effect overview</a>
+            you came from, without adding a new projectile effect to it.
+            Clicking on any of the effect type buttons will bring you to its corresponding edit menu. 
+            I will give a brief description of each below:
+        </p>
+        <ul>
+            <li>
+                'Spawn colored redstone dust' will spawn the redstone dust particle (or an alternative in later minecraft
+                versions) with a color of your choice. You can also configure how many should be spawned.
+                Since custom projectiles are invisible by default, you can use this to make it 'visible'.
+                The corresponding edit menu is the <a href="edit/colored.html">colored redstone edit menu</a>.
+            </li>
+            <li>
+                'Execute command' will execute a command in name of the shooter of the projectile or the console.
+                If you execute the command in name of the shooter, you should make sure that all players have the 
+                permissions to actually execute that command.
+                The corresponding edit menu is the <a href="edit/command.html">command effect edit menu</a>.
+            </li>
+            <li>
+                'Create explosion' will create an explosion at the position of the custom projectile.
+                The corresponding edit menu is the <a href="edit/explosion.html">explosion effect edit menu</a>.
+            </li>
+            <li>
+                'Accellerate in random direction' is a somewhat advanced effect. It will change the motion/velocity of
+                the custom projectile a little in a random direction, which can cause it to fly unpredictable.
+                The corresponding edit menu is the <a href="edit/random accellerate.html">random accelleration effect edit menu</a>.
+            </li>
+            <li>
+                'Accellerate in move direction' can increase or decrease the speed of the custom projectile during its
+                flight. This will <b>not</b> change its direction.
+                The corresponding edit menu is the <a href="edit/straight accellerate.html">straight accelleration effect edit menu</a>.
+            </li>
+            <li>
+                'Spawn simple particle' will spawn one or more simple particles (you can only choose the type of the 
+                particle, no additional properties for it) around the location of the custom projectile.
+                Since custom projectiles are invisible by default, you can use this to make it 'visible'.
+                The corresponding edit menu is the <a href="edit/particles.html">particles effect edit menu</a>.
+            </li>
+            <li>
+                'Launch another projectile' will spawn another projectile at the location of the current custom 
+                projectile. This can be used for instance for big projectiles that split into smaller ones.
+                The corresponding edit menu is the <a href="edit/projectile.html">subprojectile effect edit menu</a>.
+            </li>
+        </ul>
+    </body>
+</html>
