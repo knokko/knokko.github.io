@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <title>Sphere projectile cover edit menu</title>
+    </head>
+    <body>
+        <p>
+            The sphere projectile cover edit menu can be used to create or modify sphere-shaped projectile covers.
+            If you just started creating a new sphere projectile cover, it should look like this:
+        </p>
+        <img src="sphere.png" width="50%" />
+        <p>
+            There should be a 'Cancel' button and a 'Create' or 'Apply' button. 
+            There should also be edit fields for the name, internal item damage, number of slots per axis and the scale.
+            Furthermore, there should be buttons for the internal item type and texture.
+            To explain what everything is for, I will first explain what sphere projectile covers are and how they work.
+        </p>
+        <h3>Name</h3>
+        <p>
+            Every projectile cover needs a unique name. The name will be used as filename in the resourcepack
+            that is eventually generated. It will also be shown in the projectile cover overview in the editor.
+        </p>
+        <h3>Internal item damage and type</h3>
+        <p>
+            (Sphere) projectile covers are 'hidden' custom items that can't be obtained by players, but do have their
+            own item model and item texture, which is why they need an internal item type and internal item damage.
+            Custom projectiles using that projectile cover will be 'followed by' a dropped item with the custom item 
+            model and texture, which will cause the custom projectile to look like that 'hidden' custom item.
+            It doesn't matter what internal item type and internal damage you use, but you can't have the same 
+            type and damage as another projectile cover or a custom item.
+        </p>
+        <h3>Scale and Slots per axis</h3>
+        <p>
+            Sphere projectile covers will have an item model that looks like a sphere. 
+            The Scale will determine how big the sphere will be (and thus how big the projectile will look in-game).
+            The Slots per axis are a bit more complicated. Because minecraft item models are cube-based and the 
+            sphere model is supposed to look like a sphere, I used a lot of cubes to approximate a sphere shape.
+            The Slots per axis affects the number of cubes used to do so. The higher you make it, the more the model 
+            will look like a sphere, but also the more expensive it will be (takes long to create for the editor and 
+            it takes longer for players to download and load the resourcepack).
+        </p>
+        <h3>Texture</h3>
+        <p>
+            The Texture is the texture that the projectile cover (actually item model) will get.
+            You need to create the texture you would like to use. 
+            It should be 16x16 pixels and it will be used as follows:
+            The upper side of the texture will be drawn on the upper side of the sphere model and the 
+            lower side of the texture will be drawn on the lower side of the sphere model.
+            Adjacent pixels in the texture will also be adjacent on the sphere model.
+            Additionally, the left-most pixels will be adjacent to the right-most pixels on the sphere-model 
+            to make the texture continuous. In-game, the model will rotate slowly horizontally (because it's 
+            a dropped item).
+        </p>
+    </body>
+</html>

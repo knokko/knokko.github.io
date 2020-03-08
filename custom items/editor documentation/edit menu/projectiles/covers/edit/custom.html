@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <title>Custom projectile cover edit menu</title>
+    </head>
+    <body>
+        <p>
+            The custom projectile cover edit menu can be used to create or modify custom projectile covers.
+            Custom projectile covers are the hardest to make because you have to do almost everything yourself.
+            If you just started creating a new custom projectile cover, it should look like this:
+        </p>
+        <img src="custom.png" width="50%" />
+        <p>
+            There should be a 'Cancel' button and a 'Create' or 'Apply' button. 
+            There should also be edit fields for the Name and Internal item damage and buttons for the 
+            Internal item type and Item model.
+        </p>
+        <h3>Name</h3>
+        <p>
+            Every projectile cover needs a unique name. The name will be used as filename in the resourcepack
+            that is eventually generated. It will also be shown in the projectile cover overview in the editor.
+        </p>
+        <h3>Internal item damage and type</h3>
+        <p>
+            (Sphere) projectile covers are 'hidden' custom items that can't be obtained by players, but do have their
+            own item model and item texture, which is why they need an internal item type and internal item damage.
+            Custom projectiles using that projectile cover will be 'followed by' a dropped item with the custom item 
+            model and texture, which will cause the custom projectile to look like that 'hidden' custom item.
+            It doesn't matter what internal item type and internal damage you use, but you can't have the same 
+            type and damage as another projectile cover or a custom item.
+        </p>
+        <h3>Item model</h3>
+        <p>
+            The item model is the minecraft item model that will be given to the dropped item that will follow the 
+            projectile. In a custom projectile cover, writing that item model is entirely up to you.
+            Writing such an item model is probably one of the most complex things to do with this plug-in. 
+            If you need an example of a model file, you can create a sphere projectile cover, export the item set
+            and take a look at the generated resourcepack at the path assets/minecraft/models/customprojectiles.
+        </p>
+    </body>
+</html>
