@@ -7,13 +7,14 @@
     <body>
         <p>
             The create shapeless recipe menu is the menu from which you can add, edit and delete crafting ingredients for a shapeless recipe.
-            It should look like this:
+            If you are editing a shapeless recipe that crafts a stick into a diamond, it should look like this:
         </p>
         <img src="shapeless.png" width="50%" />
         <p>
             For more information about a shapeless recipe, visit the respective page on the 
             <a href="https://minecraft.gamepedia.com/Crafting#Java_.26_Bedrock_Edition_crafting_system">Minecraft Wiki</a>
-            The menu consists out of the of three buttons, the 'Add ingredient' button, the 'Result' button and the 'Cancel button'.
+            The menu has a 'Cancel', 'Add ingredient', result and 'Apply' or 'Create' button and 'Copy' and 'Delete' buttons 
+            for each ingredient the recipe currently has.
         </p>
         <h2>Buttons</h2>
         <h3>Cancel</h3>
@@ -30,32 +31,33 @@
         <p>
             The 'Add ingredient' button opens up a submenu where you can select which type of item will be part of the crafting recipe.
             For more information, visit <a href="type select.html">this</a> page.
-            After adding an ingredient, the page should look like this:
         </p>
         <h3>Hotkeys</h3>
         <p>
             If you are adding a lot of crafting recipes, you might note that this requires a lot of time and clicks.
-            To speed this up, you can use the hotkeys <b>c</b>, <b>v</b>, or <b>d</b> while hovering your mouse over the 
-            'Add ingredient' button. These are for <b>C</b>ustom item, <b>V</b>anilla item and vanilla item with <b>D</b>atavalue respectively.
+            To speed this up, you can use the hotkeys <b>c</b>, <b>v</b>, or <b>d</b>. 
+            These are for <b>C</b>ustom item, <b>V</b>anilla item and vanilla item with <b>D</b>atavalue respectively.
         </p>
-        <img src="shapeless filled.png" width="50%" />
         <h3>Apply</h3>
         <p>
-            The 'Apply' button does the same thing as the 'Cancel' button except that it does remember the changes you have made.
+            The 'Apply' will only be visible when you are editing an existing recipe. 
+            This button does the same thing as the 'Cancel' button except that it does remember the changes you have made.
             Do note that the changes are not saved physically until you have pressed the 'Save' button in the <a href="../">Item Set Edit Menu</a>.
         </p>
-        <h3>Ingredient</h3>
+        <h3>Create</h3>
         <p>
-            The 'Ingredient' button is the button that contains the name of the item that is part of this crafting recipe. 
-            There can be multiple or none of these buttons on the same page.
-            Clicking on this button opens up a submenu where you can change which type of item will be part of the crafting recipe.
-            For more information, visit <a href="type select.html">this</a> page.
+            The 'Create' button will only be visible when you are adding a new shapeless recipe.
+            Clicking it will add this new recipe and then take you back to the recipe overview.
         </p>
-        <h3>Red X</h3>
+        <h3>Copy</h3>
         <p>
-            Pressing this red x will delete the ingredient from the crafting recipe.
-            NOTE: At the time of writing this there is a bug where the space used by the ingredient button and the red X remains empty.
-            This is currently being looked at. Please be patient, it will be fixed soon<sup>TM</sup>.
+            The 'Copy' button will copy the corresponding ingredient and insert it as new ingredient.
+            So if you copy a Stick ingredient, the recipe will require 1 stick more.
+        </p>
+        <h3>Delete</h3>
+        <p>
+            Pressing this delete will delete the ingredient from the crafting recipe.
+            You can still revert this deletion by clicking the 'Cancel' button.
         </p>
     </body>
 </html>
