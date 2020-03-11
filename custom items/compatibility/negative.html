@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <title>Negative compatibility</title>
+    </head>
+    <body>
+        <p>
+            This page lists plug-ins that do not work very well alongside this plug-in or do
+            not interact well. This list is far from complete because I can't test my plug-in 
+            with every single other plug-in.
+        </p>
+        <h3><a href="https://www.spigotmc.org/resources/itemfixer-remove-creative-hacked-items-from-your-server.34250/">Item Fixer</a></h3>
+        <p>
+            The ItemFixer plug-in removes all kinds of 'cheated' properties of items like nbt tags
+            and impossible enchantments. Since all custom items have such 'cheated' properties,
+            this will cause all custom items to remove their texture and special properties as 
+            soon as any non-op player holds it in their hand.
+        </p>
+        <h3>Custom crafting recipe plug-ins</h3>
+        <p>
+            To prevent custom items from being used in vanilla crafting recipes, this plug-in will 
+            block any attempt to use custom items as crafting ingredients that is not registered
+            as custom crafting recipe in the editor.
+            Unfortunately, this also prevents other crafting recipe plug-ins from using custom items 
+            in their recipes. All crafting recipes with normal ingredients should still work though.
+        </p>
+        <h3>Other custom item plug-ins</h3>
+        <p>
+            Using other custom item plug-ins alongside this plug-in is probably going to cause trouble,
+            especially if they also have custom textures. If that other plug-in uses the same 
+            mechanism for custom textures as this one, weird effects can occur.
+        </p>
+    </body>
+</html>
