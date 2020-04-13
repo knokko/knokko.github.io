@@ -37,7 +37,7 @@ function findError(log){
         look into COMBINING them via the Editor.`;
     }
 
-    if (log.includes("Unknown encoding")) {
+    if (log.includes(" encoding: ")) {
         return `It looks like the CustomItems version you are using is older than the editor you used.
         Please install the latest version of CustomItems, remove your current version and restart your server.`;
     }
