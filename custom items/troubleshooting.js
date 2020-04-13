@@ -23,6 +23,10 @@ function findError(log){
         return "The console log doesn't contain 'KnokkoCore'. Is it really in the plugins folder?";
     }
 
+    if (log.includes("UnknownDependencyException: KnokkoCore")) {
+        return "The console claims that KnokkoCore can't be found. Is it really in the plugins folder?";
+    }
+
     if (log.includes("No custom item set could be found in the Custom Items plugin data folder")) {
         return `It looks like the plug-in couldn't find a file ending with '.cis' or '.txt'. 
         Are you sure there is such a file in ServerFolder/plugins/CustomItems? 
