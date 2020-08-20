@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8" />
+        <title>Container edit menu</title>
+    </head>
+    <body>
+        <p>
+            The container edit menu can be used to create or modify custom containers. Custom containers are 
+            basically custom versions of furnaces, but with many possibilities. The container will have
+            a chest-like inventory menu. You will be the one who decides which purpose each of the slots will
+            have (input, fuel, output, decoration, or indicator). Using fuel is optional and you can use any
+            number of input and output slots. The <a href="slots/create.html">slot creation menu</a> has
+            more detailed information about all types of slots. You will also need to give the container its
+            own recipes. The recipes define which items should be in which input slots to produce which items 
+            in which output slots, and how long it will take.
+        </p>
+        <p>
+            If you just started creating a new (emtpy) custom container, it should look like this:
+        </p>
+        <img src="edit.png" width="50%" />
+        <ul>
+            <li>
+                The 'Cancel' button will take you back to the <a href="overview.html">container overview</a>,
+                without keeping any changes you made to this container. (If you are creating a new container,
+                this will <b>not</b> add the container.)
+            </li>
+            <li>
+                If you are creating a new container (like in the screenshot above), there will be a 'Create'
+                button that will try to add the container you're making to the list of containers. If it
+                succeeds, it will also take you back to the container overview.
+            </li>
+            <li>
+                If you are modifying an existing container (unlike in the screenshot above), there will be
+                an 'Apply' button. Clicking it will keep the changes you made to it (if there are no 
+                validation errors) and then take you back to the container overview.
+            </li>
+            <li>
+                In the text field on the right of 'Name:', you should insert a name for the container you're
+                making. The name is used to identify the container, so no two containers can have the same name.
+                The name of the container is currently not even used in the plug-in, so don't bother formatting.
+            </li>
+            <li>
+                <p>
+                    The <b>Vanilla type</b> and <b>Selection icon</b> determine how players can open this
+                    custom container. The Vanilla type must be a container in vanilla minecraft (for instance
+                    a crafting table or furnace). Players can open this custom container by left-clicking the 
+                    vanilla container while sneaking.
+                </p>
+                <p>
+                    If multiple custom containers have the same vanilla type, left-clicking while sneaking 
+                    will instead take the player to a simple inventory menu where they can choose which 
+                    container to open. The inventory menu will have an item stack for each of custom container 
+                    with that vanilla type. The Selection icon will determine which item stack will represent
+                    the custom container in that menu.
+                </p>
+                <p>
+                    Also, the display name of the selection icon will be used as the title of the container 
+                    inventory/menu, regardless of how many containers share the same vanilla type.
+                </p>
+                <p>
+                    Click on the 'Change...' button on the right of 'Selection icon:' to choose a selection icon 
+                    for this container. This will take you to the 
+                    <a href="slots/display.html">slot display creation menu</a> where you can choose the (new)
+                    selection icon.
+                </p>
+                <p>
+                    The button on the right of 'Vanilla type:' will display the current Vanilla type of the 
+                    container. Click on that button to change the vanilla type to something else.
+                </p>
+            </li>
+            <li>
+                The fuel mode determines the fuel system of the container. There are currently 2 possible 
+                options: <b>All</b> and <b>Any</b>. The button on the right of 'Fuel mode:' shows the 
+                current fuel mode of the container. Click on the button to change it. When using the
+                <b>All</b> fuel mode, all fuel slots of the container must be burning in order to use 
+                any of the container recipes. When using the <b>Any</b> fuel mode, at least 1 of the fuel 
+                slots must be burning in order to use any of the container recipes. Note:
+                <ul>
+                    <li>
+                        When the container doesn't have any fuel slots, you should choose <b>All</b>. 
+                        Because of first-order-logic reasons, 'all 0' fuel slots are considered to be burning if 
+                        there are no fuel slots. But <b>Any</b> would be a bad choice because it is impossible
+                        for players to get at least 1 fuel slot burning if there are no fuel slots at all.
+                    </li>
+                    <li>
+                        When the container has only 1 fuel slot, it doesn't matter which of the 2 
+                        fuel modes you pick.
+                    </li>
+                </ul>
+            </li>
+            <li>
+                The checkbox on the right of 'Persistent storage' determines the storage system of the container.
+                There are simply 2 storage systems: persistent and non-persistent. If this checkbox is checked,
+                the persistent system will be used. If it's not checked, the non-persistent system will be used.
+                The persistent system works like a furnace: players can insert items into a furnace and pick them
+                up later (unless another player picks it first). The non-persistent system works like a crafting 
+                table: all items in the crafting grid are dropped as soon as the player closes his inventory, and
+                it is 'private' in the sense that other players can't see what you're crafting or take your
+                items while you're crafting.
+            </li>
+            <li>
+                The 'Recipes...' button will take you to the 
+                <a href="recipes/overview.html">container recipe overview</a> <b>for this container</b>. Every
+                custom container has its own list of recipes! 
+            </li>
+        </ul>
+        <p>
+            Finally, there is the slot grid, which occupies most of the space in this menu. Every slot in this 
+            menu represents a single slot in the inventory/menu of the custom container in-game. The number of
+            columns will always be 9 (a minecraft inventory restriction) and the number of rows in-game will be
+            equal to the number of rows in this menu (which you can control).
+        </p>
+        <ul>
+            <li>
+                Clicking on any of the slots will take you to the <a href="slots/create.html">slot creation menu</a>. 
+                In there, you will be able to create a new slot, and the slot you clicked on will be replaced by that
+                slot.
+            </li>
+            <li>
+                Clicking on any of the green + buttons will insert a new empty row of slots at the vertical
+                position of that button. (Clicking on the button on the top will insert a row on the top.)
+            </li>
+            <li>
+                Clicking on any of the red X buttons will delete the row on the left of that button.
+            </li>
+            <li>
+                Clicking on any of the /\ buttons will swap the row on its left with the row above it and
+                clicking on any of the \/ buttons will swap the row on its left with the row below it.
+            </li>
+        </ul>
+        <h3>Shortcuts</h3>
+        <ul>
+            <li>
+                Press <b>c</b> while hovering your mouse over a slot to copy it.
+            </li>
+            <li>
+                Press <b>p</b> while hovering your mouse over a slot to replace that slot by the slot you 
+                last copied.
+            </li>
+        </ul>
+        <h3>Errors</h3>
+        <ul>
+            <li>
+                <b>There is already a container with name <i>X</i></b>: The item set you're currently working
+                on already has a custom container with name <i>X</i>, and the text in the name field is also
+                <i>X</i>. To fix this, type a different name in the edit field on the right of 'Name:'.
+            </li>
+            <li>
+                <b>You need to choose a selection icon</b>: Every custom container must have a selection icon.
+                If you get this error, you haven't chosen one yet. To do so, click on the 'Change...' button 
+                on the right of 'Selection icon:'
+            </li>
+            <li>
+                <b>The height must be a positive integer</b>: The height of the custom container is the number 
+                of rows in the slot grid. Every custom container must have at least 1 row of slots, and this
+                error will occur if you currently don't have any. To fix this, click on the green + button. 
+            </li>
+            <li>
+                <b>The height can be at most 6</b>: The height of the custom container is the number 
+                of rows in the slot grid. Because of minecraft restrictions, you can have at most 6 rows. 
+                This error will occur if you have more than 6 rows. To fix this, remove rows until you 
+                have only 6 rows left.
+            </li>
+            <li>
+                <b>There are multiple fuel slots with name <i>X</i></b>: Every fuel slot in the grid must 
+                have a distinct name. If you see this error, there are at least 2 fuel slots in the grid 
+                that have the same name, namely <i>X</i>. To fix this, rename or remove fuel slots with 
+                name <i>X</i> until there is only 1 fuel slot with name <i>X</i> left.
+            </li>
+            <li>
+                <b>There are multiple input slots with name <i>X</i></b>: Every input slot in the grid must 
+                have a distinct name. If you see this error, there are at least 2 input slots in the grid 
+                that have the same name, namely <i>X</i>. To fix this, rename or remove input slots with 
+                name <i>X</i> until there is only 1 input slot with name <i>X</i> left.
+            </li>
+            <li>
+                <b>There are multiple output slots with name <i>X</i></b>: Every output slot in the grid must 
+                have a distinct name. If you see this error, there are at least 2 output slots in the grid 
+                that have the same name, namely <i>X</i>. To fix this, rename or remove output slots with 
+                name <i>X</i> until there is only 1 output slot with name <i>X</i> left.
+            </li>
+            <li>
+                <b>
+                    There is a fuel indicator slot with name <i>X</i>, 
+                    but there is no fuel slot with that name.
+                </b>: Every fuel indicator slot has a name and indicates the remaining burn time for the fuel 
+                slot with that name. This error will occur if there is a fuel indicator slot with name <i>X</i>,
+                but there is no fuel slot with name <i>X</i> (anymore). To fix this, either remove the fuel 
+                slot indicator with name <i>X</i> or create a fuel slot with name <i>X</i>.
+            </li>
+        </ul>
+    </body>
+</html>

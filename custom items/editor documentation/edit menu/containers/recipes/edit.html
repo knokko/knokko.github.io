@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8" />
+        <title>Container recipe edit menu</title>
+    </head>
+    <body>
+        <p>
+            The container recipe edit menu can be used to create or modify recipes of a given custom container.
+            A container recipe has inputs and outputs. The inputs determine which items need to be present in 
+            which input slots of the container. The outputs determine which items will appear in which output 
+            slots. 
+        </p>
+        <p>
+            The process is similar to that of a furnace: if there is a valid combination of input items 
+            and there is fuel (or the container is still burning), it will start converting the inputs to
+            outputs. After a couple of seconds, the input items will vanish and the output items will appear.
+            (If the input items weren't taken away and the furnace didn't stop burning in the meantime.) For 
+            container recipes, you can also choose how long this takes and how much xp is granted. (But the 
+            xp works a little differently because there can be more than 1 output).
+        </p>
+        <p>
+            If you just started creating a new recipe for a custom container with a single input slot and a 
+            single output slot, it should look like this:
+        </p>
+        <img src="edit.png" width="50%" />
+        <ul>
+            <li>
+                The 'Cancel' button will take you back to the 
+                <a href="overview.html">container recipe overview</a>, without keeping potential changes
+                made to this container recipe and without adding it to the list of container recipes.
+            </li>
+            <li>
+                If you are creating a new container recipe, there will be a 'Create' button, which will 
+                add the container recipe you're creating to the list of container recipes. If it succeeds,
+                it will also take you back to the <a href="overview.html">container recipe overview</a>.
+            </li>
+            <li>
+                If you are editing an existing container recipe, there will be an 'Apply' button, which will 
+                keep the changes you made to this container recipe. If no errors occurred, it will also take 
+                you back to the <a href="overview.html">container recipe overview</a>.
+            </li>
+            <li>
+                In the edit field on the right of 'Duration:', you should insert the duration of the recipe. 
+                You need to give the duration in <i>ticks</i>, <b>not</b> <i>seconds</i>. 1 second = 20 ticks.
+                The duration must be a positive integer or 0 (which means that it's instant).
+            </li>
+            <li>
+                In the edit field on the right of 'Experience:', you should insert the amount of experience 
+                you would like players to get upon touching the first result. This is slightly different from
+                a vanilla furnace, but that is necessary because custom containers can have multiple output
+                slots. The experience must be a positive integer or 0.
+            </li>
+        </ul>
+        <h3>The grid</h3>
+        <p>
+            Finally, there is a version of the containers slot grid that occupies most of the space. For 
+            container recipes, only the input slots and output slots are interesting. The input slots will 
+            be marked blue, the output slots will be marked red and the rest will be gray. The name of all
+            the slots are shown as well.
+        </p>
+        <p>
+            By clicking on any of the input slots, you can choose which ingredient this recipe needs to be
+            in that slot, using the <a href="../../recipes/type select.html">Item Type Selection menu</a>. 
+            If you leave an input slot empty (or reset it to empty), this recipe will ignore that input 
+            slot. If you would leave all input slots empty, the container would produce the output 
+            continuously until it runs out of fuel or the output slot is full.
+        </p>
+        <p>
+            By clicking on any of the output slots, you can choose which result this recipe should put in 
+            that slot, using the <a href="../../recipes/type select.html">Item Type Selection menu</a>.
+            If you leave an output slot empty, the recipe will ignore that output slot. If you would leave 
+            all output slots emtpy, the container would basically consume the input and only produce xp.
+        </p>
+        <h3>Missing slots</h3>
+        <p>
+            If you rename or remove any input or output slots used by this recipe, it will get 
+            <i>missing slots</i>. As long as any recipes have missing slots, the custom container 
+            can't be created and the changes can't be applied. If the recipe you're currently editing 
+            has any missing slots, they will be shown below the grid. To fix that, you can either add 
+            a new slot with the name of the missing slot, or click on the X on the right of the 
+            missing slot name to remove the ingredient or result corresponding to that slot.
+        </p>
+    </body>
+</html>
