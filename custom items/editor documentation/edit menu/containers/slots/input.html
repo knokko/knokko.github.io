@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8" />
+        <title>Input slot menu</title>
+    </head>
+    <body>
+        <p>
+            The input slot menu can be used to add input slots to a custom container. Input slots are the slots
+            in which players need to put the ingredients for the <i>recipes</i> of the container. Input slots 
+            don't have any properties, except for its name. The menu should look like this:
+        </p>
+        <img src="input.png" width="50%" />
+        <ul>
+            <li>
+                The 'Cancel' button will take you back to the <a href="../edit.html">container edit menu</a>
+                you came from, without adding a new input slot.
+            </li>
+            <li>
+                The 'Done' button will replace the original slot with a new input slot with the name you 
+                typed into the edit field (if no validation errors occur). It will then take you back to the 
+                <a href="../edit.html">container edit menu</a> you came from.
+            </li>
+            <li>
+                You should type the <i>name</i> of the input slot you're about to create in the edit field 
+                on the right of 'Name:'. No two input slots of the same custom container can have the same
+                name. The name will not be used in-game, but it will be used to link the inputs of the 
+                container recipes to the input slots. So to move an input slot, you would delete it and 
+                create a new input slot with the same name somewhere else.
+            </li>
+        </ul>
+    </body>
+</html>

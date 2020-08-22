@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8" />
+        <title>Fuel indicator menu</title>
+    </head>
+    <body>
+        <p>
+            The fuel indicator menu can be used to create a new fuel indicator slot. Fuel indicator slots
+            are linked to a fuel slot and show if that fuel slot is burning and for how long. Fuel
+            indicator slots have an associated fuel slot, a display item, a placeholder item and an
+            indicator domain. The display item will be shown when the associated fuel slot is burning and
+            the placeholder item when it's not. The indicator domain is interesting when using multiple
+            fuel indicators for a single fuel slot. This menu should look like this:
+        </p>
+        <img src="fuel indicator.png" width="50%" />
+        <ul>
+            <li>
+                The 'Cancel' button will take you back to the <a href="../edit.html">contaier edit menu</a>
+                without creating a new fuel indicator slot and without replacing the original slot.
+            </li>
+            <li>
+                The 'Done' button will replace the original slot (the slot you clicked before going to the 
+                previous menu) with the new fuel indicator slot you are designing here (at least if no 
+                validation errors are found). It will then take you back to the 
+                <a href="../edit.html">contaier edit menu</a>.
+            </li>
+            <li>
+                The button on the right of 'Fuel slot:' shows the currently selected fuel slot (the fuel 
+                slot for which you are going to create an indiator). To choose a fuel slot, you need to
+                click the button and then on the fuel slot you would like to choose. <i>Note: you need to
+                    have at least 1 fuel slot, or you won't have anything to choose. So create the fuel 
+                    slot <b>before</b> creating its indicator!
+                </i>
+            </li>
+            <li>
+                The 'Display...' button lets you choose which item to display when the fuel slot is burning.
+                It will take you to the <a href="display.html">slot display creation menu</a>, where you can 
+                configure this item.
+            </li>
+            <li>
+                The 'Placeholder...' button lets you choose which item to display when the fuel slot isn't
+                burning. It will take you to the <a href="display.html">slot display creation menu</a>, 
+                where you can configure this item.
+            </li>
+            <li>
+                The indication domain can be used to let the fuel indicator 'zoom in' on a part of the 
+                burning time of the fuel slot. 
+                <ul>
+                    <li>
+                        If you leave it at 0% to 100%, the display item will have a stacksize of 64 when the 
+                        fuel slot starts burning, gradually decrease, hit a stacksize of 1 when the fuel slot 
+                        almost stops burning, and turns into the placeholder when it stops burning completely.
+                    </li>
+                    <li>
+                        If you would change it to 50% to 100%, the stacksize would decrease twice as fast and
+                        the display item would be replaced with the placeholder item as soon as less than 50%
+                        of the burn time remains.
+                    </li>
+                    <li>
+                        If you would change it to 0% to 100%, the stacksize would say 64 until half of the burn 
+                        time has passed, but then also decrease twice as fast.
+                    </li>
+                </ul>
+                The latter two may seem stupid, but they can be useful if you use them both and place them in 
+                slots next to each other: that would basically give an indicator that is twice as accurate as 
+                the basic 0% to 100%.
+            </li>
+        </ul>
+    </body>
+</html>
