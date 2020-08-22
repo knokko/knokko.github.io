@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8" />
+        <title>Fuel slot menu</title>
+    </head>
+    <body>
+        <p>
+            The fuel slot menu can be used to create fuel slots for a custom container. Fuel slots have a 
+            name and a fuel registry. The name is used to distinguish fuel slots from each other and to
+            link them to fuel indicator slots. The fuel registry determines which items are considered
+            fuel and how long they keep it burning. The menu should look like this:
+        </p>
+        <img src="fuel.png" width="50%" />
+        <ul>
+            <li>
+                You need to give the fuel slot name and insert that into the text edit field on the right of
+                'Name:'. No two fuel slots in the same custom container can have the same name. Oter than that,
+                it doesn't really matter what name you give, but I recommend using logical names if you use more
+                than 1 fuel slot. Currently, the name of fuel slots will not be shown or used in-game.
+            </li>
+            <li>
+                You also need to give the fuel slot a <i>fuel registry</i>. This fuel registry will determine 
+                which items players can use as fuel, as well as how long they keep this fuel slot burning.
+                If you use multiple fuel slots, they may use the same fuel registry, but this is not necessary.
+                There should be 2 buttons on the right of 'Registry:'. The first button shows the name of the 
+                currently selected fuel registry, or 'None' if you haven't selected one yet. Click the button 
+                to change it. The 'Create new' button can be used to create a new fuel registry (and you need 
+                this if you haven't made one yet). The button will take you to the
+                <a href="../fuel registries/edit.html">fuel registry edit menu</a>, where you can create it.
+                Currently, you can only use your own fuel registries, so not minecrafts default ones.
+            </li>
+        </ul>
+    </body>
+</html>
