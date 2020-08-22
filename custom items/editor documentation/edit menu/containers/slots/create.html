@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8" />
+        <title>Slot creation menu</title>
+    </head>
+    <body>
+        <p>
+            The slot creation menu can be used to create a new slot for a given custom container and put
+            it in its slot grid. Slots play a very important role in custom containers because custom containers 
+            are not much more than a chest-like inventory menu where each inventory slot represents a slot of
+            the custom container. There are a couple of different types of slots, currently 7. Every type of 
+            slot has its own button in this menu, which looks like this:
+        </p>
+        <img src="create.png" width="50%" />
+        <ul>
+            <li>
+                The 'Cancel' button is the only button in this menu that does <b>not</b> correspond to a slot 
+                type. Clicking it will take you back to the <a href="../edit.html">container edit menu</a>
+                you came from.
+            </li>
+            <li>
+                The 'Decoration' button will take you to the <a href="display.html">slot display creation menu</a>. 
+                Decoration slots are slots that will contain an item of your choice, but the players won't be
+                able to take the item from the slot or put another item in it. As the name implies, it is simply
+                a decoration for the container. If almost all slots are decorations, it is clear for players that
+                the remaining slots <i>are</i> usable (if all slots except the inputs and outputs are filled with 
+                for instance black glass panes, the input and output slots are the only empty slots, which makes
+                it easy for players to understand).
+            </li>
+            <li>
+                The 'Empty' button will make the slot empty (again). Empty slots do not contain an item and 
+                players can <b>not</b> put items in them. Empty slots are thus <i>always</i> empty. When 
+                creating a new custom container, the slot grid is intially filled with such empty slots.
+            </li>
+            <li>
+                The 'Fuel' button will take you to the <a href="fuel.html">fuel slot menu</a>. Fuel slots
+                work very similarly to the fuel slot in a regular furnace: players can put item in it, 
+                and the furnace will start burning if the item is valid fuel and there is an item ready
+                to be turned in the input slot. Unlike furnaces, there can be multiple fuel slots (the 
+                fuel mode of the container determines how this works exactly) and fuel slots can have
+                a custom fuel registry (you can choose which items count as fuel, which items don't,
+                and how long each item will burn before it is gone).
+            </li>
+            <li>
+                The 'Fuel indicator' button will take you to the 
+                <a href="fuel indicator.html">fuel indicator menu</a>. Fuel indicators are linked to a
+                single fuel slot and have a dispay item and a placeholder item. When the corresponding
+                fuel slot is burning, the display item will be shown in the slot. When the corresponding 
+                fuel slot is not burning, the placeholder item will be shown in the slot. Also, the 
+                stacksize will decrease as the remaining burn time counts down. Just like decoraiton 
+                slots, players can't take items from fuel indicator slots or put items in them.
+                <i>
+                    Regular furnaces use the flame icon below the fuel slot to indicate how much burn 
+                    time remains. Unfortunately, custom containers do not have this luxury
+                    (an attempt was made to use regular furnaces for custom containers, but minecraf and 
+                    bukkit didn't cooperate...), so you will have to use fuel indicators slots instead.
+                </i>
+            </li>
+            <li>
+                The 'Input' button will take you to the <a href="input.html">input slot menu</a>. Just like 
+                regular furnaces, input slots are the slots where players put items they want to smelt. 
+                But unlike furnaces, you can have multiple input slots.
+                The <i>recipes</i> of the custom container you're editing determine which items are considered
+                to be inputs for which slots. 
+            </li>
+            <li>
+                The 'Output' button will take you to the <a href="output.html">output slot menu</a>. Just 
+                like regular furnaces, output slots are the slots where the result items appear when an
+                input item is converted. Players can take items from the output slots, but not put items 
+                in them. Unlike regular furnaces, custom containers can have multiple output slots.
+                The <i>recipes</i> of the container determine which items will appear in which output slots 
+                for which input items.
+            </li>
+            <li>
+                The 'Crafting progress indicator' button will take you to the 
+                <a href="crafting progress indicator.html">crafting progress indicator menu</a>. These kind
+                of slots are used to show the players how much time remains before the inputs of a recipe 
+                will be converted to the outputs. In regular furnaces, this is accomplished by the arrow
+                between the input slot and the output slot. <i>
+                    Just like fuel indicators, custom containers don't have this luxury either, so an
+                    alternative was needed, which are crafting progress indicator slots.
+                </i> These slots have a placeholder item and a display item. The display item is shown when 
+                inputs are currently being converted to outputs, and the placeholder item is shown when the 
+                container is idle. Also, the stacksize of the display item will increase as the time until
+                the inputs are converted decreases.
+            </li>
+        </ul>
+    </body>
+</html>
