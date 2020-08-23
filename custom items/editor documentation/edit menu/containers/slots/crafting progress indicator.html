@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8" />
+        <title>Crafting progress indicator menu</title>
+    </head>
+    <body>
+        <p>
+            The crafting progress indicator menu can be used to create a new crafting progress indicator 
+            slot. Crafting progress indicator slots indicate to players if the container is currently
+            'smelting' input items, and how much time remains until the recipe is finished. These slots 
+            have a display item, placeholder item and an indication domain. The display item will be
+            shown to players when the container is busy with converting the inputs of a <i>recipe</i>
+            to the outputs. The placeholder item will be shown when the container is idle. The 
+            indication domain is interesting when using multiple crafting progress indicator slots. The 
+            menu should look like this:
+        </p>
+        <img src="crafting progress indicator.png" width="50%" />
+        <ul>
+            <li>
+                The 'Cancel' button will take you back to the <a href="../edit.html">contaier edit menu</a>
+                without creating a new crafting progress indicator slot and without replacing the original 
+                slot.
+            </li>
+            <li>
+                The 'Done' button will replace the original slot (the slot you clicked before going to the 
+                previous menu) with the new crafting progress indicator slot you are designing here 
+                (at least if no validation errors are found). It will then take you back to the 
+                <a href="../edit.html">contaier edit menu</a>.
+            </li>
+            <li>
+                The 'Display...' button lets you choose which item to display when the container is active.
+                It will take you to the <a href="display.html">slot display creation menu</a>, where you can 
+                configure this item.
+            </li>
+            <li>
+                The 'Placeholder...' button lets you choose which item to display when the container is idle.
+                It will take you to the <a href="display.html">slot display creation menu</a>, 
+                where you can configure this item.
+            </li>
+            <li>
+                The indication domain can be used to let the crafting progress indicator 'zoom in' on a part 
+                of the crafting progress. 
+                <ul>
+                    <li>
+                        If you leave it at 0% to 100%, the display item will have a stacksize of 1 when the 
+                        custom container starts, gradually increase, hit a stacksize of 64 when the recipe is 
+                        almost complete, and turns back into the placeholder when it is finished.
+                    </li>
+                    <li>
+                        If you would change it to 50% to 100%, the slot would keep displaying the placeholder 
+                        item until the container is at 50% of the current recipe, but the stacksize will 
+                        increase twice as fast, so it would still reach the 64 right before the recipe is 
+                        complete.
+                    </li>
+                    <li>
+                        If you would change it to 0% to 50%, the display item will be shown as soon as the 
+                        container starts with the recipe, but the stacksize will hit the 64 already when 
+                        the container is at 50% of the current recipe, and then remain 64 until the recipe 
+                        is complete.
+                    </li>
+                </ul>
+                The latter two may seem stupid, but they can be useful if you use them both and place them in 
+                slots next to each other: that would basically give an indicator that is twice as accurate as 
+                the basic 0% to 100%.
+            </li>
+        </ul>
+    </body>
+</html>
