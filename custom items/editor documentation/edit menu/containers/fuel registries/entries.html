@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8" />
+        <title>Fuel entries menu</title>
+    </head>
+    <body>
+        <p>
+            The fuel entries menu can be used to configure which items count as fuel in a given fuel registry.
+            It is basically a list of items with associated durations (how long a container burns when this
+            item is used as fuel). If you have a single entry that allows coal to keep the container burning
+            for 5 seconds, it should look like this:
+        </p>
+        <img src="entries.png" width="50%" />
+        <ul>
+            <li>
+                The 'Cancel' button will take you back to the <a href="edit.html">fuel registry edit menu</a>
+                you came from, without keeping any changed you made in this menu.
+            </li>
+            <li>
+                The 'Apply' button will take you back to the <a href="edit.html">fuel registry edit menu</a>,
+                and keep all changes made here.
+            </li>
+            <li>
+                The 'Add new' button will add a new entry to the list of entries. It will be an entry with 
+                coal as item and a burning duration of 100 ticks, but you can change this afterwards.
+            </li>
+        </ul>
+        <p>
+            Furthermore, there are a couple of components for every entry that is currently in the entry 
+            list:
+        </p>
+        <ul>
+            <li>
+                The left-most button shows the item of the entry (the item that will be treated as fuel).
+                You can change the item by clicking this button, which takes you to the 
+                <a href="../../recipes/type select.html">Item Type Selection menu</a>, where you can 
+                choose which item you want to be considered fuel.
+            </li>
+            <li>
+                The edit field in the middle determines how long the fuel item will cause the custom 
+                container to burn. This duration is expected to be given in <i>ticks</i>, <b>not</b>
+                <i>seconds</i> (1 second = 20 ticks). Also, the duration must be a positive integer.
+            </li>
+            <li>
+                The red cross on the right can be used to remove the entry from the list.
+            </li>
+        </ul>
+    </body>
+</html>
