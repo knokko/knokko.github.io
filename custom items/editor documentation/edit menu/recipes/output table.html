@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8" />
+        <title>Output table edit menu</title>
+    </head>
+    <body>
+        <p>
+            The output table edit menu can be used to create or edit (randomized)
+            output tables for container recipes or mob/drop blocks. If you are 
+            editing an output table that has 50% chance to output a single diamond,
+            it should look like this:
+        </p>
+        <img src="output table.png" width="50%" />
+        <p>
+            To explain how output tables work exactly, imagine that you are creating
+            a mob drop for zombies. In the example above, each time a zombie dies,
+            there is 50% chance that it will drop a diamond. 
+        </p>
+        <p>
+            When the output table contains more than 1 entry, only 1 of the entries 
+            can be dropped per zombie. For instance, consider the case when you add 
+            an entry of 40% chance to drop a gold ingot. (So there is 50% chance to 
+            drop a diamond and 40% chance to drop a gold ingot.) When a zombie dies,
+            it may drop a diamond <b>or</b> a gold ingot, but never both. Also,
+            there is 10% chance that the zombie won't drop any of them.
+        </p>
+        <b>Notes:</b>
+        <ul>
+            <li>
+                Note for mob drops and block drops: Even though 1 drop can only have
+                1 output table and thus 1 output item per dead zombie (or whatever
+                other mob), you can add more than 1 block drop or mob drop per
+                monster type or block type. And if you have more than 1 output table 
+                for zombies, zombies can drop an item from both output tables at the 
+                same time. Output tables from different drops are independent of each 
+                other: if you have 2 output tables that both have 50% chance to drop 
+                a diamond, there is 25% chance that 2 diamonds will be dropped at the 
+                same time and there is 25% chance that no diamond will be dropped at
+                all.
+            </li>
+            <li>
+                Note for container outputs: Every container recipe can have only 1
+                output table per output slot, so every recipe can put only 1 item 
+                in each output slot each time the recipe is done. More output tables
+                per slot is not allowed because minecraft inventory slots can
+                contain only 1 item at the same time.
+            </li>
+            <li>
+                Note for container outputs: If a container recipe has an output table 
+                that has to choose from at least 2 distinct items (like a diamond and 
+                a gold ingot), the recipe will be blocked after it produces either of
+                these items. For instance, if the recipe puts a diamond in its output 
+                slot, the recipe can't be done again until the player picks up the 
+                diamond from that output slot. (Otherwise, the recipe may produce a 
+                gold ingot, which is not possible because that output slot is already
+                occupied by that diamond.)
+            </li>
+        </ul>
+        <b>Buttons</b>
+        <ul>
+            <li>
+                The 'Cancel' button will take you back to the previous menu, without
+                keeping any changes made in this menu.
+            </li>
+            <li>
+                Clicking the 'Apply' button will keep the changes you made in this
+                menu, and take you back to the previous menu.
+            </li>
+            <li>
+                The 'Add entry' button will take you to the
+                <a href="output table entry.html">output table entry menu</a>, where 
+                you can add a new entry to this output table.
+            </li>
+            <li>
+                There is a 'Delete' button on the right of every entry in this output 
+                table. Clicking it will remove the corresponding entry from this output 
+                table.
+            </li>
+        </ul>
+    </body>
+</html>
