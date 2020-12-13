@@ -5,6 +5,7 @@
         <title>Troubleshooting</title>
     </head>
     <body>
+        <h3>Manual checks</h3>
         <p>
             When things don't work (as they should), here are some simple things to check:
             <ul>
@@ -36,11 +37,15 @@
                     If not, replace it with the latest version and restart your server.
                 </li>
             </ul>
-            If you did everything I mentioned above, it is likely that the mistake is mine.
-            In that case, please do the following steps.
-            <ul>
+        </p>
+        <h3>Automatic checks</h3>
+        <ul>
                 <li>
                     Use the '/plugins' command and check that 'CustomItems' and 'KnokkoCore' are listed.
+                </li>
+                <li>
+                    Try '/kci debug'. This will work if you are using Custom Items 8.0 or
+                    later and your installation is partially correct.
                 </li>
                 <li>
                     Use the '/customitems list' command and check that it lists all your custom items.
@@ -49,12 +54,14 @@
                     Check your server console/log, copy it entirely, paste it in the box below and click on the 'Check console' button.
                 </li>
             </ul>
-            Post all results from the previous 3 steps mentioned above on the <a href="https://discordapp.com/invite/bmF3Zvu">discord</a>
-            or <a href="https://dev.bukkit.org/projects/custom-items-and-textures">BukkitDev</a>.
-        </p>
         <script src="troubleshooting.js"></script>
         <textarea id="console-dump"></textarea><br>
         <button onclick="processConsoleDump()">Check console</button>
         <div id="check-output"></p>
+        <h3>If everything above fails</h3>
+        <p>
+            Post all results from the steps above on the <a href="https://discordapp.com/invite/bmF3Zvu">discord</a>
+            or <a href="https://dev.bukkit.org/projects/custom-items-and-textures">BukkitDev</a>.
+        </p>
     </body>
 </html>
