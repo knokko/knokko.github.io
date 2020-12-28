@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8" />
+        <title>Changelog Custom Items 8.0</title>
+    </head>
+    <body>
+        <p>
+            This is the changelog for Custom Items (and Editor) 8.0.
+        </p>
+        <ul>
+            <li>
+                <b>Backward compatibility in the plug-in</b>
+                <p>
+                    Until now, item stacks created with an older version of your
+                    item set wouldn't update all of their properties once you 
+                    upload a new item set to your server: if you change the 
+                    attribute modifiers of a custom item, the item stacks created 
+                    previously will keep their old value of that attribute modifier.
+                    This would require you to replace all these items manually with 
+                    a newer variant, or accept this suboptimal situation.
+                </p>
+                <p>
+                    The problem sketched above is now solved, or... well... sort of.
+                    All item stacks in your server that are created with a version of
+                    the plugin before 8.0 will <b>no longer</b> be treated as custom 
+                    items and will lose parts of their properties. This was needed
+                    because I radically changed the way custom items are recognized.
+                    On the bright side, all item stacks created with a version of the 
+                    plugin at or after 8.0 will <b>automatically</b> receive updates
+                    whenever you load a new version of your item set. In the current
+                    implementation, the plugin will scan the inventory of all players
+                    every 5 seconds and upgrade all old items it finds. It will do 
+                    a best attempt to handle player modifications such as extra
+                    enchantments and lost durability, but this behavior will not
+                    always be exactly what you want (but should still be reasonable).
+                    This comes with a couple of other changes:
+                </p>
+                <ul>
+                    <li>
+                        The INTERNAL item damage is from now on truly internal: you 
+                        won't be able to see it or modify it (and thus never have 
+                        to worry about it again.)
+                    </li>
+                    <li>
+                        Item stacks belonging to custom items will store the name
+                        of that custom item in their NBT, as well as some other 
+                        information that it needs to perform good item upgrading.
+                        The durability is from now on also stored in the NBT,
+                        but is still visible in the lore.
+                    </li>
+                    <li>
+                        Changing the <b>name</b> of custom items is no longer
+                        allowed. (When item stacks are created on the server, the 
+                        name of its custom item is stored in its nbt. If that name 
+                        would be changed, problems would occur...) Note that 
+                        changing the <b>display name</b> is still allowed.
+                    </li>
+                    <li>
+                        When you delete a custom item, the plugin will also delete 
+                        all item stacks that <i>belong</i> to that custom item.
+                        Furthermore, once a custom item is deleted, it is no longer 
+                        allowed to create new custom items with the name of that 
+                        deleted custom item. (An item stack belonging to the deleted 
+                        custom item might be locked away in some chest for a long time.
+                        When a player would pick the item up, the plugin would think
+                        that item would belong to the new custom item with the name of 
+                        that deleted custom item...)
+                    </li>
+                    <li>
+                        Decreasing the stack size of custom items is no longer allowed.
+                        (If the custom item used to have a bigger stacksize, players 
+                        might still be carrying such item stacks around...)
+                    </li>
+                    <li>
+                        Due to this new upgrading system, the <b>old</b> command block 
+                        help option is removed. (You shouldn't need it anymore and it 
+                        causes problems because the NBT of custom item stacks is 
+                        quite complex.)
+                    </li>
+                    <li>
+                        To make the regular command block help more useful, the item 
+                        upgrader will also upgrade the equipment of mobs when they 
+                        spawn.
+                    </li>
+                </ul>
+            </li>
+            <li>
+                <b>Armor appearence</b>
+                <p>
+                    This update also makes it possible to change the appearance of
+                    worn custom armor... under the right circumstances.                 
+                </p>
+                <ul>
+                    <li>
+                        It adds 3d helmets. These are special custom items that are 
+                        ironically <b>not</b> helmets, but you can still equip them
+                        (the plugin will take care of that). This sounds silly, but 
+                        it allows you to give it a custom item model, which will 
+                        even be shown when the helmet is equipped! Unfortunately,
+                        this is quite complicated because you will have to design 
+                        the item model yourself. <b>Unless someone is nice enough
+                        to publish a convenient model!</b>
+                    </li>
+                    <li>
+                        It also adds <b>worn</b> armor textures. This allows you to
+                        customize the armor texture that is displayed when players 
+                        (or mobs) equip your custom armor. Unfortunately, they will 
+                        only be visible to players with the Optifine mod installed.
+                        And sorry Guaz, I'm afraid this ruins your first tutorial
+                        a bit ;( <br>
+                        But, I did follow that tutorial as the basis of my 
+                        implementation.
+                    </li>
+                </ul>
+            </li>
+            <li>
+                <b>Drops and output tables</b>
+                <p>
+                    This update also adds the possibility of randomness to custom 
+                    containers, mob drops, and block drops, as well as some other 
+                    related improvements.
+                </p>
+                <ul>
+                    <li>
+                        Ehm...
+                    </li>
+                </ul>
+            </li>
+        </ul>
+    </body>
+</html>
