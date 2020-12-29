@@ -12,7 +12,7 @@
         <img src="sphere.png" width="50%" />
         <p>
             There should be a 'Cancel' button and a 'Create' or 'Apply' button. 
-            There should also be edit fields for the name, internal item damage, number of slots per axis and the scale.
+            There should also be edit fields for the name, number of slots per axis, and the scale.
             Furthermore, there should be buttons for the internal item type and texture.
             To explain what everything is for, I will first explain what sphere projectile covers are and how they work.
         </p>
@@ -21,14 +21,17 @@
             Every projectile cover needs a unique name. The name will be used as filename in the resourcepack
             that is eventually generated. It will also be shown in the projectile cover overview in the editor.
         </p>
-        <h3>Internal item damage and type</h3>
+        <h3>Internal item type</h3>
         <p>
-            (Sphere) projectile covers are 'hidden' custom items that can't be obtained by players, but do have their
-            own item model and item texture, which is why they need an internal item type and internal item damage.
+            (Custom) projectile covers are 'hidden' custom items that can't be obtained by players, but do have their
+            own item model and item texture, which is why they need an internal item type .
             Custom projectiles using that projectile cover will be 'followed by' a dropped item with the custom item 
             model and texture, which will cause the custom projectile to look like that 'hidden' custom item.
-            It doesn't matter what internal item type and internal damage you use, but you can't have the same 
-            type and damage as another projectile cover or a custom item.
+            It doesn't really matter what internal item type you use, so I recommend
+            using one that you would not often use for regular custom items 
+            (like diamond shovels). That is because there is a limit on the number of
+            custom items and projectile covers that can have the same internal item 
+            type.
         </p>
         <h3>Scale and Slots per axis</h3>
         <p>

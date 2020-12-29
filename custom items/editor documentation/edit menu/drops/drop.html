@@ -6,36 +6,53 @@
     </head>
     <body>
         <p>
-            The drop menu is the menu where you can select the item that you want to drop, how often it drops and how many it drops.
+            The drop menu is the menu where you can select which items should have 
+            which chance to be dropped. You can also select some additional
+            restrictions.
         </p>
         <img src="drop.png" width="50%" />
         <h2>Buttons</h2>
-        <h3>Item to drop</h3>
+        <h3>Items to drop</h3>
         <p>
-            When clicking on the button, a submenu opens where you can select the item that drops.
-            Only custom items can be selected. The menu that opens up should look like this:
+            The 'Choose...' button on the right of 'Items to drop:' will take you 
+            to the <a href="../recipes/output table.html">output table menu</a>. In 
+            that menu, you can choose which items should have which chance to be
+            dropped. Note that at most 1 of the entries you choose can be dropped.
+            If you want to drop more than 1 type of item at the same time, you will 
+            have to create multiple mob or block drops.
         </p>
-        <img src="custom.png" width="50%" />
-        <h3>Drop Chance</h3>
+        <h3>Items that must be held/used:</h3>
         <p>
-            The drop chance indicates the chance that an item has to drop. If you for instance want an item to drop once per 20 (blocks or mobs, on average), then you would enter 5% as the drop 
-            chance. 100% means that it drops every time, 1% means that it drops once every 100 (blocks or mobs, on average). Allowed values are between 1 and 100 (decimals excluded), if values 
-            are outside this range then red text at the top of the page appears indicating that it is wrong.
+            The 'Choose...' button on the right of 'Items that must be held/used:'
+            will take you to the 
+            <a href="custom items selection.html">custom items selection menu</a>
+            where you can select which items the player must use in order to be
+            able to get this drop. To give an example, the following will happen 
+            if you select only a ruby pickaxe (a custom item):
+            <ul>
+                <li>
+                    If this drop is for a block drop (for instance for the block 
+                    stone in), this drop can only happen when some player breaks
+                    a stone using a ruby pickaxe.
+                </li>
+                <li>
+                    If this drop is for a mob drop (for instance for zombies),
+                    this drop can only happen when some player kills a zombie with 
+                    a ruby pickaxe.
+                </li>
+            </ul>
+            When you select multiple custom items, the drop can happen when a player 
+            uses one of these custom items. When you don't select any custom items,
+            the drop can always happen, no matter what items players use. If you 
+            select a custom bow and this drop is for a mob drop, the drop can also 
+            happen when a player shoots the right mob to death with that custom bow.
         </p>
-        <h3>Minimum Amount to Drop</h3>
+        <h3>Prevent normal Drops</h3>
         <p>
-            This inputfield indicates how many items drop at minimum when an item drops. So if the randomiser has determined that an item drop takes place, the minimum amount to drop is the 
-            amount of items that are guaranteed to drop.
-        </p>
-        <h3>Maximum Amount to Drop</h3>
-        <p>
-
-            This inputfield indicates how many items drop at maximum when an item drops. So if the randomiser has determined that an item drop takes place, the maximum amount to drop is the 
-            amount of items that are dropped at maximum.
-        </p>
-        <h3>Prevent Other Drops</h3>
-        <p>
-            The checkbox indicates whether this drop should overwrite the default minecraft drops. This has as effect that the drops are effectively replaced.
+            If this checkbox is checked and an item is dropped because of this drop,
+            no normal items will be dropped. (If this drop is for a zombie, no rotten 
+            flesh will be dropped. If this drop is for stone, no cobblestone will be 
+            dropped.)
         </p>
         <h3>Cancel</h3>
         <p>

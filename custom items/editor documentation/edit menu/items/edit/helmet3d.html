@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8" />
+        <title>3d helmet edit menu</title>
+    </head>
+    <body>
+        <p>
+            The 3d helmet edit menu can be used to create or modify 3d helmet custom 
+            items. These are like regular custom helmets, but they can show a custom 
+            3d model when worn. This is unfortunately the only armor piece that can 
+            have such a custom model (without Optifine). If you just started creating 
+            a new one, it should look like this:
+        </p>
+        <img src="helmet3d.png" width="50%" />
+        <p>
+            3d helmets don't have any properties regular armor pieces don't have, so 
+            you can find information about all these properties in the 
+            <a href="armor.html">armor edit menu</a>. But, there are a couple of
+            differences:
+        </p>
+        <ul>
+            <li>
+                3d helmets <b>must</b> have a custom model (otherwise they don't 
+                really make sense). An example model will be shown at the bottom
+                of this page.
+            </li>
+            <li>
+                3d helmets never have a leather color (because that would be useless
+                since you can define the entire model anyway).
+            </li>
+            <li>
+                The internal item type must be a hoe rather than a helmet. This is 
+                because of the resourcepack rules of minecraft: all items can show a 
+                custom model when being worn in the helmet slot, <b>except
+                helmets.</b> (I didn't write this rule, but we will have to deal with 
+                it.) The plug-in will ensure that the 3d helmets can still be equipped
+                like regular helmets, so you shouldn't notice anything about this 
+                in-game.
+            </li>
+        </ul>
+        <p>
+            As promised, below is an example of a custom model:
+        </p>
+        <p>
+            {
+                "parent": "block/orientable",
+                "textures": {
+                    "top": "blocks/furnace_top",
+                    "front": "customitems/<b>NAME_OF_ONE_OF_YOUR_TEXTURES</b>",
+                    "side": "blocks/furnace_side"
+                }
+            }
+        </p>
+        <p>
+            Make sure you replace the <b>NAME_OF_ONE_OF_YOUR_TEXTURES</b> with the 
+            name of one of your textures (doesn't have to be 'the texture' of the 
+            helmet you're editing.) This is a silly example model that will make 
+            the helmet a furnace, but with a different front texture.
+        </p>
+        <p>
+            This model is obviously not great, but a nice example. You should use a 
+            custom elements section in the model to create a nicer model.
+        </p>
+    </body>
+</html>
