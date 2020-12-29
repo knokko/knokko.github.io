@@ -119,11 +119,186 @@
                 <p>
                     This update also adds the possibility of randomness to custom 
                     containers, mob drops, and block drops, as well as some other 
-                    related improvements.
+                    related improvements. This randomness comes in the form of an
+                    <b>output table</b>, which is basically a list of pairs of
+                    possible outputs and the chance that particular output is chosen.
                 </p>
                 <ul>
                     <li>
-                        Ehm...
+                        Before this update, mob drops and block drops allowed some 
+                        randomness: you were able to choose the chance to drop,
+                        the minimum amount to drop, and the maximum amount to drop.
+                        This system is replaced with output tables, which means you 
+                        can decide the exact chance to drop which amount (and which 
+                        item).
+                    </li>
+                    <li>
+                        Custom containers didn't allow any randomness at all until 
+                        this update. But with this update, the outputs of container 
+                        recipes use output tables rather than just 1 item, so you 
+                        can now truly implement random recipes. <b>Note: if multiple
+                        different items can be dropped, the container will be blocked
+                        whenever an item is put in a randomized output slot until 
+                        the player removes that item from that randomized output 
+                        slot.</b>
+                    </li>
+                    <li>
+                        The new system for mob drops and block drops also makes it
+                        possible to drop some items only when the player uses the 
+                        right custom item to destroy the block or kill the mob.
+                    </li>
+                    <li>
+                        Until now, recipes were only able to produce custom items,
+                        simple vanilla items, and vanilla items with a datavalue.
+                        And even worse, mob drops and block drops could only drop 
+                        custom items. This update adds the possibility to produce
+                        a <b>complex</b> item: you can use any item stack on your 
+                        server.
+                    </li>
+                </ul>
+            </li>
+            <li>
+                <b>Remaining features</b>
+                <p>
+                    This update also adds a couple of features that are not really
+                    related to each other:
+                    <ul>
+                        <li>
+                            <b>Equipped potion effects</b>
+                            <p>
+                                Make it possible to give players potion effects as 
+                                long as they are equipping the right custom item in 
+                                the right slot.
+                            </p>
+                        </li>
+                        <li>
+                            <b>Attack range</b>
+                            <p>
+                                Makes it possible to change the attack range of a 
+                                player when he has the right custom item in his
+                                main hand. For instance spears with extra long range 
+                                and daggers with a shorter range.
+                            </p>
+                        </li>
+                        <li>
+                            <b>Extra NBT</b>
+                            <p>
+                                Makes it possible to give additional NBT tags to 
+                                custom items. This can be useful for interaction
+                                with other plug-ins that check the NBT of items.
+                                Currently, this is limited to adding integers and 
+                                strings, but this can be improved if there is 
+                                enough interest.
+                            </p>
+                        </li>
+                        <li>
+                            <b>Item aliases</b>
+                            <p>
+                                Until now, the <b>/ci give</b> command only accepts
+                                the full names of custom items. But from now on,
+                                they also accept the aliases of custom items. This 
+                                can spare you time if your items have long names 
+                                (and especially since renaming is no longer allowed).
+                            </p>
+                        </li>
+                        <li>
+                            <b>Replacement conditions: Techwizzart</b>
+                        </li>
+                        <li>
+                            <b>Placeholders for input, output, and fuel slots</b>
+                            <p>
+                                This update also makes it possible to give
+                                placeholder items to input, output, and fuel slots 
+                                of custom containers. These are items that will be 
+                                shown when its slot does <b>not</b> container any 
+                                items, but will vanish once the player inserts an
+                                item.
+                            </p>
+                        </li>
+                    </ul>
+                </p>
+            </li>
+            <li>
+                <b>Getting help</b>
+                <p>
+                    Note that almost every page in the Editor has a small question
+                    mark button on the top-left of the window. Clicking it will open 
+                    a webpage that explains everything on that page. Please use this 
+                    before asking help with the new features.
+                </p>
+                <p>
+                    When not everything works at your server, you can also use the 
+                    <b>/kci debug</b> command. If your installation is not too
+                    broken, this command will tell you if any startup errors occurred,
+                    and will check your server resourcepack (get the url from 
+                    your server.properties, try to download it, check that it is a 
+                    valid resourcepack, check that the sha1 hash is correct...).
+                </p>
+            </li>
+            <li>
+                <b>Technical improvements</b>
+                <p>
+                    This update also introduces some technical improvements and 
+                    bugfixes:
+                </p>
+                <ul>
+                    <li>
+                        You can now also use the <b>/kci ...</b> instead of just 
+                        the <b>/ci ...</b> command. This is useful because the 
+                        old one has some conflicts with an Essentials command.
+                    </li>
+                    <li>
+                        Until now, the images in the .cisb file were stored in 
+                        a very simple, but expensive format: it took 4 bytes
+                        per pixel. From now on, the editor will use the PNG 
+                        format instead, which reduces the occupied disk space
+                        dramatically.
+                    </li>
+                    <li>
+                        Those with a lot of items and containers might have noticed
+                        that saving (and exporting) could take multiple seconds. I 
+                        got rid of the most important performance bottleneck, which 
+                        divides the time needed to save by ~10.
+                    </li>
+                    <li>
+                        This update improves the way shift-clicking and
+                        collect-to-cursor, and dragging inventory actions are 
+                        handled in custom containers.
+                    </li>
+                    <li>
+                        The Editor will perform 'system tests' upon startup: it will
+                        check if it is able to do some actions like saving and
+                        reading files. If it is not able to do so, the user will be
+                        warned. (Some anti virus software seems to prevent the
+                        Editor from doing this. Until now, people would see a red 
+                        message on top of the editor upon exporting rather than 
+                        a warning upfront.)
+                    </li>
+                    <li>
+                        Improve the way custom containers handle custom lore and 
+                        display names in slot displays.
+                    </li>
+                    <li>
+                        Container recipes will no longer proceed if one of the 
+                        <b>unused</b> input slots is <b>not</b> empty.
+                    </li>
+                    <li>
+                        You can no longer delete custom items that are still being 
+                        used in container recipes. In the past, this was allowed 
+                        (by accident), and corrupted the entire item set.
+                    </li>
+                    <li>
+                        Improved the crafting and progress indicators of containers 
+                        slightly (the stacksize is now more consistent).
+                    </li>
+                    <li>
+                        Fixed a bug that would prevent custom containers from 
+                        being reloaded when using the <b>/ci reload</b>
+                        command.
+                    </li>
+                    <li>
+                        Fixed a bug that would occur when removing ingredients
+                        from container recipes.
                     </li>
                 </ul>
             </li>
