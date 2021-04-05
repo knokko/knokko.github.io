@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8" />
+        <title>Ingredient selection menu</title>
+    </head>
+    <body>
+        <p>
+            The ingredient selection menu can be used to select an ingredient for a 
+            crafting recipe, container recipe, or the repair item of a custom tool 
+            (the repair item of a tool is technically very similar to the ingredient 
+            of a recipe, so the same menu can be used for both). It should look like
+            this:
+        </p>
+        <img src="choose ingredient.png" width="50%" />
+        <p><b>
+            Note: if you want a custom amount or remaining item, you need to select
+            it <i>before</i> clicking on <i>Custom Item</i>, <i>Simple vanilla item</i>,
+            or <i>Vanilla item with datavalue</i>.
+        </b></p>
+        <ul>
+            <li>
+                Clicking the <i>Cancel</i> button will take you back to the menu you 
+                came from, without adding or replacing the ingredient.
+            </li>
+            <li>
+                The <i>Amount</i> field can be used to let the ingredient require a 
+                stacksize that is larger than 1, and decrease that stacksize by more 
+                than 1. This makes it possible to add crafting recipes that require 
+                for instance 10 iron ingots (which would normally be impossible
+                because a crafting table only has 9 slots).
+            </li>
+            <li>
+                The <i>Remaining item</i> can be used to replace the ingredient with 
+                another item rather than removing it upon crafting. For instance,
+                you can choose a bucket as the remaining item of a lava bucket
+                ingredient. When the result item is crafted, the lava bucket will be 
+                replaced with an empty bucket rather than disappearing entirely.
+            </li>
+            <li>
+                Clicking <i>Custom Item</i> will take you to the 
+                <a href="custom.html">custom item selection menu</a>, where you can 
+                choose a custom item as the ingredient.
+            </li>
+            <li>
+                Clicking <i>Simple vanilla item</i> will take you to the 
+                <a href="simple vanilla.html">simple vanilla item selection menu</a>,
+                where you can choose a simple vanilla item as ingredient (a standard
+                minecraft item like a stick).
+            </li>
+            <li>
+                Clicking <i>Vanilla item with datavalue</i> will take you to the 
+                <a href="vanilla data.html">vanilla item with data selection menu</a>,
+                where you can choose a vanilla item plus a data value as ingredient.
+                Note: this data value is just an integer between 0 and 16 used before 
+                minecraft 1.13 to distinguish things like the different colors of wool.
+            </li>
+        </ul>
+    </body>
+</html>
