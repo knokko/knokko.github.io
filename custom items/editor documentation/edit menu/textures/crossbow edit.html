@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8" />
+        <title>Crossbow texture edit menu</title>
+    </head>
+    <body>
+        <p>
+            The crossbow texture edit menu can be used to create or edit the
+            textures for a custom crossbow. When you just started creating new
+            crossbow textures, it should look like this:
+        </p>
+        <img src="crossbow edit.png" width="50%" />
+        <ul>
+            <li>
+                Clicking the <i>Cancel</i> button will take you back to the 
+                <a href="overview.html">texture overview</a>, without keeping any
+                changes you made here.
+            </li>
+            <li>
+                If you are creating new crossbow textures, there will be a <i>Create</i>
+                button. Clicking it will add the new crossbow textures and then take
+                you back to the <a href="overview.html">texture overview</a>.
+            </li>
+            <li>
+                If you are modifying existing crossbow textures, there will be an 
+                <i>Apply</i> button. Clicking it will keep the changes and take you 
+                back to the <a href="overview.html">texture overview</a>.
+            </li>
+            <li>
+                The <i>Name</i> field can be used to choose the name of the crossbow 
+                texture. Currently, only English alphabet characters and underscores
+                are allowed in names. This name will only be shown within the Editor;
+                it will not be shown in-game.
+            </li>
+            <li>
+                The <i>Standby image</i> is the image that players will see when 
+                the crossbow is not loading or charged. The regular minecraft crossbow 
+                uses this image: <img src="crossbow_standby.png" />
+            </li>
+            <li>
+                The <i>Arrow image</i> is the image that players will see when the 
+                crossbow is charged with an arrow. The regular minecraft crossbow 
+                uses this image: <img src="crossbow_arrow.png" />
+            </li>
+            <li>
+                The <i>Firework image</i> is the image that players will see when the 
+                crossbow is charged with a firework rocket. The regular minecraft 
+                crossbow uses this image: <img src="crossbow_firework.png" />
+            </li>
+            <li>
+                Clicking the green <i>+</i> button will add a new <b>pull texture</b>
+                to the crossbow textures. (See the section below for more information.)
+            </li>
+        </ul>
+        <h3>Pull textures</h3>
+        <p>
+            The pull textures control how the crossbow will look while a player is 
+            pulling/loading it. Multiple pull textures are used to create the 
+            pulling/loading animation. Each pull texture has the following
+            properties:
+        </p>
+        <ul>
+            <li>
+                The <i>Pull</i> value determines <i>when</i> it will be displayed.
+                A value of 0.0 indicates that it will be shown as soon as the player 
+                starts pulling the crossbow. A value of 0.5 indicates that it will 
+                be shown when the player is halfway there. A value of 1.0
+                indicates that it will be shown once the player has pulled the 
+                crossbow long enough and is ready to put an arrow (or firework rocket)
+                on it. Any value between 0.0 and 1.0 can be used.
+            </li>
+            <li>
+                The <i>Image</i> will be displayed when the crossbow is in the right 
+                'stage' of the pulling.
+            </li>
+        </ul>
+        <p>
+            The default minecraft crossbow uses the following pull values and 
+            textures (explicitly in that order!):
+        </p>
+        <ol>
+            <li>Pull value 0.0: <img src="crossbow_pulling_0.png" /></li>
+            <li>Pull value 0.5: <img src="crossbow_pulling_1.png" /></li>
+            <li>Pull value 1.0: <img src="crossbow_pulling_2.png" /></li>
+        </ol>
+        <p>
+            You are free to use more or lesser pulling images and use different
+            pull values, but if you do, you will have to create the pulling images 
+            yourself.
+        </p>
+    </body>
+</html>
