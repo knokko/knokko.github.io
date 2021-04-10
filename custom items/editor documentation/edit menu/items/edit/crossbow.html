@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8" />
+        <title>Crossbow edit menu</title>
+    </head>
+    <body>
+        <p>
+            The crossbow edit menu can be used to edit or create custom crossbows.
+            If you just started creating a new custom crossbow, it should look
+            like this:
+        </p>
+        <img src="crossbow.png" width="50%" />
+        <p>
+            This menu has almost everything the <a href="tool.html">tool edit menu</a> has, but more.
+            Contrary to the tool edit menu, this menu does <b>not</b> allow a custom model.
+            That feature was left out because crossbows have completely different models and didn't 
+            seem very relevant (I think almost nobody would use it).
+            Also, custom crossbows need Crossbow textures instead of normal textures.
+            <b>Make sure you have loaded the crossbow texture into the editor before you start 
+            filling in the other properties of the custom crossbow.</b>
+            For more information about crossbow textures, see the 
+            <a href="../../textures/crossbow edit.html">crossbow texture edit menu</a>.
+            You can reach it from the <a href="../../textures/overview.html">texture overview</a>.
+        </p>
+        <h3>Durability loss on shooting arrows</h3>
+        <p>
+            This is the amount of durability that the crossbow will lose after
+            shooting an arrow. This will be ignored if the crossbow is unbreakable.
+        </p>
+        <h3>Durability loss on shooting firework</h3>
+        <p>
+            This is the amount of durability that the crossbow will lose after 
+            shooting a firework rocket (players can do this when holding a crossbow 
+            in their main hand and a firework rocket in their offhand). This will be 
+            ignored if the crossbow is unbreakable.
+        </p>
+        <h3>Arrow damage multiplier</h3>
+        <p>
+            When someone is hit by an arrow fired from this custom crossbow, the 
+            damage will be multiplied by this number. For instance, setting this 
+            number to 2 will cause the custom crossbow to deal twice the damage of 
+            a regular crossbow when shooting arrows.
+        </p>
+        <h3>Firework damage multiplier</h3>
+        <p>
+            When someone is hit by a firework rocket fired from this custom 
+            crossbow, the damage will be multiplied by this number. For instance,
+            setting this number to 2 will cause the custom crossbow to deal twice 
+            the damage of a regular crossbow when shooting firework rockets.
+        </p>
+        <h3>Arrow speed multiplier</h3>
+        <p>
+            When an arrow is shot from this custom crossbow, its speed will be
+            multiplied by this number. For instance, setting this number to 2 will 
+            cause arrows fired by this custom crossbow to fly twice as fast as 
+            arrows fired from a regular crossbow. Note that faster arrows deal more 
+            damage than slower arrows, so increasing this number will also increase
+            the damage.
+        </p>
+        <h3>Firework speed multiplier</h3>
+        <p>
+            When a firework rocket is shot from this custom crossbow, its speed
+            will be multiplied by this number. For instance, setting this number to 
+            2 will cause firework rockets fired by this custom crossbow to fly 
+            twice as fast as firework rockets fired from regular crossbows.
+            Unlike arrows, firework rockets won't deal more damage when they have 
+            more speed.
+        </p>
+        <h3>Arrow knockback strength</h3>
+        <p>
+            When someone gets hit by an arrow fired from this custom crossbow,
+            this amount will affect the knockback given to the victim. If this 
+            amount is 1, the victim will get the same knockback as if he were
+            struck by a regular crossbow with the enchantment Punch 1. If the 
+            custom crossbow is enchanted with Punch, the <i>effective</i>
+            punch will be the sum of the Punch enchantment level and this amount.
+            For instance, if the custom crossbow is enchanted with Punch 1 and
+            has an arrow knockback strength of 2, the victim will get the same 
+            knockback as if he were struck by a regular crossbow with Punch 
+            level 3.
+        </p>
+        <h3>Arrow gravity</h3>
+        <p>
+            Whether arrows fired from this custom crossbow will be affected by 
+            gravity. If this checkbox is checked, the arrows will be affected by 
+            gravity and thus fall down. If this checkbox is not checked, the arrows 
+            will ignore gravity and fly in a straight line.
+        </p>
+    </body>
+</html>
