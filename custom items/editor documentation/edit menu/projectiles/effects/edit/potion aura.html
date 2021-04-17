@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8" />
+        <title>Potion aura edit menu</title>
+    </head>
+    <body>
+        <p>
+            The potion aura edit menu can be used to create or edit potion aura
+            projectile effects. These are projectile effects that will give potion 
+            effects to all entities that are close to the projectile. This menu 
+            should look like this:
+        </p>
+        <img src="potion aura.png" width="50%" />
+        <ul>
+            <li>
+                Clicking the <i>Cancel</i> button will take you back to the menu you 
+                came from, without keeping any changes made in this menu and without 
+                adding a new potion aura projectile effect.
+            </li>
+            <li>
+                If you are adding a new potion aura effect, there will be a <i>Create</i>
+                button. Clicking it will add a new potion aura effect ot the projectile 
+                with the configuration you made here.
+            </li>
+            <li>
+                If you are editing an existing potion aura effect, there will be an 
+                <i>Apply</i> button. Clicking it will take you back to the menu you 
+                came from and keep all the changes you made here.
+            </li>
+            <li>
+                The <i>Radius</i> determines how close entities need to be to the 
+                projectile to get the potion effects. If the radius is 2.0, the 
+                potion effects will only be given to entities that are less than 
+                2.0 meters (blocks) away from the projectile. Also, the duration or
+                power of the potion effects will depend on <i>how</i> close entities 
+                are to the projectile. (For instant effects, the power is affected.
+                For all other potion effects, the duration is affected.) If the 
+                radius is 2.0, entities that are 1.9 blocks away will get a very 
+                short duration, entities that are 1.0 blocks away will get half the 
+                duration of the potion effects, and entities extremely close to the 
+                projectile will get the full duration.
+            </li>
+        </ul>
+        <p>
+            The right side of the page can be used to configure the actual potion 
+            effects. You need to select at least 1 potion effect, but you can 
+            select as many effects as you want. Each potion effect is represented
+            by a single row. In every row, you can select the potion effect type,
+            the duration (in ticks), and the level of the effect. Click the green <b>+</b> button 
+            to add a new effect. Click the red <b>X</b> on the right of a row to
+            remove that row (and the corresponding potion effect).
+        </p>
+    </body>
+</html>

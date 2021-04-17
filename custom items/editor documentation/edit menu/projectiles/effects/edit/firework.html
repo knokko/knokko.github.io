@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8" />
+        <title>Firework projectile effect menu</title>
+    </head>
+    <body>
+        <p>
+            The firework projectile effect menu can be used to edit or create 
+            firework projectile effects. These projectile effects will create
+            fireworks at the position of the projectile. The menu should look
+            like this:
+        </p>
+        <img src="firework.png" width="50%" />
+        <ul>
+            <li>
+                Clicking the <i>Cancel</i> button will take you back to the menu 
+                you came from, without adding a new firework projectile effect (if you
+                were creating a new projectile effect) and without keeping any changes 
+                you made here (if you were editing an existing effect).
+            </li>
+            <li>
+                If you are creating a new firework projectile effect, clicking the 
+                <i>Create</i> button will add the effect and then take you back to 
+                the menu you came from.
+            </li>
+            <li>
+                If you are editing an existing firework projectile effect, clicking the 
+                <i>Apply</i> button will take you back to the menu you came from, and 
+                keep the changes you made here.
+            </li>
+        </ul>
+        <p>
+            The right side of the page is used to configure the firework effects.
+            You need at least 1 firework effect, but you can add many more if you 
+            want. If you make more, they will all be displayed at the same time.
+            Every firework effect is represented by an 'orange' box (in the 
+            example above, there is only 1). You can add more by clicking the big 
+            green <b>+</b> button. You can remove boxes/firework effects by 
+            clicking their <b>X</b> button on the right. Every firework effect 
+            has the following properties:
+        </p>
+        <ul>
+            <li>
+                <i>Flicker</i>: whether the firework effect should have the 
+                flicker/twinkle effect.
+            </li>
+            <li>
+                <i>Trail</i>: whether the firework effect should have the trail 
+                effect.
+            </li>
+            <li>
+                <i>Type</i>: the type/shape of the firework effect. Click on the 
+                button on the right of <i>Type:</i> to change it. The text on the 
+                button shows the currently selected type.
+            </li>
+            <li>
+                <i>Colors</i>: the colors that the firework effect will show right 
+                after the explosion. All these colors will be shown at the same time.
+                Use the green <b>+</b> button to add colors. Every color consists of
+                a red, green, and blue value. Each of these values must be at least 
+                0 and at most 255. The higher the red value, the more 'red' the 
+                firework effect will be. The same holds for green and blue. For 
+                instance (Red=255, Green=0, Blue=0) denotes the color red and 
+                (Red=255, Green=0, Blue=200) denotes the color pink. (Because
+                pink is a combination of red and blue.) You can use a site like
+                <a href="https://www.w3schools.com/colors/colors_rgb.asp">this</a>
+                to easily design colors.
+            </li>
+            <li>
+                <i>Fade colors</i>: the colors that the firework effect will show 
+                a while after the explosion. All the fade colors will be shown at 
+                the same time, but they will be shown after the regular colors 
+                are (mostly) gone. The configuration of fade colors is similar to
+                the configuration of regular colors.
+            </li>
+        </ul>
+    </body>
+</html>
