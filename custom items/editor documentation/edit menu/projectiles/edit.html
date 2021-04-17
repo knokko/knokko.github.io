@@ -113,5 +113,30 @@
             <b>that you have already created</b>. To create projectile covers, go back to the 
             <a href="index.html">projectile portal</a> and click on 'Projectile covers'.
         </p>
+        <h3>Launch knockback</h3>
+        <p>
+            The launch knockback determines how far the shooter of the projectile will 
+            be pushed backwards upon firing the projectile with a wand or gun. If this 
+            value is 0.3, a velocity of magnitude 0.3 meters/tick (which would be 6
+            blocks/second) in the opposite direction of the projectile will be added to 
+            the velocity of the shooter. If you use a negative value, the shooter will be 
+            pushed in the direction of the projectile.
+        </p>
+        <h3>Impact knockback</h3>
+        <p>
+            The impact knockback determines how far the entity hit by the projectile
+            will be pushed backward. (At least, if the projectile hit an entity. This 
+            will <b>not</b> affect blocks.) If the impact knockback is positive, the 
+            entity will be pushed in the same direction as the projectile. If the 
+            impact knockback is negative, the entity will be pushed in the opposite 
+            direction of the projectile.
+        </p>
+        <h3>Impact potion effects</h3>
+        <p>
+            The impact potion effects will be given to the entity that is struck by
+            the projectile. (Only if the projectile hit a living entity. Non-living
+            entities like armor stands and all blocks are <b>not</b> affected by 
+            this).
+        </p>
     </body>
 </html>
