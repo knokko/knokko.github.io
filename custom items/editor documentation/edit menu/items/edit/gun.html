@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8" />
+        <title>Gun edit menu</title>
+    </head>
+    <body>
+        <p>
+            The gun edit menu can be used to create and modify gun custom items.
+            These are custom items that fire custom projectiles and consume ammo
+            by doing so (unlike wands, which don't use ammo). When you just
+            started creating a new gun, the menu should look like this:
+        </p>
+        <img src="gun.png" width="50%" />
+        <p>
+            The properties on the right (<i>Projectile</i>, <i>Ammo system</i>, and 
+            <i>Amount per shot</i> are unique to guns. These will be explained below. 
+            All other properties in this menu are explained <a href="base.html">here</a>.
+        </p>
+        <h3>Projectile</h3>
+        <p>
+            The custom projectile that will be fired by this gun. The button on the 
+            right of <i>Projectile:</i> will display the name of the currently 
+            selected projectile (or <i>None</i> if you haven't selected one yet).
+            Click the button to change it. 
+            <b>
+                Note: you need to create the custom projectile before you can 
+                create a gun that shoots it.
+            </b>
+            To create a custom projectile, go back to the 
+            <a href="../../index.html">edit menu</a> and click <i>Projectiles</i>...
+        </p>
+        <h3>Ammo system</h3>
+        <p>
+            The ammo system determines how the gun will consume ammo items upon
+            shooting and whether it needs to be loaded first. Click the 
+            <i>Change...</i> button on the right of <i>Ammo system:</i> to 
+            configure it. That would take you to the 
+            <a href="gun ammo.html">gun ammo menu</a>. (See the documentation on 
+            that page for more information.)
+        </p>
+        <h3>Amount per shot</h3>
+        <p>
+            The <i>Amount per shot</i> determines how many projectiles will be
+            fired each time a player uses this gun. If you choose a value larger
+            than 1, multiple copies of the same projectile will be fired.
+            <b>Note: using a value larger than 1 will <i>not</i> increase the 
+            ammo usage; If you want it to consume more ammo, change the 
+            <i>Ammo system</i>.</b>
+        </p>
+    </body>
+</html>

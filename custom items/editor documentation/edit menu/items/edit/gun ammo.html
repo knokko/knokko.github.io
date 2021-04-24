@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8" />
+        <title>Gun ammo menu</title>
+    </head>
+    <body>
+        <p>
+            The gum ammo menu can be used to configure the ammo system of a gun.
+            The ammo system determines what ammo a gun needs, how much ammo it needs,
+            how quickly the gun can shoot, and a few more things. Currently, the 
+            ammo system can be either <i>direct</i> or <i>indirect</i>.
+        </p>
+        <ul>
+            <li>
+                A gun with a <i>direct</i> ammo system will consume an ammo item from 
+                the inventory each time it is shot. (This is similar to a bow: each 
+                time it is shot, an arrow is consumed from the inventory.)
+            </li>
+            <li>
+                A gun with an <i>indirect</i> ammo system will store its ammo inside 
+                the gun. Each time the gun is shot, it will consume a bullet from 
+                inside the gun. When an <i>indirect</i> gun runs out of internal ammo, 
+                it must be reloaded. Reloading a gun will take some time (you can choose
+                how long it takes) and will consume a recharge item from the inventory
+                (optional).
+            </li>
+        </ul>
+        <p>
+            First, you need to choose whether you want a <i>direct</i> or <i>indirect</i>
+            ammo system. To do so, click on the <i>Direct</i> or <i>Indirect</i> button 
+            below <i>Type:</i>. Depending on this choice, different buttons and edit 
+            fields will appear on the right.
+        </p>
+        <ul>
+            <li>
+                <p>
+                    If you choose <i>Direct</i>, the menu should look like this:
+                </p>
+                <img src="gun ammo direct.png" width="50%" />
+                <ul>
+                    <li>
+                        The <i>Ammo item</i> is the item that will be consumed 
+                        from the inventory each time the gun is shot (and players
+                        won't be able to shoot with the gun if they don't have
+                        that item).
+                    </li>
+                    <li>
+                        The <i>Cooldown</i> is the time (in ticks) that the player 
+                        must wait after shooting with the gun before he can shoot with 
+                        the gun again (or with any other gun in the same hand). If the 
+                        value is 10, players will be able to shoot twice per second.
+                        <b>
+                            Unlike wand cooldowns, gun cooldowns are expected to be
+                            short and will <i>not</i> be kept after a server restart.
+                        </b>
+                    </li>
+                </ul>
+            </li>
+            <li>
+                <p>
+                    If you choose <i>Indirect</i>, the menu should look like this:
+                </p>
+                <img src="gun ammo indirect.png" width="50%" />
+                <ul>
+                    <li>
+                        The recharge item is the item that will be consumed upon
+                        reloading the gun (and must be in the player inventory in 
+                        order to be able to reload the gun). This is <i>Optional</i>:
+                        you can choose <i>Empty</i> if you don't want reloading to 
+                        consume any item. (Keeping it empty is like the game
+                        Overwatch: players must reload their gun when they run out of 
+                        internal ammo, but reloading costs nothing except time.)
+                    </li>
+                    <li>
+                        The <i>Cooldown</i> is the time (in ticks) that the player 
+                        must wait after shooting with the gun before he can shoot with 
+                        the gun again (or with any other gun in the same hand). If the 
+                        value is 10, players will be able to shoot twice per second.
+                        <b>
+                            Unlike wand cooldowns, gun cooldowns are expected to be
+                            short and will <i>not</i> be kept after a server restart.
+                        </b>
+                    </li>
+                    <li>
+                        The <i>Stored ammo</i> is the number of bullets that will be 
+                        stored <i>inside</i> the gun after reloading. Each time a 
+                        player shoots with the gun, this amount will be decreased by 
+                        1. When this amount reaches 0, the player must reload the 
+                        gun before he can shoot again. If this amount is 1, the gun 
+                        will act similarly to a crossbow: you must reload it after 
+                        every shot. <b>
+                            Note: this does <i>not</i> affect the number of items 
+                            that will be consumed from the inventory when the gun 
+                            is reloaded; only the <i>Recharge item</i> determines 
+                            that (note that you can choose an <i>Amount</i> there).
+                        </b>
+                    </li>
+                    <li>
+                        The <i>Reload time</i> is the time (in ticks) that is needed
+                        to reload the gun. Players can start reloading a gun by
+                        right-clicking with it when it is out of internal ammo and
+                        can't shoot any gun with the same hand until the reloading 
+                        is complete.
+                    </li>
+                    <li>
+                        The <i>Start reload sound</i> will be played when a player 
+                        starts reloading the gun. This is <i>optional</i>, so you 
+                        can leave it <i>None</i> if you don't want it.
+                    </li>
+                    <li>
+                        The <i>Finish reload sound</i> will be played when a player 
+                        finishes reloading the gun. Just like the <i>Start reload sound</i>,
+                        this is completely optional.
+                    </li>
+                </ul>
+            </li>
+        </ul>
+    </body>
+</html>
