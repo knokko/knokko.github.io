@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8" />
+        <title>Food edit menu</title>
+    </head>
+    <body>
+        <p>
+            The food edit menu can be used to create custom food or custom drinks.
+            These custom items can be eaten (or drunk) by players and can restore
+            hunger and/or give potion effects to these players. If you just started
+            creating new custom food, it should look like this:
+        </p>
+        <img src="food.png" width="50%" />
+        <p>
+            All properties on the left of this page are explained
+            <a href="base.html">here</a>. The properties on the right of this page
+            are unique to custom food (and drinks) and are explained below:
+        </p>
+        <h3>Food value</h3>
+        <p>
+            The food value determines how much 'hunger' will be recovered when 
+            eating this custom food. Every point stands for a half 'meat' icon
+            in the hunger bar of the player. For instance, if you keep the 
+            value 5, players who eat it will recover 2 and half 'meat' icon in 
+            their hunger bar (which is 25% of their hunger bar). If you choose
+            20, players will restore their entire hunger bar upon eating the 
+            custom food. If you choose a negative value, players will get
+            more hungry rather than less hungry upon eating this custom food.
+        </p>
+        <h3>Eat effects</h3>
+        <p>
+            The eat effects are the potion effects that will be given to players 
+            who eat this custom food (or your custom drink). You are allowed to
+            keep this list of potion effects empty.
+        </p>
+        <h3>Eat time</h3>
+        <p>
+            The <i>eat time</i> is the time (in ticks) that players need to eat 
+            (or drink) this custom food. Just like regular food, players will 
+            need to keep holding their right mouse button while eating, or the 
+            eating will be cancelled. Unfortunately, the tracking of right-clicks
+            is imprecise (so it is possible that players will finish the eating if 
+            they release their mouse button when they nearly finish eating it).
+        </p>
+        <h3>Eat sound</h3>
+        <p>
+            The <i>eat sound</i> will be played while players are eating this custom 
+            food. By default, this is <i>Entity generic eat</i>, which is the same
+            sound that is played while eating vanilla food. If you want to make a 
+            custom drink instead, you should change it to <i>Entity generic drink</i>. 
+            You are free to choose other sounds as well.
+        </p>
+        <h3>Sound volume & Sound pitch</h3>
+        <p>
+            The <i>sound volume</i> and <i>sound pitch</i> determine how loud and 
+            with which pitch the <i>eat sound</i> will be played while eating the 
+            food. Unfortunately, I don't know much about sounds, so you will have 
+            to play around with it if you want to know more.
+        </p>
+        <h3>Sound period</h3>
+        <p>
+            The <i>sound period</i> determines how often the <i>eat sound</i> will 
+            be played. It will be played every <i>sound period</i> ticks while 
+            players are eating this custom food. For instance, if you keep this 
+            value 4, the <i>eat sound</i> will be played 5 times per second.
+        </p>
+        <h3>Max stacksize</h3>
+        <p>
+            The <i>max stacksize</i> determines the maximum stacksize of item stacks 
+            of this custom food <b>in the <i>survival</i> gamemode</b>. It must be
+            an integer between 1 and 64. The stacksize will be decreased by 1 each 
+            time the player finishes eating this custom food.
+        </p>
+    </body>
+</html>
