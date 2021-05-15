@@ -24,6 +24,30 @@
             <a href="https://github.com/Bobcat00/ActionBarAPI/releases">this unofficial patch</a>
              instead.
         </b>
+        <h3><a href="https://dev.bukkit.org/projects/mythicmobs">Mythic Mobs</a></h3>
+        <p>
+            It is possible to equip custom items from this plug-in on mobs from
+            Mythic Mobs. To do so, you need to configure a mythic mobs item in 
+            a configuration file for mythic mobs (for instance <b>ExampleItems.yml</b>).
+            In such a file, you should define a custom item like this:
+        </p>
+        <textarea readonly cols="50" rows="4">
+MythicMobsItemName:
+  NBT:
+    KnokkosCustomItems: { Name: item_name }
+        </textarea>
+        <p>
+            In the example above, <i>item_name</i> should be the <b>Name</b> that
+            you gave the custom item in the Editor. <b>Not</b> the <b>Display name</b>. 
+            Then, you should configure a custom mob to equip this item in a mob file 
+            (for instance <b>ExampleMobs.yml</b>):
+        </p>
+        <textarea readonly cols="50" rows="5">
+MobName:
+  Type: ZOMBIE
+  Equipment:
+  - MythicMobsItemName HAND
+        </textarea>
         <h3><a href="https://www.spigotmc.org/resources/crazy-enchantments.16470/">Crazy Enchantments</a></h3>
         <p>
             This plug-in has nice support for the Hellforge enchantment on custom items.
