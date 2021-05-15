@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8" />
+        <title>Block drop edit menu</title>
+    </head>
+    <body>
+        <p>
+            The block drop edit menu can be used to create or modify a block drop 
+            of a custom block. It should look like this:
+        </p>
+        <img src="edit.png" width="50%" />
+        <p>
+            A block drop is more than just an item/block. It consists of:
+        </p>
+        <ul>
+            <li>
+                A list of <a href="../../recipes/output table.html">output tables</a>,
+                from which each output table will produce (drop) 1 or no items when 
+                the block is destroyed.
+            </li>
+            <li>
+                A <i>silk touch requirement</i>. This determines whether players need
+                to have silk touch in order to drop items from the output tables
+                (or whether silk touch is forbidden). This makes it possible to let
+                the block drop different items when a player breaks it with a tool
+                that has the silk touch enchantment: you would need 2 block drops:
+                1 that requires silk touch and 1 that forbids silk touch.
+            </li>
+            <li>
+                A configuration of <i>required held items</i>. If you enable it,
+                the output tables will only drop items when the block is broken
+                with the right item (and you can choose which items are the 
+                <i>right</i> items). Using required items, you can for instance
+                force players to use pickaxes to break the block (if they don't,
+                it won't drop any items). See <a href="required items.html">this 
+                page</a> for more information.
+            </li>
+        </ul>
+    </body>
+</html>
