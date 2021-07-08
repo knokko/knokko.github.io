@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8" />
+        <title>Wands and Guns tutorial</title>
+    </head>
+    <body>
+        <h1>Wands and Guns tutorial</h1>
+        <p>
+            In this tutorial, I will demonstrate how to add (custom) wands and guns with this plug-in. They are described in this 
+            same tutorial because wands and guns are surprisingly similar: they both fire <b>custom projectiles</b>. The difference 
+            is that wands don't need bullets (they can only have a cooldown and charges). Guns can have have cooldowns, can require
+            bullets directly from the inventory, or they need to be loaded before they can shoot. The exact system will be configured 
+            by you.
+        </p>
+        <p><b>
+            This is an advanced tutorial, so I will not show the basic setup needed for this plug-in. I recommend reading or watching
+            one of the basic tutorials first (if you haven't done so already).
+            This tutorial was created with Editor 9.6. If you are using an older version of the Editor, you might miss some of the 
+            features I show here. In that case, you should download a newer version of the Editor.
+        </b></p>
+        <h2>Custom projectiles</h2>
+        <p>
+            Before you can create wands and guns, you need to define the projectiles they will fire. These 3 images will guide you 
+            to get started (if you have used the Editor before, you should immediately recognize the menu in the left-most screenshot):
+        </p>
+        <img src="projectiles1.png" width="20%"/> <img src="projectiles2.png" width="20%" /> <img src="projectiles3.png" width="20%" />
+        <p>
+            After clicking on each of the buttons in the red circles, you should see this:
+        </p>
+        <img src="../../editor documentation/edit menu/projectiles/edit.png" width="40%" />
+        <p>
+            There are many properties of the projectile that you can configure here, but only the <b>Name</b> is required. All custom 
+            projectiles must have a distinct name, but other than that, the name matters very little. Click the question mark on the 
+            top-left of the page for information about the other properties:
+        </p>
+        <img src="questionMark.png" width="40%" />
+        <h3>Visibility</h3>
+        <p>
+            <b>By default, custom projectiles are invisible.</b> There are 2 ways to make them visible:
+            <ul>
+                <li>Give the projectile a <b>projectile cover</b>.</li>
+                <li>Use <b>in-flight effects</b> that frequently spawn particles or firework at the location of the projectile.</li>
+            </ul>
+            For the first projectile in this tutorial, I will go with the second approach. The first approach will be demonstrated
+            later in this tutorial.
+        </p>
+        <h3>In-flight effects</h3>
+        <p>
+            In-flight effects are 'effects' that will be 'played' periodically at the location of the custom projectile. To get 
+            started, follow these steps:
+        </p>
+        <img src="flightEffects1.png" width="20%" /> <img src="flightEffects2.png" width="20%" />
+        <p>
+            If you followed these steps, you should see this:
+        </p>
+        <img src="../../editor documentation/edit menu/projectiles/effects/waves/edit.png" width="40%" />
+        <p>
+            Every custom projectile has an (initially empty) list of projectile effect <b>waves</b> and each <b>wave</b> has a list of 
+            projectile effects and some timing properties. All projectile effects <b>in the same wave</b> will always be executed at the
+            same time. Projectile effects from different ways can be executed independently. This page allows you to configure a 
+            <b>single wave</b>. The <b>Ticks until first round</b> is the number of ticks (1 tick = 0.05 seconds) between the time the 
+            custom projectile is launched and the <b>first time</b> the effects in the wave are executed. The <b>Ticks between rounds</b>
+            is the delay in ticks between consecutive executions of the effects. For instance, if <i>Ticks until first round is 20</i>
+            and <i>Ticks between rounds</i> is 40, the effects in the wave will be executed at the following moments:
+            <ol>
+                <li>1 second (20 ticks) after the projectile was launched</li>
+                <li>3 seconds (20 + 40 = 60 ticks) after the projectile was launched</li>
+                <li>5 seconds (20 + 2 * 40 = 100 ticks) after the projectile was launched</li>
+                <li>7 seconds</li>
+                <li>9 seconds</li>
+                <li>... (this goes on until the projectile hits something or it despawns)</li>
+            </ol>
+            For decorative/display projectile effects, it is good to use very small values for <i>Ticks until first round</i> and
+            <i>Ticks between rounds</i>. I will give both of them the value 1. Click on the <i>Change...</i> button on the right of 
+            <b>Effects each round</b> to configure the effects that will be executed. You should see this:
+        </p>
+        <img src="flightEffects3.png" width="40%" />
+        <p>
+            This page is mostly empty because you haven't added any effects yet. To add an effect, click on the green <b>Add</b>
+            button. After doing that, you should see this:
+        </p>
+        <img src="../../editor documentation/edit menu/projectiles/effects/create.png" width="40%" />
+        <p>
+            These are all the kinds of projectile effects you can add. The following projectile effects can be used to make the 
+            projectile visible:
+            <ul>
+                <li>Show fireworks</li>
+                <li>Spawn colored redstone dust</li>
+                <li>Spawn simple particle</li>
+                <li>Create explosion (but this one has dangerous side effects like destroying blocks)</li>
+            </ul>
+            In this tutorial, I will go for <i>Spawn colored redstone dust</i>. Clicking its button should take you to the following 
+            menu:
+        </p>
+        <img src="../../editor documentation/edit menu/projectiles/effects/edit/colored.png" width="40%" />
+        <p>
+            You can configure the color of the redstone dust particles (you can choose any color; so doesn't have to be red). You 
+            can use a site like <a href="https://www.colorspire.com/rgb-color-wheel/">RGB color wheel</a> to see which color will 
+            be shown for given <b>R</b>ed, <b>G</b>reen, and <b>B</b>lue values. If your minimum and maximum red/green/blue are 
+            not the same, there will be some random variation in the color of the particles that will be spawned. You can also control
+            how many particles (<b>amount</b>) will be spawned per effect execution and how far they can be away from the projectile 
+            (<b>radius</b>). I will stick with the default values this time. Click on <b>Create</b> when you are done with 
+            configuring. You should be taken back to this menu:
+        </p>
+        <img src="flightEffects4.png" width="40%" />
+        <p>
+            If you want, you can click on <b>Add</b> to add another effect. When you are happy with your effects, you should click on
+            <b>Back</b> and then on <b>Create</b>. After doing that, you should see (something like) this:
+        </p>
+        <img src="flightEffects5.png" width="40%" />
+        <p>
+            If you want, you can click on <b>Add effects</b> to add another <b>wave of effects</b>. If not, you should click on
+            <b>Back</b>. You should be taken back to this menu:
+        </p>
+        <img src="../../editor documentation/edit menu/projectiles/edit.png" width="40%" />
+        <h3>Impact effects</h3>
+        <p>
+            Custom projectiles can also have <b>impact effects</b>. Unlike <b>in flight</b> effects, the <b>impact</b> effects is 
+            just a single list of projectile effects. All impact effects will be executed once when the projectile hits something or
+            someone. If the projectile despawns, the impact effects will <b>not</b> be executed. For this tutorial projectile, I will 
+            add a fireworks impact effect. To do so, click on <b>Impact effects</b> and then on <b>Add</b> and finally on
+            <b>Show fireworks</b>. You should have been taken to this menu:
+        </p>
+        <img src="../../editor documentation/edit menu/projectiles/effects/edit/firework.png" width="40%" />
+        <p>
+            Firework projectile effects are the most complicated effects to configure (because minecraf fireworks are generally
+            quite advanced). But, for a simple firework effect, there is only 1 thing you need to do: add a color:
+        </p>
+        <img src="fireworks.png" width="40%" />
+        <p>
+            The default color is pink, but you can change it to any color you want. You can again use 
+            <a href="https://www.colorspire.com/rgb-color-wheel/">RGB color wheel</a> (or a similar site) to choose a color.
+            You can configure more if you want, but it is not needed. Click the question mark on the top-left for information 
+            about the rest of the properties you can configure. When you are done with this effect, click <b>Create</b>.
+            If you want to add more impact effects, click on <b>Add</b>. If not, click on <b>Back</b>. You should be taken back 
+            to this menu again:
+        </p>
+        <img src="../../editor documentation/edit menu/projectiles/edit.png" width="40%" />
+        <p>
+            Click on <b>Create</b> to finish the custom projectile. That should take you to this page:
+        </p>
+        <img src="projectiles4.png" width="40%" />
+        <p>
+            I gave my projectile the name <i>particle_projectile</i>. If you choose another name, that name should be shown 
+            instead. The first projectile is finished, but it needs a wand or gun to launch it. I will first show how to create a 
+            wand that will fire the projectile. Guns will be demonstrated later.
+        </p>
+        <h2>Wands</h2>
+        <p>
+            To create a wand, follow these steps:
+        </p>
+        <img src="projectiles5.png" width="18%" /> <img src="projectiles6.png" width="18%" /> <img src="wands1.png" width="18%" /> 
+        <img src="wands2.png" width="18%" /> <img src="wands3.png" width="18%" />
+        <p>
+            You should have been taken to this page:
+        </p>
+        <img src="../../editor documentation/edit menu/items/edit/wand.png" width="40%" />
+        <p>
+            Like most other items, you need to give the wand a <b>Name</b> and <b>Texture</b>. I will use the following texture:
+        </p>
+        <img src="fire_wand.png" />
+        <p>
+            You must also give the wand a <b>Projectile</b>. You should choose the projectile you just created. You can also configure 
+            the <b>Max charges</b>, <b>Recharge time</b> (this will appear when you increase <b>Max charges</b>), <b>Amount per shot</b>,
+            and <b>Cooldown</b>. Click the question mark on the top-left for more information about them. I will just go with the 
+            default values. To finish the wand, click <b>Create</b>. Once you have done that, you are ready to test your first 
+            projectile and wand: Export your item set, replace your .cis file and resourcepack, and start your server!
+        </p>
+        <p>
+            To try your new wand, you can acquire it using <b>/kci give wand_name</b> and fire it by right-clicking. It should leave
+            a redstone trail wherever it goes and show fireworks whenever it hits something:
+        </p>
+        <img src="run1.png" width="40%" />
+    </body>
+</html>
