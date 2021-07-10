@@ -172,5 +172,100 @@
             a redstone trail wherever it goes and show fireworks whenever it hits something:
         </p>
         <img src="run1.png" width="40%" />
+        <h2>Guns</h2>
+        <p>
+            As promised, I will also demonstrate how to use guns. From a technical perspective, guns are almost the same as wands.
+            They can even use the exact same projectiles (but I will create a new projectile for the gun to show some more projectile 
+            properties).
+        </p>
+        <h3>Projectile covers</h3>
+        <p>
+            The new projectile will use a <b>projectile cover</b> to display itself rather than (particle) projectile effects. A 
+            projectile cover uses a 'custom item' that can <b>not</b> be obtained. The plug-in will ensure that a <i>dropped item</i>
+            with the texture of the 'custom item' will follow the custom projectile. Since dropped items always rotate slowly,
+            projectile cover models should look the same from each side. Before creating a projectile cover, you should first 
+            create a texture for it. I will use the following texture:
+        </p>
+        <img src="bullet.png" />
+        <p>
+            To create the projectile cover, follow these steps:
+        </p>
+        <img src="cover1.png" width="20%" /> <img src="cover2.png" width="20%" /> <img src="cover3.png" width="20%" />
+        <p>
+            After following these steps, you should have landed on this page:
+        </p>
+        <img src="../../editor documentation/edit menu/projectiles/covers/create.png" width="40%" />
+        <p>
+            On this page, you need to choose the shape of your projectile cover. At the time of writing this, the only possible shapes
+            are <i>sphere</i> and <i>custom</i>. I might add more shapes in the future, but there are no concrete plans for that.
+            When you choose <i>sphere</i>, the Editor will generate a sphere-shaped item model for your projectile cover. When you 
+            choose <i>custom</i>, you will have to supply the item model yourself. Creating custom shapes is quite complex, so I won't 
+            cover that in this tutorial. Instead, I will go for a <i>sphere</i>. You should land on this page:
+        </p>
+        <img src="../../editor documentation/edit menu/projectiles/covers/edit/sphere.png" width="40%" />
+        <p>
+            You need to give the projectile cover a texture (for instance the black texture I use) and a unique name (I will give 
+            it the name <i>bullet</i>). You can also change the other properties if you want, but I will stick with the default values. 
+            You can change the <i>Scale</i> (the size) if you want the projectile to look bigger or smaller. You can click the question 
+            mark on the top-left for information about the rest of the properties. When you are satisfied, click the green 
+            <b>Create</b> button. Once you have done that, follow these steps to create the actual projectile:
+        </p>
+        <img src="cover4.png" width="20%" /> <img src="cover5.png" width="20%" /> <img src="cover6.png" />
+        <p>
+            You should land on this page (again):
+        </p>
+        <img src="../../editor documentation/edit menu/projectiles/edit.png" width="40%" />
+        <p>
+            You also need to give this projectile a name (for instance <i>bullet</i>). To use the projectile cover you just made,
+            click on the <b>None</b> button on the right of <b>Projectile cover:</b>. Then click on the <b>bullet</b> button 
+            (or whatever you named your projectile cover). As finishing touch, I will also tell how to play a sound upon shooting
+            this bullet:
+            <ol>
+                <li>Create a <b>in-flight</b> projectile effect wave.</li>
+                <li>Set <b>Ticks until first round</b> to 0</li>
+                <li>
+                    Set <b>Time between rounds</b> to a big number (like 1234567). It is important that it is bigger than the 
+                    <b>Lifetime</b> of the projectile (200 by default). If it is smaller, the sound will also be played somewhere
+                    during its flight.
+                </li>
+                <li>
+                    Give the wave a single <i>Play sound</i> projectile effect. You can use a volume and pitch of 1 and whatever 
+                    sound you want.
+                </li>
+            </ol>
+            Once you are done with configuring the name, projectile cover, and effects, you can click on <b>Create</b> to finish 
+            the projectile.
+        </p>
+        <h3>The actual guns</h3>
+        <p>
+            Now that you have the bullet projectile, it is time to create guns that can shoot it. I will use the following gun 
+            textures (not my best artwork, but this is just a tutorial):
+        </p>
+        <img src="gun1.png" /> <img src="gun2.png" />
+        <p>
+            I will show how to create 2 guns: 1 <b>direct</b> gun and 1 <b>indirect</b> gun. I will explain the difference later.
+            First, I will show how to create the <b>direct</b> gun:
+        </p>
+        <img src="createGun1.png" width="20%" /> <img src="createGun2.png" width="20%" /> <img src="createGun3.png" width="20%" />
+        <p>
+            You should land on this page:
+        </p>
+        <img src="../../editor documentation/edit menu/items/edit/gun.png" width="40%" />
+        <p>
+            Like most other items, you also need to give guns a texture and a unique name. I will call it <i>direct_gun</i> and use 
+            the texture with the brown handle. Just like wands, you also need to select a projectile (on the right). Go ahead and 
+            choose the bullet projectile you just created. Finally, it is time to configure the <b>Ammo system</b>:
+        </p>
+        <img src="../../editor documentation/edit menu/items/edit/gun ammo direct.png" />
+        <p>
+            By default, guns will use <b>direct</b> ammo, so there is <b>no need</b> to click on the <i>Direct</i> or <i>Indirect</i>
+            button. For direct guns, you only need to configure the <b>Ammo item</b> and cooldown. The default cooldown is 10 ticks 
+            (half a second). You are free to change this, but I will leave it like this. So, the last thing to configure is the 
+            <b>Ammo item</b>. Normally, you would create a separate ammo custom item for this, but I am lazy and will use flint
+            instead. Once you have configured the ammo, you should click on <b>Apply</b> and then on <b>Create</b>.
+        </p>
+        <p>
+            ehm...
+        </p>
     </body>
 </html>
