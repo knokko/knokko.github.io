@@ -210,7 +210,7 @@
             mark on the top-left for information about the rest of the properties. When you are satisfied, click the green 
             <b>Create</b> button. Once you have done that, follow these steps to create the actual projectile:
         </p>
-        <img src="cover4.png" width="20%" /> <img src="cover5.png" width="20%" /> <img src="cover6.png" />
+        <img src="cover4.png" width="20%" /> <img src="cover5.png" width="20%" /> <img src="cover6.png" width="20%" />
         <p>
             You should land on this page (again):
         </p>
@@ -256,7 +256,7 @@
             the texture with the brown handle. Just like wands, you also need to select a projectile (on the right). Go ahead and 
             choose the bullet projectile you just created. Finally, it is time to configure the <b>Ammo system</b>:
         </p>
-        <img src="../../editor documentation/edit menu/items/edit/gun ammo direct.png" />
+        <img src="../../editor documentation/edit menu/items/edit/gun ammo direct.png" width="40%"/>
         <p>
             By default, guns will use <b>direct</b> ammo, so there is <b>no need</b> to click on the <i>Direct</i> or <i>Indirect</i>
             button. For direct guns, you only need to configure the <b>Ammo item</b> and cooldown. The default cooldown is 10 ticks 
@@ -265,7 +265,57 @@
             instead. Once you have configured the ammo, you should click on <b>Apply</b> and then on <b>Create</b>.
         </p>
         <p>
-            ehm...
+            Now its time to create the second gun. This gun will be similar to the first one, but it will get <b>indirect</b> ammo 
+            (and a slightly different name and texture). Start by following the same steps as you did for the first (direct) gun.
+            But, when you configure the ammo system, click on the <b>Indirect</b> button:
+        </p>
+        <img src="createGun4.png" width="40%" />
+        <p>
+            After clicking <i>Indirect</i>, you should see this:
+        </p>
+        <img src="createGun5.png" width="40%" />
+        <p>
+            Indirect guns need to be <i>loaded</i> before they can shoot. Loading an indirect gun takes time and/or consumes items 
+            from the players inventory. The <b>Recharge item</b> is the item that will be consumed (and required) to load the gun.
+            If you don't choose a recharge item, loading the gun won't cost any items; it only takes time. (This is how ammo works
+            in the game Overwatch). In this tutorial, I will use <i>30 flint</i> as recharge item. To do so, follow these steps:
+        </p>
+        <img src="rechargeFlint1.png" width="20%" /> <img src="rechargeFlint2.png" width="20%" /> 
+        <img src="rechargeflint3.png" width="20%" /> <img src="rechargeFlint4.png" width="20%" />
+        <p>
+            The <b>Reload time</b> is the time (in ticks) it takes to reload the gun. I will just leave it 20 ticks (1 second).
+            The <b>Stored ammo</b> is the number of projectile the player can shoot before needing to reload again. I will just leave it
+            30 (I also used <b>30</b> flint as recharge item because it feels natural). Finally, you can configure the 
+            <b>Start reload sound</b> and <b>Finish reload sound</b>. These sounds will be played when the player starts reloading the 
+            gun and finishes reloading the gun. I will use <b>Block dispenser fail</b> and <b>Entity skeleton hurt</b>. Finally, you can 
+            configure the <b>Cooldown</b>. This is the minimum time (in ticks) that the player needs to wait after shooting before 
+            he can shoot again. If this time is very small, players will fire more than 1 bullet when right-clicking once because the 
+            timing system of this plug-in is not very accurate. I will set the cooldown to 4 ticks. When you are done, click on 
+            <b>Apply</b> and then <b>Create</b>.
+        </p>
+        <p>
+            Now that you have added the guns, it is time to export and test them! You can use <b>/kci give ...</b> to give yourself 
+            the guns. The <b>direct</b> gun should require and consume 1 flint each time you shoot with it. (Make sure you have flint 
+            in your inventory.)
+        </p>
+        <img src="run2.1.png" width="40%" />
+        <p>
+            The <b>indirect</b> gun should have 30 ammo initially and reduce its ammo when you shoot with it. It should also shoot 
+            more bullets per second than the <b>direct</b> gun because it has a cooldown of 4 ticks rather than 10. This gun won't 
+            require any flint until it runs out of ammo. When it does run out of ammo and you try to shoot, you should hear its reload 
+            sounds and see 30 flint being consumed from your inventory (at least, if you have at least 30 flint).
+        </p>
+        <img src="run2.2.png" width="40%" /> <img src="run2.3.png" width="40%" />
+        <p>
+            The ammo system of the indirect gun is not very convenient for the players because they can only see how much ammo they
+            have left if they open their inventory to check the lore. This will be improved if you install the ActionBarAPI plug-in. 
+            See <a href="../../compatibility/positive.html">the section about ActionBarAPI</a> for installation instructions. After 
+            installing it and restarting your server, you should see this nice ammo bar:
+        </p>
+        <img src="run3.png" width="40%" />
+        <p>
+            By default, these helper texts will be in English. If you don't like that, you can change them in the file 
+            <i>plugins/CustomItems/lang.yml</i>.
         </p>
     </body>
 </html>
