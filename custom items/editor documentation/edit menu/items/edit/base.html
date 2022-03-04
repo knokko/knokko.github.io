@@ -74,16 +74,32 @@
                 <li>The maximum durability of the item (can be done with 'Max uses')</li>
             </ul>
             <b>
-                Note: due to technical reasons, there is a limit on the number of 
-                custom items that can have the same internal item type. This limit 
-                is the maximum durability of that item in minecraft
-                (for instance ~60 for wooden tools and 1000+ for diamond tools).
-                If you use diamond tools, it will take a lot of time to reach this 
-                limit, but you might hit this limit when using golden tools.
-                There is an exception to this rule: 2 or more items with the same
-                item type and texture only count as 1 if neither of them has a 
-                custom model.
+                The <i>Other</i> item type
             </b>
+            <p>
+                There is also a special item type called <b>Other</b> that allows you to use any minecraft item. This option is
+                only available for simple custom items, custom block items, and custom food. Furthermore, this option can only 
+                be used when targeting minecraft 1.14 or later. This is the only way you can choose an internal item type that
+                stacks <i>naturally</i>. Using this will typically improve the stacking behavior of custom items. Using this may
+                also cause the item to 'inherit' properties from this item type. For instance, if you choose bread, players can
+                eat it. Unless you <b>want</b> to have such properties, I recommend sticking with flint (as far as I know, this
+                item has no unexpected properties).
+            </p>
+            <p>
+                <b>
+                    Note: due to technical reasons, there is a limit on the number of 
+                    custom items that can have the same internal item type. This limit 
+                    is the maximum durability of that item in minecraft
+                    (for instance ~60 for wooden tools and 1000+ for diamond tools).
+                    If you use diamond tools, it will take a lot of time to reach this 
+                    limit, but you might hit this limit when using golden tools.
+                    For the <i>Other</i> internal item type, this limit is larger than 2billion,
+                    so that won't become a problem.
+                    There is an exception to this rule: 2 or more items with the same
+                    item type and texture only count as 1 if neither of them has a 
+                    custom model.
+                </b>
+            </p>
         </p>
         <h3>Alias</h3>
         <p>
