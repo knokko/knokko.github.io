@@ -237,5 +237,42 @@
             players and monsters from 6 blocks distance rather than the regular
             3 blocks distance.
         </p>
+        <h3>Automatic updating</h3>
+        <p>
+            Whether item stacks corresponding to this custom item will be modified by the <i>Item Updater</i>
+            (more info below). This is checked by default and you should probably keep it that way.
+        </p>
+        <h4>About the <i>Item Updater</i></h4>
+        <p>
+            Some custom item properties are directly assigned to item stacks in-game. For instance the <i>Display name</i>
+            and the <i>Attribute modifiers</i>. When an item stack for this custom item is created, that item stack will
+            automatically get the display name and attribute modifiers of that item. This is simple, but it gets complicated
+            when you:
+        </p>
+        <ol>
+            <li>Create a custom item with display name "Rubie".</li>
+            <li>You start the server and give a rubie to a player.</li>
+            <li>You realize that you made a typo and you change the display name <i>in the Editor</i> to "Ruby".</li>
+            <li>You save the changes and restart the server.</li>
+        </ol>
+        But what will happen to the item stack you gave to that player <i>before</i> changing the name to "Ruby"?
+        <ul>
+            <li>
+                If <i>Automatic updating</i> is enabled, the display name of that item stack will be changed to "Ruby"
+            </li>
+            <li>
+                If <i>Automatic updating</i> is <i>not</i> enabled, the display name of that item stack will stay "Rubie".
+                (But, if you create a <i>new</i> item stack corresponding to that custom item, its display name will be "Ruby".)
+            </li>
+        </ul>
+        <p>
+            Automatic updating is usually nice, but it can become a problem if you use this custom item as <i>ingredient</i>
+            in a <i>third-party</i> crafting plug-in or allow it to be sold to shopkeepers: such plug-ins usually want the
+            ingredient to be an <i>exact match</i>. So if for instance the display name is changed, it is no longer an exact 
+            match and will therefor no longer be accepted. <b>But even if you do <i>not</i> make any changes in the Editor,
+            this plug-in sometimes does internal bookkeeping in the NBT of custom items, which will also break the exaxt match.
+            So, if you want to use this custom item as ingredient in a <i>third-party</i> crafting recipe, you should probably
+            disable this. Any crafting recipe <i>from this plug-in</i> will <i>always</i> work fine (this plug-in is made for that).</b>
+        </p>
     </body>
 </html>
