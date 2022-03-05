@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8" />
+        <title>Animated texture edit menu</title>
+    </head>
+    <body>
+        <p>
+            The animated texture edit menu can be used to create and edit <i>animated</i> textures. These are textures that can
+            show animations. This menu should look like this:
+        </p>
+        <img src="animated edit.png" width="50%" />
+        <h3>Name</h3>
+        <p>
+            Just like all other textures in this plug-in, animated textures need to have a unique name.
+        </p>
+        <h3>Images</h3>
+        <p>
+            Animated textures have a list of labeled images. At any point in time, the animated texture will display exactly 1 of
+            these images. The image labels are needed by the <i>frames</i> to reference these images.
+        </p>
+        <h3>Frames</h3>
+        <p>
+            Animated textures have a list of frames. These frames determine when which image will be displayed. Each frame has
+            an image label that should match the label of one of the <i>images</i> and each frame has a <i>duration</i> that
+            determines for how long that image will be shown before moving on to the next frame. (But when the last frame expires,
+            the game will move on to the first frame instead.) The duration should be given in <i>ticks</i>; <b>not</b> in seconds!
+            1 second = 20 ticks.
+        </p>
+        <h3>Example</h3>
+        <p>
+            Consider the following example configuration:
+        </p>
+        <p>
+            The images are:
+        </p>
+        <ul>
+            <li>Label = "red" and the image is completely red</li>
+            <li>Label = "green" and the image is completely green</li>
+            <li>Label = "blue" and the image is completely blue</li>
+        </ul>
+        <p>
+            And the frames are:
+        </p>
+        <ol>
+            <li>Image label = "red" and duration = 20</li>
+            <li>Image label = "blue" and duration = 40</li>
+            <li>Image label = "green" and duration = 10</li>
+        </ol>
+        <p>
+            This would result in the following animation in-game:
+        </p>
+        <ol>
+            <li>The texture is red for 1 second</li>
+            <li>Then the texture becomes blue for 2 seconds</li>
+            <li>Then the texture becomes green for half a second</li>
+            <li>Then the texture becomes red again for 1 second</li>
+            <li>Then the texture becomes blue again for 2 seconds</li>
+            <li>Then the texture becomes green again for half a second</li>
+            <li>Then the texture becomes red again for 1 second...</li>
+        </ol>
+        <p>
+            Note that the order of the <i>images</i> does <b>not</b> matter, but that the order of the <i>frames</i> is important.
+        </p>
+    </body>
+</html>
