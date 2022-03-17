@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8" />
+        <title>Special melee damage menu</title>
+    </head>
+    <body>
+        <p>
+            The Special melee damage menu allows you to configure the melee attack properties of its corresponding custom item.
+            It you just checked the checkbox, this menu should look like this:
+        </p>
+        <img src="special melee damage.png" width="50%" />
+        <ul>
+            <li>The <i>Cancel</i> button will take you back to the previous menu, <b>without</b> keeping the changes made here.</li>
+            <li>The <i>Apply</i> button will take you back to the previous menu and <b>keep</b> the changes made here.</li>
+            <li>
+                The <i>Use special melee damage source</i> checkbox allows you to enable/disable special melee damage. If you
+                don't want to use anything special, it is best to leave this checkbox unchecked. The other options in this menu
+                are only visible if this checkbox is checked.
+            </li>
+            <li>
+                The <i>raw damage source</i> (see the <i>None</i> button in the screenshot) determines the death message when a
+                player is killed by a melee attack with this custom item. If you want to keep the default death message, you
+                should keep it <i>None</i>.
+            </li>
+            <li>
+                If you have chosen a custom <i>raw damage source</i>, a red cross will appear on the left that allows you to
+                reset the raw damage source to <i>None</i>.
+            </li>
+            <li>
+                The <i>Ignores armor</i> checkbox determines whether melee attacks with this custom item will ignore the armor
+                of the target.
+            </li>
+            <li>
+                The <i>Is fire</i> checkbox determines whether melee attacks with this custom item will deal fire damage or
+                regular damage. If you choose for <i>fire</i> damage, melee attacks with this custom item will have <b>no</b>
+                effect against mobs that are immune to fire damage (like magma cubes and wither skeletons) as well as anyone
+                that has the <i>Fire resistance</i> potion effect. Furthermore, attacks with this custom item will deal less
+                damage against anyone that equips armor with the <i>Fire protection</i> enchantment. This option makes no
+                difference against targets with no fire protection.
+            </li>
+        </ul>
+    </body>
+</html>
