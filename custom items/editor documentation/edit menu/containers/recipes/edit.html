@@ -20,6 +20,12 @@
             xp works a little differently because there can be more than 1 output).
         </p>
         <p>
+            If you use <b>manual</b> output slots rather than regular output slots, the process will instead be similar
+            to that of a crafting table: if there is a valid combination of input items, the output item will immediately
+            appear in the manual output slot, and the input items will be consumed when the player takes the result from
+            the manual output slot.
+        </p>
+        <p>
             If you just started creating a new recipe for a custom container with a single input slot and a 
             single output slot, it should look like this:
         </p>
@@ -54,8 +60,8 @@
         <p>
             Finally, there is a version of the containers slot grid that occupies most of the space. For 
             container recipes, only the input slots and output slots are interesting. The input slots will 
-            be marked blue, the output slots will be marked red and the rest will be gray. The name of all
-            the slots are shown as well.
+            be marked blue, the output slots will be marked red, the manual output slots will be marked dark red, 
+            and the rest will be gray. The name of all the slots are shown as well.
         </p>
         <p>
             By clicking on any of the input slots, you can choose which ingredient this recipe needs to be
@@ -70,6 +76,15 @@
             that slot, using the <a href="../../recipes/output table.html">output table menu</a>.
             If you leave an output slot empty, the recipe will ignore that output slot. If you would leave 
             all output slots emtpy, the container would basically consume the input and only produce xp.
+        </p>
+        <p>
+            By clicking on any of the manual output slots, you can choose which result will be put in that
+            slot. Unlike regular output slots, manual output slots can only have 1 result. Also, every recipe
+            can have at most 1 manual output slot.
+        </p>
+        <p>
+            <b>Right</b>-clicking any input or (manual) output slot will remove the corresponding ingredient
+            or result from this recipe.
         </p>
         <h3>Missing slots</h3>
         <p>
