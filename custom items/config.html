@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8" />
+        <title>Config documentation</title>
+    </head>
+    <body>
+        <h3>Maximum number of flying projectiles</h3>
+        <p>
+            The maximum number of custom projectiles that is allowed to fly at the same time. When this limit is reached,
+            no more custom projectiles can be spawned until an existing custom projectile hits something or expires.
+            The purpose of this limit is to prevent massive lagg when too many custom projectiles are active. (This often happens
+            when a projectile effects spawns another custom projectile which in turn also has such projectile effects...)
+        </p>
+        <h3>World whitelist</h3>
+        <p>
+            A list of worlds in which this plug-in will be active. If the world whitelist is empty or not specified, this plug-in
+            will be active in all worlds. Custom crafting recipes, custom drops, and custom containers won't work in worlds that
+            are not on this whitelist. Example:
+        </p>
+        <textarea readonly>
+World whitelist:
+  - world
+        </textarea>
+        <h3>World blacklist</h3>
+        <p>
+            A list of worlds in which this plug-in will <b>not</b> be active. Custom crafting recipes, custom drops, and custom containers won't work in worlds that
+            are on this blacklist. Example:
+        </p>
+        <textarea readonly>
+World blacklist:
+  - world_nether
+        </textarea>
+    </body>
+</html>
