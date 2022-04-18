@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8" />
+        <title>Manual output slot menu</title>
+    </head>
+    <body>
+        <p>
+            The manual output slot menu can be used to add manual output slots to a custom container. Manual output slots are the 
+            slots in which the resulting items of container recipes appear will appear as soon as the inputs are placed. The inputs will
+            be consumed when the player clicks on the manual output slot. (So it works like the result slot of a crafting table.)
+            Just like regular output slots, manual output slots have only a <i>name</i> and a <i>placeholder</i>. It should look like this:
+        </p>
+        <img src="manual output.png" width="50%" />
+        <ul>
+            <li>
+                The 'Cancel' button will take you back to the <a href="../edit.html">container edit menu</a>
+                you came from, without adding a new manual output slot.
+            </li>
+            <li>
+                The 'Done' button will replace the original slot with a new manual output slot with the provided name
+                and placeholder. It will then take you back to the <a href="../edit.html">container edit menu</a> you came from.
+            </li>
+            <li>
+                You should type the <i>name</i> of the manual output slot you're about to create in the edit field 
+                on the right of 'Name:'. No two manual output slots of the same custom container can have the same
+                name. The name will not be used in-game, but it will be used to link the manual outputs of the 
+                container recipes to the manual output slots. So to move a manual output slot, you would delete it and 
+                create a new manual output slot with the same name somewhere else.
+            </li>
+            <li>
+                The <i>Placeholder</i> will be displayed in the slot when no manual container recipe is ready.
+                (For instance when the player hasn't placed any ingredients yet.) Click the <i>Choose...</i> button
+                to choose the placeholder and click the <i>Clear...</i> button to remove it.
+                <b>Note: the placeholder is optional!</b>
+            </li>
+        </ul>
+    </body>
+</html>

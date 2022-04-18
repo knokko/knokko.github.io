@@ -2,11 +2,11 @@
 <html>
     <head>
         <meta charset="UTF-8" />
-        <title>Ingredient selection menu</title>
+        <title>Choose ingredient menu</title>
     </head>
     <body>
         <p>
-            The ingredient selection menu can be used to select an ingredient for a 
+            The Choose ingredient menu can be used to select an ingredient for a 
             crafting recipe, container recipe, or the repair item of a custom tool 
             (the repair item of a tool is technically very similar to the ingredient 
             of a recipe, so the same menu can be used for both). It should look like
@@ -14,9 +14,8 @@
         </p>
         <img src="choose ingredient.png" width="50%" />
         <p><b>
-            Note: if you want a custom amount or remaining item, you need to select
-            it <i>before</i> clicking on <i>Custom Item</i>, <i>Simple vanilla item</i>,
-            or <i>Vanilla item with datavalue</i>.
+            Note: if you want a remaining item, you need to select
+            it <i>before</i> choosing the type of ingredient.
         </b></p>
         <ul>
             <li>
@@ -24,36 +23,45 @@
                 came from, without adding or replacing the ingredient.
             </li>
             <li>
-                The <i>Amount</i> field can be used to let the ingredient require a 
-                stacksize that is larger than 1, and decrease that stacksize by more 
-                than 1. This makes it possible to add crafting recipes that require 
-                for instance 10 iron ingots (which would normally be impossible
-                because a crafting table only has 9 slots).
-            </li>
-            <li>
                 The <i>Remaining item</i> can be used to replace the ingredient with 
                 another item rather than removing it upon crafting. For instance,
                 you can choose a bucket as the remaining item of a lava bucket
                 ingredient. When the result item is crafted, the lava bucket will be 
-                replaced with an empty bucket rather than disappearing entirely.
+                replaced with an empty bucket rather than disappearing entirely.<br>
+                <b>Note: the Remaining item is basically a <i>result</i>, so when you click on the Change button,
+                you can configure it in the <a href="choose result.html">Choose result menu</a>.</b><br>
+                Empty ingredients can <b>not</b> have a remaining item.
+            </li>
+        </ul>
+        <p>
+            The other buttons can be used to choose the type of ingredient. Currently, this plug-in supports 3
+            types of ingredients:
+        </p>
+        <ul>
+            <li>
+                Custom item ingredients. You can of course use custom items from this plug-in, but you can also use
+                custom items from other plug-ins, 
+                <i>
+                    if these plug-ins have integration with either <a href="https://www.spigotmc.org/resources/mimic.82515/">Mimic</a>
+                    or <a href="https://www.spigotmc.org/resources/itembridge-save-items-and-use-them-wherever-you-want-including-other-plugins-best-w-customitems.77080/">ItemBridge</a>.
+                </i>
+                You could even use custom items from this plug-in via Mimic or ItemBridge, but I recommend against doing that because
+                it would disable some validation checks that might save you someday. (For instance, you will encounter a validation
+                error if you remove a custom item that is still being used as ingredient in a custom crafting recipe, but this won't
+                work if you do it via Mimic or ItemBridge.)
             </li>
             <li>
-                Clicking <i>Custom Item</i> will take you to the 
-                <a href="custom.html">custom item selection menu</a>, where you can 
-                choose a custom item as the ingredient.
+                Vanilla minecraft item ingredients. These can be items and blocks from vanilla minecraft, for instance
+                a stick or a stone. In minecraft 1.12, you can choose from <i>simple</i> vanilla items and vanilla items
+                with a <i>data value</i>. In minecraft 1.12, <i>data values</i> are needed to use for instance colored wool.
+                In minecraft 1.13 and later, minecraft no longer has <i>data values</i> and instead uses a different item/block
+                for each variant.
             </li>
             <li>
-                Clicking <i>Simple vanilla item</i> will take you to the 
-                <a href="simple vanilla.html">simple vanilla item selection menu</a>,
-                where you can choose a simple vanilla item as ingredient (a standard
-                minecraft item like a stick).
-            </li>
-            <li>
-                Clicking <i>Vanilla item with datavalue</i> will take you to the 
-                <a href="vanilla data.html">vanilla item with data selection menu</a>,
-                where you can choose a vanilla item plus a data value as ingredient.
-                Note: this data value is just an integer between 0 and 16 used before 
-                minecraft 1.13 to distinguish things like the different colors of wool.
+                Finally, you can choose to use an <i>Empty</i> ingredient. When you choose an empty ingredient,
+                the corresponding slot must <b>not</b> contain any items. Note: empty ingredients are not allowed in shapeless
+                crafting recipes (if you specify less than 9 ingredients in a shapeless recipe, all other ingredients are
+                implicitly Empty ingredients).
             </li>
         </ul>
     </body>

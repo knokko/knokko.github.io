@@ -74,16 +74,32 @@
                 <li>The maximum durability of the item (can be done with 'Max uses')</li>
             </ul>
             <b>
-                Note: due to technical reasons, there is a limit on the number of 
-                custom items that can have the same internal item type. This limit 
-                is the maximum durability of that item in minecraft
-                (for instance ~60 for wooden tools and 1000+ for diamond tools).
-                If you use diamond tools, it will take a lot of time to reach this 
-                limit, but you might hit this limit when using golden tools.
-                There is an exception to this rule: 2 or more items with the same
-                item type and texture only count as 1 if neither of them has a 
-                custom model.
+                The <i>Other</i> item type
             </b>
+            <p>
+                There is also a special item type called <b>Other</b> that allows you to use any minecraft item. This option is
+                only available for simple custom items, custom block items, and custom food. Furthermore, this option can only 
+                be used when targeting minecraft 1.14 or later. This is the only way you can choose an internal item type that
+                stacks <i>naturally</i>. Using this will typically improve the stacking behavior of custom items. Using this may
+                also cause the item to 'inherit' properties from this item type. For instance, if you choose bread, players can
+                eat it. Unless you <b>want</b> to have such properties, I recommend sticking with flint (as far as I know, this
+                item has no unexpected properties).
+            </p>
+            <p>
+                <b>
+                    Note: due to technical reasons, there is a limit on the number of 
+                    custom items that can have the same internal item type. This limit 
+                    is the maximum durability of that item in minecraft
+                    (for instance ~60 for wooden tools and 1000+ for diamond tools).
+                    If you use diamond tools, it will take a lot of time to reach this 
+                    limit, but you might hit this limit when using golden tools.
+                    For the <i>Other</i> internal item type, this limit is larger than 2billion,
+                    so that won't become a problem.
+                    There is an exception to this rule: 2 or more items with the same
+                    item type and texture only count as 1 if neither of them has a 
+                    custom model.
+                </b>
+            </p>
         </p>
         <h3>Alias</h3>
         <p>
@@ -165,24 +181,13 @@
             to the one who hit the target. I called it on-hit player effects because the attacker will usually
             be a player, but note that it will work just as well when a monster is using a custom item as weapon.
             To change the on-hit player effects or on-hit target effects, click on the corresponding 'Change...' button,
-            which should bring you to the right <a href="effects.html">potion effect overview</a>.
+            which should bring you to the right <a href="chance effects.html">chance potion effect overview</a>.
         </p>
         <h3>Commands</h3>
         <p>
-            The 'commands' of a custom item is a list of commands that players will 'execute' when they right-click with the custom item in hand.
-            Note that the commands will be executed <b>by the player with the permissions of that player</b>. 
-            It is the responsibility of admins to make sure that the players who can obtain the custom item actually have 
-            the right permissions to use its commands.
-            This feature is primarily designed for interaction with other plug-ins (you can let players execute commands from other plug-ins).
-            To change the commands of the custom item, click on the 'Change...' button on the right of 'Commands:'. 
-            That should bring you to the <a href="../../text list.html">text list edit menu</a> where you will be able to type 
-            the commands. The commands 'above' will be executed before the commands 'below'.
-        </p>
-        <p>
-            The drawback of this feature is that nothing prevents players from executing the commands of this custom item without 
-            actually holding the custom item, so this feature turned out to not be as useful as I was hoping when I made it.
-            I'm planning to improve this feature someday but I don't know when. I will make sure that everything that works before those 
-            improvements will continue to work after the improvements, so you can safely use this feature if you find a good use case.
+            The 'commands' of a custom item are the commands that will be executed whenever certain events happen in-game (for 
+            instance right-clicking or attacking mobs). Clicking the 'Change...' button will take you to the
+            <a href="command/events.html">command event list</a>, where you can configure these commands.
         </p>
         <h3>Replace on right-click</h3>
         <p>
@@ -231,6 +236,70 @@
             holds the custom item in survival mode, he will be able to hit other 
             players and monsters from 6 blocks distance rather than the regular
             3 blocks distance.
+        </p>
+        <h3>Automatic updating</h3>
+        <p>
+            Whether item stacks corresponding to this custom item will be modified by the <i>Item Updater</i>
+            (more info below). This is checked by default and you should probably keep it that way.
+        </p>
+        <h4>About the <i>Item Updater</i></h4>
+        <p>
+            Some custom item properties are directly assigned to item stacks in-game. For instance the <i>Display name</i>
+            and the <i>Attribute modifiers</i>. When an item stack for this custom item is created, that item stack will
+            automatically get the display name and attribute modifiers of that item. This is simple, but it gets complicated
+            when you:
+        </p>
+        <ol>
+            <li>Create a custom item with display name "Rubie".</li>
+            <li>You start the server and give a rubie to a player.</li>
+            <li>You realize that you made a typo and you change the display name <i>in the Editor</i> to "Ruby".</li>
+            <li>You save the changes and restart the server.</li>
+        </ol>
+        But what will happen to the item stack you gave to that player <i>before</i> changing the name to "Ruby"?
+        <ul>
+            <li>
+                If <i>Automatic updating</i> is enabled, the display name of that item stack will be changed to "Ruby"
+            </li>
+            <li>
+                If <i>Automatic updating</i> is <i>not</i> enabled, the display name of that item stack will stay "Rubie".
+                (But, if you create a <i>new</i> item stack corresponding to that custom item, its display name will be "Ruby".)
+            </li>
+        </ul>
+        <p>
+            Automatic updating is usually nice, but it can become a problem if you use this custom item as <i>ingredient</i>
+            in a <i>third-party</i> crafting plug-in or allow it to be sold to shopkeepers: such plug-ins usually want the
+            ingredient to be an <i>exact match</i>. So if for instance the display name is changed, it is no longer an exact 
+            match and will therefor no longer be accepted. <b>But even if you do <i>not</i> make any changes in the Editor,
+            this plug-in sometimes does internal bookkeeping in the NBT of custom items, which will also break the exaxt match.
+            So, if you want to use this custom item as ingredient in a <i>third-party</i> crafting recipe, you should probably
+            disable this. Any crafting recipe <i>from this plug-in</i> will <i>always</i> work fine (this plug-in is made for that).</b>
+        </p>
+        <h3>Special melee damage source</h3>
+        <p>
+            The <i>Special melee damage source</i> property makes it possible to customize the melee attack behavior of the
+            custom item. It allows you to let it ignore armor, deal fire damage, and customize the death messages when used to
+            kill a player. See <a href="special melee damage.html">this page</a> for the details.
+        </p>
+        <h3>Attack effects</h3>
+        <p>
+            Attack effects can be used to configure special effects that will happen when a player (or mob) hits someone while
+            using this custom item as weapon. Examples of special effects are knockback/knock-up, potion effects, and setting
+            the target (or attacker) on fire. See <a href="../../attack/effect/group list.html">this page</a> for more
+            information.
+        </p>
+        <h3>Keep on death</h3>
+        <p>
+            Whether this custom item should stay in the inventory whenever a player dies. If you leave this unchecked/disabled, 
+            this custom item will be dropped just like any normal item when the player dies. If you check/enable this, this
+            custom item will stay in the players inventory when the player dies. This property has no effect when the
+            <b>keepInventory</b> gamerule is enabled.
+        </p>
+        <h3>Multi block break</h3>
+        <p>
+            This feature can be used to automatically destroy surrounding blocks when a player destroys a block with this custom
+            item. You can use this to for instance create a 'super pickaxe'. By default, this custom item will <b>not</b>
+            destroy any surrounding blocks. Click the <i>Change...</i> button to configure this feature. See
+            <a href="multi block break.html">this page</a> for more information.
         </p>
     </body>
 </html>

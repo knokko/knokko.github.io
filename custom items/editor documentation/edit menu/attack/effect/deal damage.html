@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8" />
+        <title>Deal damage attack effect menu</title>
+    </head>
+    <body>
+        <p>
+            The deal damage attack effect menu can be used to configure a 'deal damage' attack effect. It should look like this:
+        </p>
+        <img src="deal damage.png" width="50%" />
+        <h3>Damage</h3>
+        <p>
+            The damage that will be dealt to the target. This must be specified in <b>half hearts</b>.
+        </p>
+        <h3>Delay</h3>
+        <p>
+            The delay between the time of the attack and the damage caused by this effect, in <b>ticks</b>. If the target of this 
+            attack effect is the <b>attacker</b>, you can simply use a delay of 1 tick, which will deal damage nearly right after 
+            the attack. If the target of this attack effect is the <b>victim</b>, you probably need a longer delay:
+        </p>
+        <p>
+            Minecraft entities can only take damage ~1 time per second. When they take damage, they become immune to future damage
+            for ~1 second. Any attacks that hit during this time will be ignored completely. Since the <b>victim</b> was already
+            damaged by the attack that triggered this attack effect, it will ignore the damage of this effect if the delay is too
+            short.
+        </p>
+    </body>
+</html>

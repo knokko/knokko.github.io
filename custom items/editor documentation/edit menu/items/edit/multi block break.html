@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8" />
+        <title>Multi block break menu</title>
+    </head>
+    <body>
+        <p>
+            The multi block break menu can be used to configure the <i>multi block break</i> feature of a custom item. This feature
+            makes it possible to destroy surrounding blocks whenever a player destroys a block using this custom item. (For instance
+            destroying all blocks that are adjacent to the broken block.) This menu should look like this:
+        </p>
+        <img src="multi block break.png" width="50%" />
+        <h3>Shape and Size</h3>
+        <p>
+            The <i>shape</i> and <i>size</i> of the surrounding area in which the blocks will be broken. There are currently 2
+            possible shapes:
+        </p>
+        <ul>
+            <li>
+                Cube: the original broken block is considered as the center of a <b>cube</b>. All blocks within this <b>cube</b>
+                will be broken.
+                <ul>
+                    <li>When <i>size</i> = 1, only the original block will be broken.</li>
+                    <li>When <i>size</i> = 2, a 3x3x3 cube will be excavated.</li>
+                    <li>When <i>size</i> = 3, a 5x5x5 cube will be excavated.</li>
+                    <li>When <i>size</i> = 4, a 7x7x7 cube will be excavated...</li>
+                </ul>
+            </li>
+            <li>
+                Manhattan: breaks all blocks whose <i>Manhattan distance</i> to the original broken block is smaller than the 
+                <i>size</i> (specified by you). The Manhattan distance is (distance on x-axis) + (distance on y-axis)
+                + (distance on z-axis).
+                <ul>
+                    <li>When <i>size</i> = 1, only the original block will be broken.</li>
+                    <li>When <i>size</i> = 2, all adjacent blocks will be broken as well.</li>
+                    <li>When <i>size</i> = 3, all blocks that are adjacent to the adjacent blocks will be broken as well.</li>
+                    <li>When <i>size</i> = 4, all blocks that are adjacent to those blocks will be broken as well...</li>
+                </ul>
+            </li>
+        </ul>
+        <h3>Stack durability cost</h3>
+        <p>
+            This is only applicable to breakable custom tools. Consider the case when using the <i>cube shape</i> and <i>size</i> = 2.
+            (So breaking a single block with this custom tool will cause up to 3x3x3 = 27 blocks to be broken.) When you keep this
+            checked/enabled, this will cause the custom tool to loose up to 27 as much durability. When you uncheck/disable this, the 
+            custom tool will always loose the same amount of durability, no matter how many blocks are broken.
+        </p>
+        <b>
+            Note: to prevent abuse, only surrounding blocks of the <i>same type</i> as the original block can be broken. For instance,
+            placing a dirt block adjacent to obsidian and then destroying that dirt block will <b>not</b> destroy the obsidian.
+        </b>
+    </body>
+</html>

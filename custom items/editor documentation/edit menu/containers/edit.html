@@ -42,21 +42,33 @@
             </li>
             <li>
                 <p>
-                    The <b>Vanilla type</b> and <b>Selection icon</b> determine how players can open this
-                    custom container. The Vanilla type must be a container in vanilla minecraft (for instance
-                    a crafting table or furnace). Players can open this custom container by left-clicking the 
-                    vanilla container while sneaking.
+                    The <b>Host</b> block and <b>Selection icon</b> determine how players can open this
+                    custom container. The Host can be a vanilla container, a vanilla block, a custom block, or nothing.
+                    <ul>
+                        <li>
+                            If the host is a vanilla container, players can open the custom container by <b>left</b>-clicking 
+                            the host block while sneaking.
+                        </li>
+                        <li>
+                            If the host is a regular vanilla block or a custom block, players can open the custom container by 
+                            <b>right</b>-clicking the host block (while <b>not</b> sneaking).
+                        </li>
+                        <li>
+                            If there is no host, players can only open this custom container using an appropriate 
+                            <a href="../items/edit/pocket container.html">pocket container</a>.
+                        </li>
+                    </ul>
                 </p>
                 <p>
-                    If multiple custom containers have the same vanilla type, left-clicking while sneaking 
+                    If multiple custom containers have the same host block, interacting with the host block 
                     will instead take the player to a simple inventory menu where they can choose which 
                     container to open. The inventory menu will have an item stack for each of custom container 
-                    with that vanilla type. The Selection icon will determine which item stack will represent
+                    with that host. The Selection icon will determine which item stack will represent
                     the custom container in that menu.
                 </p>
                 <p>
                     Also, the display name of the selection icon will be used as the title of the container 
-                    inventory/menu, regardless of how many containers share the same vanilla type.
+                    inventory/menu, regardless of how many containers share the same host.
                 </p>
                 <p>
                     Click on the 'Change...' button on the right of 'Selection icon:' to choose a selection icon 
@@ -65,8 +77,8 @@
                     selection icon.
                 </p>
                 <p>
-                    The button on the right of 'Vanilla type:' will display the current Vanilla type of the 
-                    container. Click on that button to change the vanilla type to something else.
+                    The 'Change...' button on the right of 'Host: ...' will take you to the 
+                    <a href="host.html">container host selection menu</a>, where you can choose a new host block for this custom container.
                 </p>
             </li>
             <li>

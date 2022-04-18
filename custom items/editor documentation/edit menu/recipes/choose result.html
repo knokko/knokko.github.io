@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8" />
+        <title>Choose result menu</title>
+    </head>
+    <body>
+        <p>
+            The Choose result menu can be used to choose the result of a crafting recipe or container recipe,
+            the dropped item of a mob drop or block drop, or the remaining item of an ingredient. It
+            should look like this:
+        </p>
+        <img src="choose result.png" width="50%" />
+        <p>
+            Clicking the Cancel button will take you back to the menu you came from, <b>without</b>
+            choosing a new result. All other buttons can be used to choose the <i>type</i> of the
+            result. You can choose from 3 types:
+        </p>
+        <ul>
+            <li>
+                Custom item results. You can of course use custom items from this plug-in, but you can also use
+                custom items from other plug-ins, 
+                <i>
+                    if these plug-ins have integration with either <a href="https://www.spigotmc.org/resources/mimic.82515/">Mimic</a>
+                    or <a href="https://www.spigotmc.org/resources/itembridge-save-items-and-use-them-wherever-you-want-including-other-plugins-best-w-customitems.77080/">ItemBridge</a>.
+                </i>
+                You could even use custom items from this plug-in via Mimic or ItemBridge, but I recommend against doing that because
+                it would disable some validation checks that might save you someday. (For instance, you will encounter a validation
+                error if you remove a custom item that is still being used as result in a custom crafting recipe, but this won't
+                work if you do it via Mimic or ItemBridge.)
+            </li>
+            <li>
+                Vanilla minecraft item results. These can be items and blocks from vanilla minecraft, for instance
+                a stick or a stone. In minecraft 1.12, you can choose from <i>simple</i> vanilla items and vanilla items
+                with a <i>data value</i>. In minecraft 1.12, <i>data values</i> are needed to use for instance colored wool.
+                In minecraft 1.13 and later, minecraft no longer has <i>data values</i> and instead uses a different item/block
+                for each variant.
+            </li>
+            <li>
+                An item that is copied from your server. This type of result allows you to copy <i>any item stack</i>
+                from your server and use that as result. Click the corresponding button for more information.
+            </li>
+        </ul>
+    </body>
+</html>

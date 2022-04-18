@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <title>Attack effect group edit page</title>
+    </head>
+    <body>
+        <p>
+            The attack effect group edit page allows you to configure a group of attack effects. It should look like this:
+        </p>
+        <img src="group edit.png" width="50%" />
+        <p>
+            An attack effect group consists of:
+        </p>
+        <ul>
+            <li>A list of attack effects that will be applied to the <b>attacker</b>.</li>
+            <li>A list of attack effects that will be applied to the <b>victim</b>.</li>
+            <li>
+                The chance that the attack effects will be applied. If the chance is smaller than 100%, it is possible that
+                none of the attack effects in this group will be apllied during an attack. For instance, if the chance is 20%,
+                only 20% of all attacks with this custom weapon will activate the attack effects in this group. In the remaining
+                80% of the attacks, nothing special will happen.
+            </li>
+            <li>
+                The original damage threshold. If the <i>original damage</i> of the attack (<b>before</b> considering armor damage reduction)
+                is lower than the original damage threshold, none of the attack effects in this group will be activated. 
+                This property can be used to ignore weak attacks. If the original damage threshold is 0, all attack effects will
+                be activated like usual, regardless of the strength of the attack.
+            </li>
+            <li>
+                The final damage threshold. If the <i>final damage</i> of the attack (<b>after</b> considering armor damage reduction)
+                is lower than the final damage threshold, none of the attack effects in this group will be activated.
+                This property can be used to ignore weak attacks. If the final damage threshold is 0, all attack effects will
+                be activated like usual, regardless of the strength of the attack.
+                <b>
+                    Note: if an attack is blocked by a shield, the final damage is always 0. So if you are configuring blocking
+                    effects, you should always keep the final damage threshold 0!
+                </b>
+            </li>
+        </ul>
+    </body>
+</html>

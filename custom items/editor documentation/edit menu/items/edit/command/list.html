@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <title>Command list</title>
+    </head>
+    <body>
+        <p>
+            The command list can be used to configure the commands that will be executed if the corresponding <i>event</i> occurs for 
+            the corresponding custom item. It should look like this:
+        </p>
+        <img src="list.png" width="50%" />
+        <h3>Available substitutions</h3>
+        <p>
+            The top of the page shows which <i>substitutions</i> are available for this event. The available substitutions differ
+            per event, but the first 8 substitutions (<b>%player_name%</b>, <b>%world_name%</b>, ...) are available for all events.
+            Substitutions are special text patterns that you can put inside commands, and will be replaced with something else when the 
+            command is executed. For instance, the substitution <b>%player_name%</b> will be replaced with the name of the player that 
+            holds the custom item. So if you would configure the command to be <b>give %player_name% stick</b> and player <i>knokko</i> 
+            uses the custom item, the final command will be <b>give knokko stick</b>, which will give knokko a single stick.
+        </p>
+        <h3>General buttons</h3>
+        <ul>
+            <li>
+                The 'Cancel' button will take you back to the <a href="events.html">command event list</a> and <b>discard</b> all 
+                changes you made on this page.
+            </li>
+            <li>
+                The 'Apply' button will take you back to the <a href="events.html">command event list</a> and <b>keep</b> all changes 
+                you made on this page.
+            </li>
+            <li>
+                The 'Add new' button will add a new empty command. You need to configure this command before you click 'Apply'.
+            </li>
+        </ul>
+        <h3>Per-command properties</h3>
+        <p>
+            For each command, you can configure the following properties:
+            <ul>
+                <li>
+                    The raw command that will be executed. This is the upper text edit field.
+                </li>
+                <li>
+                    The entity that should execute the command. This can be either the <b>console</b> or the <b>player</b>. If you 
+                    choose to use the <b>player</b>, you need to ensure that the player will have the right permissions to execute the 
+                    command! You can change this command executor by clicking the (Console) button on the bottom-left.
+                </li>
+                <li>
+                    The chance that the command will be executed (the percentage). You <b>are allowed</b> to use non-integer chances
+                    as well as integer chances. If you keep it 100%, the command will always be executed when the event occurs.
+                </li>
+                <li>
+                    The cooldown of the command, in <b>ticks</b>. 1 second = 20 ticks! For instance, when the cooldown is 100 ticks
+                    and the event occurs, the command can only be executed once every 5 seconds. Players can <b>not</b> use multiple 
+                    item stacks of this custom item to bypass the cooldown (all item stacks of the same custom item share the same 
+                    cooldown).
+                </li>
+                <li>
+                    <i>Activate cooldown when chance fails</i>. This property is only relevant when the chance is smaller than 100% and 
+                    the cooldown is larger than 0. It determines what happens when the event occurs, but the command is not executed 
+                    due to the <i>Chance</i>. Consider the case when the chance is 50% and the cooldown is 100 ticks. When the event
+                    occurs, there is 50% that the command will be executed. If the command is executed, it can't be executed again
+                    during the next 5 seconds, regardless of whether this checkbox is checked. When the command is <b>not executed</b>,
+                    this checkbox determines what will happen:
+                    <ul>
+                        <li>
+                            If the checkbox is checked, the command can <b>not</b> be executed during the next 5 seconds.
+                        </li>
+                        <li>
+                            If the checkbox is <b>not</b> checked, the command can still be executed if the event occurs again within
+                            5 seconds.
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+        </p>
+    </body>
+</html>

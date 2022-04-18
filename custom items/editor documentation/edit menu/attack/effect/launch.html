@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8" />
+        <title>Launch attack effect menu</title>
+    </head>
+    <body>
+        <p>
+            The launch attack effect menu can be used to configure a <i>launch</i> attack effect. Launch attack effect will launch
+            the target in a specified direction. (For instance, it could knock the target up or knock the target away.) This menu
+            should look like this:
+        </p>
+        <img src="launch.png" width="50%" />
+        <h3>Direction</h3>
+        <p>
+            The button on the right of <i>Direction:</i> can be used to configure the direction to which the target will be launched.
+            The options are:
+            <ul>
+                <li>UP: The target will be knocked upwards (or downwards if you choose a negative speed).</li>
+                <li>
+                    ATTACK: The target will be knocked in the direction of the attack. If the target is the victim, the victim will be
+                    knocked <i>away from</i> the attacker. If the target is the attacker, the attacker will be knocked <i>towards</i>
+                    the victim. (At least, if you use a positive speed. If you use a negative speed, the direction will be inverted.)
+                </li>
+                <li>
+                    ATTACK_HORIZONTAL: Works similarly to ATTACK, but the target will <b>never</b> be knocked up or down, even if the
+                    attacker is above or below the victim.
+                </li>
+                <li>
+                    ATTACK_SIDE: The target will be knocked left or right. (The choice between left and right is made randomly during
+                    each attack.)
+                </li>
+            </ul>
+        </p>
+        <h3>Speed</h3>
+        <p>
+            The speed is basically the 'knockback strength': The higher the speed, the further the knockback/knock-up. Using a negative
+            speed will cause the target to be pushed in the opposite of the chosen <i>Direction</i>. The speed should be specified in
+            meters per tick (1 minecraft block is 1x1x1 meter big and 1 second = 20 ticks). I think the easiest way to determine the
+            right speed is by experimenting with different values.
+        </p>
+    </body>
+</html>
