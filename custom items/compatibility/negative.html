@@ -52,11 +52,16 @@
             especially if they also have custom textures. If that other plug-in uses the same 
             mechanism for custom textures as this one, weird effects can occur.
         </p>
-        <h3>Worldguard</h3>
+        <h3><a href="https://www.spigotmc.org/resources/excellentcrates-advanced-custom-crates.48732/">ExcellentCrates</a></h3>
         <p>
-            Custom containers that are inside protected WorldGuard regions will not 
-            be protected (unless you make sure players can't get close to the custom 
-            container).
+            When using a custom item from this plug-in as crate key, it may or may not happen that it will lose its texture and
+            its custom item properties upon restarting the server. I don't know why or under which circumstances this happens,
+            but this is how you can prevent it from happening: Add <b>PublicBukkitValues.excellentcrates:crate_key.id = THE_KEY_NAME</b>
+            to the extra NBT of the custom item, for instance:
+        </p>
+        <img src="excellent_crates_work_around.png" width="90%" />
+        <p>
+            (In this example, the name of the key is <b>oy_kasasi_anahtari</b>)
         </p>
     </body>
 </html>
