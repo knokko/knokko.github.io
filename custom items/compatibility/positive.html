@@ -59,6 +59,51 @@ MobName:
             If crazy enchantments is not installed, nothing will happen, except a 
             message in the console stating that crazy enchantments doesn't seem to be installed.
         </p>
+        <h3><a href="https://github.com/SkriptLang/Skript/">Skript</a></h3>
+        <p>
+            Custom items and custom blocks can be used in Skripts.
+            <h4>Conditions</h4>
+            <ul>
+                <li>%block% is [a] kci %string%</li>
+                <li>%block% (isn't|is not) [a] kci %string%</li>
+                <li>%itemstack% is [a] kci %string%</li>
+                <li>%itemstack% (is not|isn't) [a] kci %string%</li>
+            </ul>
+            <h4>Effects</h4>
+            <ul>
+                <li>give [a] kci %string% to %player%</li>
+                <li>give %integer% kci %string% to %player%</li>
+                <li>place kci %string% at %block%</li>
+                <li>put [a] kci %string% in %slot%</li>
+                <li>put %integer% kci %string% in %slot%</li>
+            </ul>
+            <h4>Expressions</h4>
+            <ul>
+                <li>kci name of %block%</li>
+                <li>kci name of %itemstack%</li>
+            </ul>
+            <h4>Examples</h4>
+            <textarea readonly cols="60" rows="20">
+on rightclick:
+    if event-item is kci "cube1":
+        broadcast "Right-clicked cube1"
+    if event-item is stick:
+        broadcast "Clicked block is"
+        broadcast kci name of event-block
+    if event-block is kci "custom_block":
+        broadcast "Clicked on the custom block"
+    if event-item is blaze rod:
+        put 3 kci "cube2" in slot 7 of event-player
+    if event-item is wooden pickaxe:
+        give kci "manhattan2" to event-player
+    if event-item is golden axe:
+        place kci "custom_block" at event-block
+
+on leftclick:
+    broadcast "Left clicked with"
+    broadcast kci name of event-item
+            </textarea>
+        </p>
         <h3><a href="https://www.spigotmc.org/resources/ultra-chests-an-interactive-reward.44360/">Ultra Chest</a></h3>
         <p>
             This plug-in has small changes that allow users to use custom items from this plug-in in 
