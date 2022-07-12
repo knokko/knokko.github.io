@@ -60,50 +60,96 @@ MobName:
             message in the console stating that crazy enchantments doesn't seem to be installed.
         </p>
         <h3><a href="https://github.com/SkriptLang/Skript/">Skript</a></h3>
-        <p>
-            Custom items and custom blocks can be used in Skripts.
-            <h4>Conditions</h4>
-            <ul>
-                <li>%block% is [a] kci %string%</li>
-                <li>%block% (isn't|is not) [a] kci %string%</li>
-                <li>%itemstack% is [a] kci %string%</li>
-                <li>%itemstack% (is not|isn't) [a] kci %string%</li>
-            </ul>
-            <h4>Effects</h4>
-            <ul>
-                <li>give [a] kci %string% to %player%</li>
-                <li>give %integer% kci %string% to %player%</li>
-                <li>place kci %string% at %block%</li>
-                <li>put [a] kci %string% in %slot%</li>
-                <li>put %integer% kci %string% in %slot%</li>
-            </ul>
-            <h4>Expressions</h4>
-            <ul>
-                <li>kci name of %block%</li>
-                <li>kci name of %itemstack%</li>
-            </ul>
-            <h4>Examples</h4>
-            <textarea readonly cols="60" rows="20">
+        Custom items and custom blocks can be used in Skripts.
+        <h4>Conditions</h4>
+        <ul>
+            <li>%block% is [a] kci block</li>
+            <li>%block% is [a] kci %string%</li>
+            <li>%block% (isn't|is not) [a] kci block</li>
+            <li>%block% (isn't|is not) [a] kci %string%</li>
+            <li>%itemstack% is [a] kci item</li>
+            <li>%itemstack% is [a] kci %string%</li>
+            <li>%itemstack% (is not|isn't) [a] kci item</li>
+            <li>%itemstack% (is not|isn't) [a] kci %string%</li>
+        </ul>
+        <h4>Effects</h4>
+        <ul>
+            <li>give [a] kci %string% to %player%</li>
+            <li>give %integer% kci %string% to %player%</li>
+            <li>place kci %string% at %block%</li>
+            <li>put [a] kci %string% in %slot%</li>
+            <li>put %integer% kci %string% in %slot%</li>
+        </ul>
+        <h4>Expressions</h4>
+        <ul>
+            <li>kci name of %block%</li>
+            <li>kci name of %itemstack%</li>
+        </ul>
+        <h4>Examples</h4>
+        <textarea readonly cols="150" rows="22">
 on rightclick:
-    if event-item is kci "cube1":
-        broadcast "Right-clicked cube1"
-    if event-item is stick:
-        broadcast "Clicked block is"
-        broadcast kci name of event-block
-    if event-block is kci "custom_block":
-        broadcast "Clicked on the custom block"
-    if event-item is blaze rod:
-        put 3 kci "cube2" in slot 7 of event-player
-    if event-item is wooden pickaxe:
-        give kci "manhattan2" to event-player
-    if event-item is golden axe:
+    if event-block is dirt:
+        if event-item is a kci item:
+            broadcast "You right-clicked dirt with a custom item named "
+            broadcast kci name of event-item
+    if event-block is stone:
+        if event-item is kci "cube1":
+            broadcast "You right-clicked a stone with a cube1 (this is a custom item I use for testing)."
+    if event-block is a kci "custom_block":
+        broadcast "You right-clicked a kci custom block named 'custom_block' (I literally called the block 'custom_block')"
+        put 2 kci "cube2" in slot 5 of event-player
+    if event-block is cobblestone:
         place kci "custom_block" at event-block
+        broadcast "Right-clicking cobblestone replaces it with custom_block"
 
 on leftclick:
-    broadcast "Left clicked with"
-    broadcast kci name of event-item
-            </textarea>
-        </p>
+    if event-block is kci block:
+        broadcast "You left-clicked a custom block. Take this as a reward!"
+        give kci "cube1" to event-player
+
+        </textarea>
+        <h3><a href="https://github.com/DenizenScript/Denizen">Denizen</a></h3>
+        Custom items and custom blocks can be used in Denizen scripts. Unfortunately, the Denizen VS Code extensions
+        doesn't recognize them, so you will get some warnings and errors, which you should ignore.
+        <h4>Tags</h4>
+        <ul>
+            <li>ItemTag.is_kci_item: returns true if and only if the item is a custom item from this plug-in</li>
+            <li>ItemTag.kci_item_name: returns the name of the custom item, or null if the item is not a custom item</li>
+            <li>LocationTag.is_kci_block: returns true if and only if there is a custom block at the location</li>
+            <li>
+                LocationTag.kci_block_name: returns the name of the custom block at the location, 
+                or null if there is no custom block at the location
+            </li>
+            <li>&ltkci_items[custom_item_name]&gt: creates and returns a custom item (stack) from the custom item with the given name</li>
+            <li>&ltkci_items[custom_item_name*amount]&gt: creates a custom item stack of <b>amount</b> custom items with the given name</li>
+        </ul>
+        <h4>Commands</h4>
+        <ul>
+            <li>kci place [block_name:&ltstring&gt] (at destination:&ltlocation&gt)</li>
+        </ul>
+        <h4>Examples</h4>
+        <textarea readonly cols="150" rows="22">
+test_event_handler:
+    type: world
+    events:
+        after player right clicks dirt:
+            - if &ltcontext.item.is_kci_item&gt:
+            - narrate "You right-clicked dirt with a custom item named &ltcontext.item.kci_item_name>."
+        after player right clicks stone:
+            - if &ltcontext.item.kci_item_name&gt == cube1:
+            - narrate "You right-clicked a stone with a cube1 (this is a custom item I use for testing)."
+        after player left clicks block:
+            - if &ltcontext.location.is_kci_block&gt:
+            - narrate "You left-clicked a custom block. Take this as a reward!"
+            - give &ltkci_items[cube1]&gt
+        after player right clicks block:
+            - if &ltcontext.location.kci_block_name&gt == custom_block:
+            - narrate "You right-clicked a kci custom block named 'custom_block' (I literally called the block 'custom_block')"
+            - inventory set o:&ltkci_items[cube2*2]&gt slot:5
+        after player right clicks cobblestone:
+            - kci place custom_block at &ltcontext.location&gt
+            - narrate "Right-clicking cobblestone replaces it with custom_block"
+        </textarea>
         <h3><a href="https://www.spigotmc.org/resources/ultra-chests-an-interactive-reward.44360/">Ultra Chest</a></h3>
         <p>
             This plug-in has small changes that allow users to use custom items from this plug-in in 
