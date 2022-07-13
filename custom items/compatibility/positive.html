@@ -79,6 +79,9 @@ MobName:
             <li>place kci %string% at %block%</li>
             <li>put [a] kci %string% in %slot%</li>
             <li>put %integer% kci %string% in %slot%</li>
+            <li>%player% opens kci %string% at %string%</li>
+            <li>destroy kci %string% at %string%</li>
+            <li>destroy kci %string% at %string% and drop its items at %location%</li>
         </ul>
         <h4>Expressions</h4>
         <ul>
@@ -86,7 +89,7 @@ MobName:
             <li>kci name of %itemstack%</li>
         </ul>
         <h4>Examples</h4>
-        <textarea readonly cols="150" rows="22">
+        <textarea readonly cols="150" rows="30">
 on rightclick:
     if event-block is dirt:
         if event-item is a kci item:
@@ -107,6 +110,13 @@ on leftclick:
         broadcast "You left-clicked a custom block. Take this as a reward!"
         give kci "cube1" to event-player
 
+on rightclick on a pig:
+    if event-item is stick:
+        event-player opens kci "per_location" at uuid of clicked entity
+    if event-item is cactus:
+        destroy kci "per_location" at uuid of clicked entity
+    if event-item is sand:
+        destroy kci "per_location" at uuid of clicked entity and drop its items at event-location
         </textarea>
         <h3><a href="https://github.com/DenizenScript/Denizen">Denizen</a></h3>
         Custom items and custom blocks can be used in Denizen scripts. Unfortunately, the Denizen VS Code extensions
@@ -120,35 +130,43 @@ on leftclick:
                 LocationTag.kci_block_name: returns the name of the custom block at the location, 
                 or null if there is no custom block at the location
             </li>
-            <li>&ltkci_items[custom_item_name]&gt: creates and returns a custom item (stack) from the custom item with the given name</li>
-            <li>&ltkci_items[custom_item_name*amount]&gt: creates a custom item stack of <b>amount</b> custom items with the given name</li>
+            <li>&lt;kci_items[custom_item_name]&gt;: creates and returns a custom item (stack) from the custom item with the given name</li>
+            <li>&lt;kci_items[custom_item_name*amount]&gt;: creates a custom item stack of <b>amount</b> custom items with the given name</li>
         </ul>
         <h4>Commands</h4>
         <ul>
-            <li>kci place [block_name:&ltstring&gt] (at destination:&ltlocation&gt)</li>
+            <li>kci place [block_name:&lt;string&gt;] (at destination:&lt;location&gt;)</li>
+            <li>kci_container [player_name:&lt;player&gt;] opens [container_name:&lt;string&gt;] at [host_string:&lt;string&gt;]</li>
+            <li>kci_container destroy [container_name:&lt;string&gt;] at [host_string:&lt;string&gt;] (and drop items at [drop_location:&lt;location&gt;])</li>
         </ul>
         <h4>Examples</h4>
-        <textarea readonly cols="150" rows="22">
+        <textarea readonly cols="150" rows="30">
 test_event_handler:
     type: world
     events:
         after player right clicks dirt:
-            - if &ltcontext.item.is_kci_item&gt:
-            - narrate "You right-clicked dirt with a custom item named &ltcontext.item.kci_item_name>."
+            - if &lt;context.item.is_kci_item&gt;:
+            - narrate "You right-clicked dirt with a custom item named &lt;context.item.kci_item_name>."
         after player right clicks stone:
-            - if &ltcontext.item.kci_item_name&gt == cube1:
+            - if &lt;context.item.kci_item_name&gt; == cube1:
             - narrate "You right-clicked a stone with a cube1 (this is a custom item I use for testing)."
         after player left clicks block:
-            - if &ltcontext.location.is_kci_block&gt:
+            - if &lt;context.location.is_kci_block&gt;:
             - narrate "You left-clicked a custom block. Take this as a reward!"
-            - give &ltkci_items[cube1]&gt
+            - give &lt;kci_items[cube1]&gt;
         after player right clicks block:
-            - if &ltcontext.location.kci_block_name&gt == custom_block:
+            - if &lt;context.location.kci_block_name&gt; == custom_block:
             - narrate "You right-clicked a kci custom block named 'custom_block' (I literally called the block 'custom_block')"
-            - inventory set o:&ltkci_items[cube2*2]&gt slot:5
+            - inventory set o:&lt;kci_items[cube2*2]&gt; slot:5
         after player right clicks cobblestone:
-            - kci place custom_block at &ltcontext.location&gt
+            - kci place custom_block at &lt;context.location&gt;
             - narrate "Right-clicking cobblestone replaces it with custom_block"
+        after player right clicks pig with:stick:
+            - kci_container &lt;player&gt; opens per_location at &lt;context.entity.uuid&gt;
+        after player right clicks pig with:cactus:
+            - kci_container destroy per_location at &lt;context.entity.uuid&gt;
+        after player right clicks pig with:sand:
+            - kci_container destroy per_location at &lt;context.entity.uuid&gt; and drop items at &lt;context.location&gt;
         </textarea>
         <h3><a href="https://www.spigotmc.org/resources/ultra-chests-an-interactive-reward.44360/">Ultra Chest</a></h3>
         <p>
