@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8" />
+        <title>Glide velocity modifier</title>
+    </head>
+    <body>
+        <p>
+            This menu can be used to modify a single glide velocity modifier of a custom elytra. It consists of several
+            <i>requirements</i> and any number of <i>accelerations</i>. This menu should look like this:
+        </p>
+        <img src="elytra_glide_modifier.png" width="50%" />
+        <h2>Requirements</h2>
+        <p>
+            The <i>requirements</i> determine in which circumstances the <i>accelerations</i> will be activated. If any of
+            the requirements is not satisfied, the accelerations will <b>not</b> be activated. One way to use the requirements
+            is to only activate the accelerations while the player is looking up, but there are many more ways in which
+            they can be used.
+        </p>
+        <h3>Minimum and maximum pitch</h3>
+        <p>
+            The <i>pitch</i> is the angle at which the player is looking. A pitch of 90 degrees indicates that the player is
+            looking straight to the sky and a pitch of -90 degrees indicates that the player is looking straight to the
+            ground. A pitch of 0 degrees indicates that the player is looking at the horizon. The accelerations will only
+            be activated while the pitch of the player is between the <i>Minimum pitch</i> and the <i>Maximum pitch</i>.
+            The default values are -30 degrees and 30 degrees, which requires the players pitch to be between -30 degrees
+            and 30 degrees. This is also required for vanilla elytra to function properly.
+        </p>
+        <h3>Minimum and maximum vertical velocity</h3>
+        <p>
+            The <i>vertical velocity</i> is the speed at which the player is falling/descending or climbing/ascending.
+            It is given in meters/tick, where 1 meter per tick is basically 20 blocks per second (quite fast). A negative
+            vertical velocity indicates that the player is descending/falling and a positive velocity indicates that the
+            player is ascending/climbing. The accelerations will only be activated if the vertical velocity of the player
+            is between <i>Minimum vertical velocity</i> and <i>Maximum vertical velocity</i>. The most straightforward
+            usecase for this requirement is to activate the accelerations only when the player is ascending or only when
+            the player is descending.
+        </p>
+        <h3>Minimum and maximum horizontal velocity</h3>
+        <p>
+            The <i>horizontal velocity</i> is the speed at which the player is moving forward. It is given in meters/tick,
+            where 1 meter per tick is basically 20 blocks per second. Unlike the <i>vertical</i> velocity, the 
+            <i>horizontal</i> velocity is never negative. The accelerations will only be activated if the horizontal
+            velocity of the player is between the <i>Minimum horizontal velocity</i> and the 
+            <i>Maximum horizontal velocity</i>. This requirement is especially useful for forward accelerations, to prevent
+            the player from going too fast.
+        </p>
+        <h2>Accelerations</h2>
+        <p>
+            The accelerations will <i>accelerate</i> the player in some direction. For instance, it can increase or
+            decrease the speed of the player. It could also be used to help the playing with ascending. Each acceleration
+            will be executed once per tick (so 20 times per second) <b>if</b> all <i>requirements</i> are satisfied. Each
+            acceleration has a <i>source axis</i>, a <i>target axis</i>, and a <i>factor</i> and each one is written
+            down as <b>Increase <i>target axis</i> velocity by <i>factor</i> * <i>source axis</i> velocity</b>. 
+        </p>
+        <p>
+            In the example shown in the screenshot, the <i>horizontal velocity</i> is increased by 0.5 * the 
+            <i>vertical velocity</i>, which will happen 20 times per second. When the player is falling, this would
+            dramatically slow the player down because the vertical velocity is negative while falling. When the player
+            is climbing, this would instead speed the player up. Note that 0.5 is a pretty large value because
+            <b>the accelerations are executed 20 times per second</b>.
+        </p>
+    </body>
+</html>
