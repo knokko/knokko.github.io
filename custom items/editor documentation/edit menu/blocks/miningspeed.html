@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8" />
+        <title>Mining speed menu</title>
+    </head>
+    <body>
+        <p>
+            The mining speed menu can be used to configure how much time it takes to break a custom block using
+            a given tool. It should look like this:
+        </p>
+        <img src="miningspeed.png" width="50%" />
+        <h2>Mining speed value</h2>
+        <p>
+            The <i>mining speed value</i> must be an integer between -4 and 25, where a value of -4 makes the block
+            nearly unbreakable, and a value of 25 lets the player break it instantly. When you choose a negative
+            value, the player will get mining fatique while breaking the block. When you choose a positive value,
+            the player will get haste while breaking the block. When the value is 0, the player won't get any
+            potion effects. The value directly corresponds to the level of fatique/haste: using value = -3 will give
+            players mining fatique 3 and using value = 10 will give players haste 10. An impression of the resulting
+            block break times are given below:
+        </p>
+        <ul>
+            <li>
+                Value = -4: the block becomes nearly unbreakable (like breaking obsidian without diamond pickaxe)
+            </li>
+            <li>
+                Value = -3: it will take a lot of time to break the block (this is not comparable to any vanilla block)
+            </li>
+            <li>
+                Value = -2: it will take a rather long time to break the block (like breaking stone without a pickaxe)
+            </li>
+            <li>
+                Value = -1: it will take a rather short time to break the block (like breaking stone with a stone pickaxe)
+            </li>
+            <li>
+                Value = 0: it will take a short time to break the block (like breaking stone with a diamond pickaxe)
+            </li>
+            <li>
+                1 &lt;= Value &lt;= 20: it will take slightly less time with each extra level
+            </li>
+            <li>
+                20 &lt; Value &lt;= 25: the block will be broken (almost) instantly
+            </li>
+        </ul>
+        <h2>Mining speed per item</h2>
+        <p>
+            You can configure the mining speed per item. (For instance, you can give pickaxes higher 
+            <i>mining speed values</i>.)
+        </p>
+        <h3>Default mining speed</h3>
+        <p>
+            The default mining speed (on the left) is the <i>mining speed value</i> that will be used when none
+            of the items on either of the lists on the right are used.
+        </p>
+        <h3>Vanilla items mining speed</h3>
+        <p>
+            The middle column is designated to the mining speed for vanilla minecraft items. Using the green + button,
+            you can add an entry for any vanilla minecraft item. Each entry has a vanilla item type, a value (the text
+            field), and a checkbox to determine whether custom items with that vanilla item type are also allowed.
+            If a player tries to break the block with an item in the list, the <i>mining speed value</i> for that item
+            will be used instead of the default mining speed. An example is shown below:
+        </p>
+        <img src="vanilla miningspeed example.png" width="50%" />
+        <h3>Custom item mining speed</h3>
+        <p>
+            The right column is designated to the mining speed for custom items. This is equivalent to the vanilla item
+            mining speed column, except that it is for custom items rather than vanilla items.
+        </p>
+    </body>
+</html>
