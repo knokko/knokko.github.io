@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8" />
+        <title>Tree generator edit menu</title>
+    </head>
+    <body>
+        <p>
+            The tree generator edit menu can be used to edit tree generators. It should look like this:
+        </p>
+        <img src="edit.png" width="50%" />
+        <p>
+            A tree generator is a world generation process that will attempt to spawn some number of customized
+            trees in some chunks. You can specify the shape of the tree, as well as which block(s) should be used
+            for the logs and which block(s) should be used for the leaves (if applicable). Furthermore, you can
+            specify in which biome(s) the tree can spawn and how many should be spawned. Each option will be
+            explained in more detail below.
+        </p>
+        <h3>Tree shape</h3>
+        <p>
+            The tree shape determines the shape of the tree, as well as on which blocks the tree can be
+            spawned (most tree shapes can only be spawned on grass or dirt).
+        </p>
+        <h3>Allowed biomes</h3>
+        <p>
+            The biomes in which the tree can be spawned. Note: the plug-in only ensures that the <i>log</i> of the
+            tree will be in one of the allowed biomes, but the leaves may be placed in another biome if the log is
+            very close to another biome.
+        </p>
+        <h3>Log material</h3>
+        <p>
+            The block(s) that will be used to create the <i>log</i> of the tree.
+        </p>
+        <h3>Leaves material</h3>
+        <p>
+            The block(s) that will be used to create the <i>leaves</i> of the tree. If the <i>tree shape</i>
+            doesn't have leaves, this will be ignored.
+        </p>
+        <h3>Chance</h3>
+        <p>
+            For each chunk, this is the chance that this generator will <b>not</b> skip the chunk.
+        </p>
+        <h3>Minimum/maximum number of trees/attempts</h3>
+        <p>
+            These properties determine how many trees the generator will spawn on each chunk. For each chunk, the
+            generator will determine the <i>desired</i> number of trees, which will be a random integer between
+            the <i>minimum</i> number of trees and the <i>maximum</i> number of trees. The generator will keep
+            doing tree spawn <i>attempts</i> until it has either spawned the <i>desired</i> number of trees or
+            has reached the maximum number of <i>attempts</i>. In each attempt, the generator will pick a random
+            X-coordinate and a random Z-coordinate, and attempt to place a tree on top of the highest non-empty block
+            at these coordinates. The attempt will fail if:
+        </p>
+        <ul>
+            <li>The highest block is not the right block. (For instance, no trees can be spawned on top of stone.)</li>
+            <li>There is no space for the tree. (For instance, there is a house or another tree nearby.)</li>
+            <li>The location is not in one of the <i>Allowed biomes</i>.</li>
+            <li>Maybe there are other causes of which I'm not aware.</li>
+        </ul>
+    </body>
+</html>

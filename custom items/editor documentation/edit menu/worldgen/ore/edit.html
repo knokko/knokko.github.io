@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8" />
+        <title>Ore vein generator menu</title>
+    </head>
+    <body>
+        <p>
+            The ore vein generator menu can be used to create or edit an ore vein generator. It should look
+            like this:
+        </p>
+        <img src="edit.png" width="50%" />
+        <p>
+            An ore vein generator will attempt to replace some <i>Blocks to replace</i> with some <i>Ore blocks</i>,
+            where you can choose which blocks these are, as well as how many veins to spawn and how big those veins
+            should be. Each of these properties will be explained in more detail below.
+        </p>
+        <h3>Blocks to replace</h3>
+        <p>
+            Veins of ore always need to <b>replace</b> existing blocks. For instance, coal ore and iron ore will
+            replace stone, while quartz ore will replace netherrack. You can choose which block(s) you want to
+            replace by your <i>Ore blocks</i>.
+        </p>
+        <h3>Allowed biomes</h3>
+        <p>
+            The biomes in which the <i>Ore blocks</i> can be generated. Veins can't be started in forbidden biomes, nor
+            can they grow into forbidden biomes.
+        </p>
+        <h3>Ore blocks</h3>
+        <p>
+            The blocks by which the <i>Blocks to replace</i> should be replaced. For instance, vanilla ore blocks are
+            coal ore, iron ore, diamond ore... You can choose any custom block or vanilla block(s) you want. If you
+            choose multiple, you can get <i>mixed</i> veins.
+        </p>
+        <h3>Minimum/maximum Y-coordinate</h3>
+        <p>
+            The ore blocks will only be spawned on blocks whose Y-coordinate is between the minimum and maximum
+            Y-coordinate. Note: when the difference between the minimum and maximum Y-coordinate is large, the
+            veins will typically be further apart from each other.
+        </p>
+        <h3>Chance</h3>
+        <p>
+            For each chunk, this is the chance that the ore vein generator will <b>not</b> skip the chunk.
+        </p>
+        <h3>Number of vein( attempt)s</h3>
+        <p>
+            These 3 properties determine how many veins of ore the generator will (attempt to) spawn per chunk.
+            For each chunk, the generator will randomly choose a <i>desired</i> number of veins between
+            the <i>minimum</i> number of veins and the <i>maximum</i> number of veins. It will attempt to
+            spawn this number of veins, but this may or may not be possible (for instance when the chunk
+            is in the wrong biome or none of the <i>Blocks to replace</i> can be found). It will do at most
+            <i>Maximum number of vein attempts</i> to spawn a vein of ore. In each attempt, it will try to
+            start a vein of ore in a random position between the minimum and maximum Y-coordinate. The vein
+            will be considered a success if the first ore block is placed.
+        </p>
+        <h3>Vein size & grow attempts</h3>
+        <p>
+            These 3 properties determine how big each vein will be. For each vein, the generator will randomly
+            choose a <i>desired</i> vein size between the <i>minimum</i> vein size and the <i>maximum</i>
+            vein size. It will attempt to create a vein of this size, but this may or may not be possible
+            (for instance because there is too much gravel or granite near the vein). It will do at most
+            <i>Maximum number of grow attempts</i> to increment the size of the vein. It will start in the
+            first block, and during each grow attempt, it will move in a random direction and attempt to place
+            an ore block at its new location.
+        </p>
+    </body>
+</html>
