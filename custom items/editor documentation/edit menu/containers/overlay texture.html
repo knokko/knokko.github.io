@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8" />
+        <title>Container overlay texture menu</title>
+    </head>
+    <body>
+        <p>
+            The container overlay texture menu can be used to view the current overlay texture of a custom container,
+            replace it, or generate a template texture for it. If you haven't chosen an overlay texture yet, this menu
+            should look like this:
+        </p>
+        <img src="overlay texture none.png" width="50%" />
+        <p>
+            But if you <i>did</i> choose an overlay texture, it should look like this instead:
+        </p>
+        <img src="overlay texture.png" width="50%" />
+        <h2>Buttons</h2>
+        <h3>Back</h3>
+        <p>
+            The <i>Back</i> button will take you back to the <a href="edit.html">container edit menu</a>.
+        </p>
+        <h3>Save to file</h3>
+        <p>
+            The <i>Save to file</i> button will save the current overlay texture of the custom container to the file
+            <b>Custom Item Sets/containers/CONTAINER NAME/overlay.png</b>. After the file was saved, it should
+            automatically be opened in your default image editor program. This can be useful if you would like to
+            make small changes to the overlay texture. (This button is only visible if the current container has an
+            overlay texture.) <b>This button is very useful in combination with the 
+            <i>Choose saved file as overlay texture</i> button.</b>
+        </p>
+        <h3>Generate template</h3>
+        <p>
+            The <i>Generate template</i> button will create a <i>template overlay texture</i> for the custom container
+            at the file <b>Custom Item Sets/containers/CONTAINER NAME/template.png</b>. After generating the template,
+            it should automatically be opened in your default image editor program. The template is a very simple
+            'example' overlay texture that shows you where the edges of the custom container and its slots are, which
+            should make it easy for you to edit. <b>This button is very useful in combination with the 
+            <i>Choose template file as overlay texture</i> button.</b>
+        </p>
+        <h3>Choose overlay texture...</h3>
+        <p>
+            The <i>Choose overlay texture...</i> button will open the file chooser menu, where you can choose the
+            overlay texture for the custom container. While this is possible, it is usually more convenient to use
+            the <i>Choose template file as overlay</i> button or the <i>Choose saved file as overlay texture</i>
+            button.
+        </p>
+        <h3>Choose template file as overlay texture</h3>
+        <p>
+            Chooses the image stored at the template file location (Custom Item Sets/container/CONTAINER NAME/template.png)
+            as the overlay texture of the container. This button is useful in combination with the <i>Generate template</i>
+            button:
+        </p>
+        <ol>
+            <li>Click <i>Generate template</i>, which should open the template image in your default image editor</li>
+            <li>Edit the template texture until you're happy with it</li>
+            <li>Save the template texture in your image editor</li>
+            <li>Click <i>Choose template file as overlay texture</i>, which should choose the <i>modified</i> template
+            texture as your overlay texture.</li>
+        </ol>
+        <h3>Choose saved file as overlay texture</h3>
+        <p>
+            Chooses the image stored at the saved file location (Custom Item Sets/container/CONTAINER NAME/overlay.png)
+            as the overlay texture of the container. This button is useful in combination with the <i>Save to file</i>
+            button:
+        </p>
+        <ol>
+            <li>Click <i>Save to file</i>, which should open the previous overlay texture in your default image editor</li>
+            <li>Edit the overlay texture until you're happy with it</li>
+            <li>Save the overlay texture in your image editor</li>
+            <li>Click <i>Choose saved file as overlay texture</i>, which should choose the <i>modified</i> overlay
+            texture as your <i>new</i> overlay texture.</li>
+        </ol>
+        <h3>Delete template file</h3>
+        <p>
+            Deletes the template file (Custom Item Sets/container/CONTAINER NAME/template.png). This is just a convenient
+            button to avoid the need for you to travel to the template file in your file system and delete it manually.
+            Deleting the template file is needed when you want to generate a new template file because the
+            <i>Generate template</i> button will <b>not</b> work if a template texture already exists (to prevent you from
+            accidentally deleting all of your image editing work).
+        </p>
+    </body>
+</html>

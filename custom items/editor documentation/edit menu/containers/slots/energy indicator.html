@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8" />
+        <title>Energy indicator menu</title>
+    </head>
+    <body>
+        <p>
+            The energy indicator menu can be used to create a new energy indicator slot. Energy indicator slots
+            show how much energy of a custom energy type is stored in its custom container. Energy
+            indicator slots have an associated energy type, a display item, a placeholder item and an
+            indicator domain. The display item will be shown when the amount of energy stored in the container is
+            larger than the minimum value of the energy type and the placeholder item when it's not. 
+            The indicator domain is interesting when using multiple energy indicator slots for a 
+            single energy indicator. This menu should look like this:
+        </p>
+        <img src="energy indicator.png" width="50%" />
+        <ul>
+            <li>
+                The 'Cancel' button will take you back to the <a href="../edit.html">container edit menu</a>
+                without creating a new energy indicator slot and without replacing the original slot.
+            </li>
+            <li>
+                The 'Done' button will replace the original slot (the slot you clicked before going to the 
+                previous menu) with the new energy indicator slot you are designing here (at least if no 
+                validation errors are found). It will then take you back to the 
+                <a href="../edit.html">container edit menu</a>.
+            </li>
+            <li>
+                The button on the right of 'Energy type:' shows the currently selected energy type (the energy 
+                type for which you are going to create an indicator). To choose an energy type, you need to
+                click the button and then on the energy type you would like to choose. <i>Note: you need to
+                    have at least 1 energy type, or you won't have anything to choose. So create the energy 
+                    type <b>before</b> creating its indicator!
+                </i>
+            </li>
+            <li>
+                The 'Display...' button lets you choose which item to display when the amount of energy
+                stored is larger than the minimum value of the energy type.
+                It will take you to the <a href="display.html">slot display creation menu</a>, where you can 
+                configure this item.
+            </li>
+            <li>
+                The 'Placeholder...' button lets you choose which item to display when the amount of energy
+                stored is the minimum amount of the energy type. It will take you to the 
+                <a href="display.html">slot display creation menu</a>, where you can configure this item.
+            </li>
+            <li>
+                The indication domain can be used to let the energy indicator 'zoom in' on a part of the 
+                domain of the energy type.
+                <ul>
+                    <li>
+                        If you leave it at 0% to 100%, the display item will have a stacksize of 64 when the 
+                        stored energy is the maximum value and a stacksize of 1 when the stored energy is just
+                        above the minimum value of the energy type. When the stored energy is exactly the
+                        minimum value, the placeholder will be shown.
+                    </li>
+                    <li>
+                        If you would change it to 50% to 100%, the display item would get a stacksize of 1 when
+                        the stored energy is slightly above the average of the minimum and maximum value of the
+                        energy type. The placeholder would be shown when the stored energy is less than or equal
+                        to the average of the minimum value and the maximum value.
+                    </li>
+                    <li>
+                        If you would change it to 0% to 50%, the stacksize of the display item will be 64 if
+                        the stored energy is larger than the average of the minimum and maximum value of the
+                        energy type.
+                    </li>
+                </ul>
+                The latter two may seem stupid, but they can be useful if you use them both and place them in 
+                slots next to each other: that would basically give an indicator that is twice as accurate as 
+                the basic 0% to 100%.
+            </li>
+        </ul>
+    </body>
+</html>

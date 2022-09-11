@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8" />
+        <title>Energy type edit menu</title>
+    </head>
+    <body>
+        <p>
+            The energy type edit menu can be used to create a new <i>energy type</i> or to modify an existing
+            energy type. Container recipes may require or generate energy of a certain energy type. This menu should
+            look like this:
+        </p>
+        <img src="edit.png" width="50%" />
+        <h2>Name</h2>
+        <p>
+            The name of the energy type is <b>not</b> used in-game: it only helps you distinguishing energy types from
+            each other.
+        </p>
+        <h2>Values</h2>
+        <p>
+            At any point in time, a custom container has a certain amount/<i>value</i> of the energy type. This value
+            is always an integer and it will be between the <i>Minimum value</i> and the <i>Maximum value</i> that you
+            specify here. The first time a custom container is opened, the value will be the <i>Initial value</i>
+            that you specify here.
+        </p>
+        <h2>Sharing an energy type</h2>
+        <p>
+            The 'sharing' checkboxes determine whether energy of this energy type will be shared between containers.
+            By default, all checkboxes are <b>un</b>checked, which will cause the energy to be shared between containers
+            if and only if the containers share their inventory. (Containers of the same type can share their inventory if
+            their <i>storage mode</i> allows it.)
+        </p>
+        <h3>Share with other container types</h3>
+        <p>
+            This determines what happens when 2 different custom containers are at the same location. If you leave this
+            <b>unchecked</b>, each container will have its <b>own</b> energy stash, so when one of the containers drains
+            energy, the other will <b>not</b> notice it. If you <b>check</b> this, containers at the same location will
+            share their energy. (So when a recipe of one container generates energy, a recipe of another container can
+            consume it.)
+        </p>
+        <h3>Force sharing with other locations</h3>
+        <p>
+            If you leave this <b>un</b>checked, containers at different locations will only share their energy if they
+            share their inventory (when their storage mode is <b>per player</b> or <b>global</b>). If you <b>check</b>
+            this checkbox, containers at different locations will share their energy, even when their storage mode is
+            <b>per location</b>.
+        </p>
+        <h3>Force sharing with other string hosts</h3>
+        <p>
+            If you leave this <b>un</b>checked, containers at different string hosts will only share their energy if they
+            share their inventory (when their storage mode is <b>per player</b> or <b>global</b>). If you <b>check</b>
+            this checkbox, containers at different string hosts will share their energy, even when their storage mode is
+            <b>per location</b>.
+        </p>
+        <h3>Force sharing with other players</h3>
+        <p>
+            If you leave this <b>un</b>checked, players will share the energy of custom containers with other players if
+            and only if they share the inventory of that custom container with other players (so when the storage mode
+            is <b>global</b> or <b>per location</b>). If you <b>check</b> this, players will also share the energy of 
+            custom containers when they do <b>not</b> share their inventory (when the storage mode is <b>per player</b>
+            or <b>per location per player</b>).
+        </p>
+    </body>
+</html>

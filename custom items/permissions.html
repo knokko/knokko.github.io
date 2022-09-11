@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8" />
+        <title>Permissions</title>
+    </head>
+    <body>
+        <h1>Permissions</h1>
+        <h2>Command permissions</h2>
+        <h3>Give</h3>
+        <ul>
+            <li>
+                <b>customitems.give</b>:
+                Grants the player full access to the <b>/kci give</b> command (so the player can give any custom item
+                to any player).
+            </li>
+            <li>
+                <b>customitems.give.ITEM_NAME</b>:
+                Allows the player to give the custom item with name <i>ITEM_NAME</i> to <i>himself</i>.
+            </li>
+            <li>
+                <b>customitems.giveother</b>:
+                In combination with the <b>customitems.give.ITEM_NAME</b> permission, this permission allows the
+                player to give the custom item with name <i>ITEM_NAME</i> also to other players.
+            </li>
+        </ul>
+        <h3>Open container</h3>
+        <ul>
+            <li>
+                <b>customitems.containercommand.openself.*.*</b>: 
+                Allows the player to open any container in any host via the container command.
+            </li>
+            <li>
+                <b>customitems.containercommand.openself.CONTAINER_NAME.*</b>:
+                Allows the player to open the container with name <i>CONTAINER_NAME</i> in any host via the container command.
+            </li>
+            <li>
+                <b>customitems.containercommand.openself.*.HOST_STRING</b>:
+                Allows the player to open any container in host <i>HOST_STRING</i> via the container command.
+            </li>
+            <li>
+                <b>customitems.containercommand.openself.CONTAINER_NAME.HOST_STRING</b>:
+                Allows the player to open the container with name <i>CONTAINER_NAME</i> in host <i>HOST_STRING</i>
+                via the container command.
+            </li>
+            <li>
+                <b>customitems.containercommand.openother</b>:
+                Allows the player to force any (other) player to open any container in any host via the container command.
+            </li>
+            <li>
+                <b>customitems.containercommand.destroy.*.*</b>:
+                Allows the player to destroy any container in any host via the container command.
+            </li>
+            <li>
+                <b>customitems.containercommand.destroy.CONTAINER_NAME.*</b>:
+                Allows the player to destroy the container with name <i>CONTAINER_NAME</i> in any host
+                via the container command.
+            </li>
+            <li>
+                <b>customitems.containercommand.destroy.*.HOST_STRING</b>:
+                Allows the player to destroy any container in host <i>HOST_STRING</i> via the container command.
+            </li>
+            <li>
+                <b>customitems.containercommand.destroy.CONTAINER_NAME.HOST_STRING</b>:
+                Allows the player to destroy the container with name <i>CONTAINER_NAME</i> in host <i>HOST_STRING</i>
+                via the container command.
+            </li>
+        </ul>
+        <h3>Remaining</h3>
+        <ul>
+            <li><b>customitems.list</b>: Allows the player to use the <b>/kci list</b> command.</li>
+            <li><b>customitems.debug</b>: Allows the player to use the <b>/kci debug</b> command.</li>
+            <li><b>customitems.encode</b>: Allows the player to use the <b>/kci encode</b> command.</li>
+            <li><b>customitems.reload</b>: Allows the player to use the <b>/kci reload</b> command.</li>
+            <li><b>customitems.repair</b>: Allows the player to use the <b>/kci repair</b> command.</li>
+            <li><b>customitems.damage</b>: Allows the player to use the <b>/kci damage</b> command.</li>
+            <li><b>customitems.setblock</b>: Allows the player to use the <b>/kci setblock</b> command.</li>
+            <li><b>customitems.take</b>: Allows the player to use the <b>/kci take</b> command.</li>
+        </ul>
+        <h2>Non-command permissions</h2>
+        <h3>Crafting permissions</h3>
+        <ul>
+            <li><b>customitems.craftall</b>: Allows the player to use any custom crafting recipe.</li>
+            <li><b>customitems.container.recipe.any</b>: Allows the player to use any custom container recipe.</li>
+            <li>Any crafting or container recipe permission that you declared in the Editor...</li>
+        </ul>
+        <h3>Guns & Wands</h3>
+        <ul>
+            <li><b>customitems.shootall</b>: Allows the player to shoot with any custom wand or gun.</li>
+            <li>
+                <b>customitems.shoot.WAND_OR_GUN_NAME</b>: Allows the player to shoot with the custom wand or gun
+                with name <i>WAND_OR_GUN_NAME</i>.
+            </li>
+        </ul>
+        <h3>Opening containers via clicking</h3>
+        <ul>
+            <li><b>customitems.container.openany</b>: Allows the player to use any custom container.</li>
+            <li>
+                <b>customitems.container.open.CONTAINER_NAME</b>:
+                Allows the player to open the custom container with name <i>CONTAINER_NAME</i>.
+            </li>
+        </ul>
+    </body>
+</html>

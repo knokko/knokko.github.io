@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8" />
+        <title>Container string hosts</title>
+    </head>
+    <body>
+        <h1>Container string hosts</h1>
+        <h2>Container hosts</h2>
+        <p>
+            Custom containers always have a <i>host</i>. The player normally opens the custom container by interacting with
+            the host. Furthermore, the contents of the container are usually stored at the host. The host is usually a block 
+            or a pocket container. In the case of a block, the player can open it by right-clicking the block or by
+            left-clicking it while sneaking. In the case of a pocket container, the player can open it by right-clicking
+            with the pocket container in their hand.
+        </p>
+        <h2>String hosts</h2>
+        <p>
+            A special type of container hosts supported by this plug-in are <i>string hosts</i>. When using a string host,
+            the container is associated with a string (basically a small piece of text in programming/scripting jargon)
+            rather than with a block or pocket container. String hosts can only be used by the <b>/kci container</b> command,
+            Skripts, and Denizen scripts. In combination with scripting, string hosts can be very powerful. However, they are
+            not very useful without scripts.
+        </p>
+        <h3>Opening string hosts</h3>
+        There are 3 ways to open a string host:
+        <ul>
+            <li>By using a command: /kci container open <b>container_name</b> <b>string_host</b> <i>player_name</i></li>
+            <li>By using Skript: <b>player</b> opens kci "<b>container_name</b>" at "<b>string_host</b>"</li>
+            <li>By using Denizen: kci_container <b>player</b> opens <b>container_name</b> at <b>string_host</b></li>
+        </ul>
+        In case you use the command, you need to have the right permissions. If you are opening the container
+        <b>yourself</b>, you need at least 1 of the following permissions:
+        <ul>
+            <li>customitems.containercommand.openself.*.*</li>
+            <li>customitems.containercommand.openself.<b>container_name</b>.*</li>
+            <li>customitems.containercommand.openself.*.<b>string_host</b></li>
+            <li>customitems.containercommand.openself.<b>container_name</b>.<b>string_host</b></li>
+        </ul>
+        If you use the command to let someone else open a custom container, you need to have the
+        customitems.containercommand.openother permission.
+        <h3>Choosing the container storage mode</h3>
+        If you wish to use string hosts for a custom container, it is usually best to choose one of the following
+        storage modes:
+        <ul>
+            <li>
+                <b>NOT_PERSISTENT</b> if you want the container to drop all items when the player closes it. In this
+                case, it doesn't really matter which string host you choose since no items can be stored.
+            </li>
+            <li>
+                <b>PER_LOCATION</b> if you want the container to store its items at the string host and you want all
+                players to share the same container inventory.
+            </li>
+            <li>
+                <b>PER_LOCATION_PER_PLAYER</b> if you want the container to store its items at the string host and you
+                want each player to have their own container inventory.
+            </li>
+        </ul>
+        Using the other storage modes beats the purpose of string hosts because the container inventory will be shared
+        between <b>distinct</b> string hosts.
+        <h3>Choosing the string host</h3>
+        <p>
+            If you have chosen the <b>PER_LOCATION</b> or <b>PER_LOCATION_PER_PLAYER</b> storage mode, each distinct
+            string host will have its own container inventory. If you have chosen another storage mode, all string hosts
+            will share the same inventory (and thus it doesn't matter which string host you pick, so you can skip this
+            section). Some examples of string hosts are given below:
+        </p>
+        <h4>Using 1 string host per container</h4>
+        <p>
+            If you use only 1 string host per container, it doesn't matter which string you choose. The result will
+            basically be an 'ender custom container' that players can open via commands or scripts. You could use this
+            for an extra ender chest or for some kind of 'wiki'.
+        </p>
+        <h4>Using faction names as string hosts</h4>
+        <p>
+            If you have a faction server, you could use the names of the factions as the string hosts. This will result in
+            every faction having their own custom container inventory that members can access via commands or scripts. If
+            you use commands, I recommend using permissions to ensure players can only open the container inventory of their
+            own faction. You could use this as a shared faction storage or a custom container with powerful container recipes
+            with long durations (so every faction can only perform 1 powerful recipe at the same time and needs to choose
+            wisely).
+        </p>
+        <h4>Using entity UUIDs as string hosts</h5>
+        <p>
+            In Minecraft, every entity has its own UUID, which you could use as string host. This will result in having a
+            container inventory per entity. This could be used to assign custom containers to animals, NPCs, and minecarts. 
+            This could probably be useful in combination with Citizens.
+        </p>
+        <h4>More ways</h4>
+        <p>
+            This was just a small list of ideas to give you some inspiration. There are countless other string hosts you can
+            use and you can probably come up with other useful ways if you take some time to think about it.
+        </p>
+        <h3>Cleaning up</h3>
+        <p>
+            When a regular custom container is hosted by a block, and that block gets broken, the container is automatically
+            destroyed, and its items will be dropped on the ground. If you use string hosts, there is no such clean-up
+            mechanism: the container inventory will remain in memory (and on disk) until you destroy it with a command or
+            script. Depending on your usecase, this may or may not be desired. (For instance, keeping faction inventory
+            indefinitely is probably fine, but entity inventories should probably be cleaned up when the host entity dies.
+            In this case, you could use a script that destroys the containers of each entity when they die.)
+        </p>
+        <p>
+            Just like opening a container at a string host, there are 3 ways to destroy a container at a string host:
+            commands, Skripts, and Denizen scripts. Furthermore, you can choose whether you want the inventory content to
+            be dropped or destroyed. To destroy the inventory contents, use:
+        </p>
+        <ul>
+            <li>This command: /kci container destroy <b>container_name</b> <b>string_host</b></li>
+            <li>This Skript: destroy kci "<b>container_name</b>" at "<b>string_host</b>"</li>
+            <li>This Denizen script: kci_container destroy <b>container_name</b> at <b>string_host</b></li>
+        </ul>
+        If you would like to drop the inventory contents at a given location, use 1 of these instead:
+        <ul>
+            <li>This command: /kci container destroy <b>container_name</b> <b>string_host</b> <b>world_name</b> <b>x</b> <b>y</b> <b>z</b></li>
+            <li>This Skript: destroy kci "<b>container_name</b>" at "<b>string_host</b>" and drop its items at <b>drop_location</b></li>
+            <li>This Denizen script: kci_container destroy <b>container_name</b> at <b>string_host</b> and drop items at <b>drop_location</b></li>
+        </ul>
+    </body>
+</html>

@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Equipment set edit menu</title>
+        <meta charset="UTF-8" />
+    </head>
+    <body>
+        <p>
+            The equipment set edit menu can be used to edit an <i>equipment set</i>. An equipment set has a collection of
+            <i>Equipment items</i> and <i>Equipment bonuses</i>. An example equipment set is shown below:
+        </p>
+        <img src="edit.png" width="50%" />
+        <h3>Equipment items</h3>
+        <p>
+            The <i>equipment items</i> determine which items are part of the equipment set, in which slot it needs to be
+            put, and how important each of these items is. When an equipment item is in the wrong slot (for instance
+            when a player holds a chestplate in their main hand), the equipment item will <b>not</b> count towards the
+            bonuses. In the example configuration shown in the screenshot above:
+        </p>
+        <ul>
+            <li>Holding a ruby sword in your main hand is worth 1 point</li>
+            <li>Equipping a ruby chestplate in your chest slot is worth 2 points</li>
+            <li>Equipping a ruby helmet in your helmet slot is woth 1 point</li>
+            <li>Equipping a pair of ruby leggings in your leg slot is worth 2 points</li>
+            <li>Equipping a pair of ruby boots in your boots slot is worth 1 point</li>
+        </ul>
+        <p>
+            The <b>total number of points</b> determines which <i>equipment bonuses</i> players will get. When a player
+            equips ruby leggings and a ruby helmet, and holds a ruby sword in their main hand, there 
+            <b>total number of points</b> would be 2 + 1 + 1 = 4.
+        </p>
+        <h3>Equipment bonuses</h3>
+        <p>
+            The <i>Equipment bonuses</i> are the bonuses (or punishments) when a player equips the right
+            <i>equipment items</i>. Each equipment bonus has:
+        </p>
+        <ul>
+            <li>
+                A minimum value: only players whose <b>total number of points</b> is <i>at least</i> the minimum value
+                will get the bonus.
+            </li>
+            <li>
+                A maximum value: only players whose <b>total number of points</b> is <i>at most</i> the maximum value
+                will get the bonus.
+            </li>
+            <li>
+                A list of attribute modifiers: players will get these attribute modifiers while they have the right
+                number of points.
+            </li>
+            <li>
+                Damage resistances: these damage resistances will be added to the damage resistances of players who
+                have the right number of points.
+            </li>
+        </ul>
+        <p>
+            In the example shown in the screenshot, there are 2 equipment bonuses: the first one is given to players
+            whose <b>total number of points</b> is exactly 4 and the second one is given to players whose
+            total number of points is between 5 and 10. Note that the maximum number of points any player can have is
+            1 + 2 + 1 + 2 + 1 = 7 (which is smaller than 10), so the second one will be given to any player who has at 
+            least 5 points.
+        </p>
+        <p>
+            The attribute modifiers and the damage resistances can be seen by clicking on the <i>Attribute modifiers...</i>
+            and <i>Damage resistances...</i> buttons. These determine the actual bonuses that will be given to the players.
+        </p>
+    </body>
+</html>

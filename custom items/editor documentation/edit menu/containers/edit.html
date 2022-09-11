@@ -41,6 +41,11 @@
                 The name of the container is currently not even used in the plug-in, so don't bother formatting.
             </li>
             <li>
+                By default, all players can open any custom container. However, if you check <b>Requires permission</b>,
+                only players with the <b>customitems.container.open.CONTAINER_NAME</b> or 
+                <b>customitems.container.openany</b> permission will be able to open this container.
+            </li>
+            <li>
                 <p>
                     The <b>Host</b> block and <b>Selection icon</b> determine how players can open this
                     custom container. The Host can be a vanilla container, a vanilla block, a custom block, or nothing.
@@ -102,14 +107,37 @@
                 </ul>
             </li>
             <li>
-                The checkbox on the right of 'Persistent storage' determines the storage system of the container.
-                There are simply 2 storage systems: persistent and non-persistent. If this checkbox is checked,
-                the persistent system will be used. If it's not checked, the non-persistent system will be used.
-                The persistent system works like a furnace: players can insert items into a furnace and pick them
-                up later (unless another player picks it first). The non-persistent system works like a crafting 
-                table: all items in the crafting grid are dropped as soon as the player closes his inventory, and
-                it is 'private' in the sense that other players can't see what you're crafting or take your
-                items while you're crafting.
+                The <i>Storage mode</i> determines what happens to the contents of the container when the player closes
+                the container. There are 5 possible storage modes:
+                <ul>
+                    <li>
+                        <b>NOT_PERSISTENT</b>: The contents will be dropped on the floor. This is similar to a crafting table.
+                    </li>
+                    <li>
+                        <b>PER_LOCATION_PER_PLAYER</b>: The contents will be stored at the location of the container. This
+                        location is either a block, an item stack, or a <a href="string host.html">string host</a>. Players can only see
+                        and take their <b>own</b> items.
+                    </li>
+                    <li>
+                        <b>PER_LOCATION</b>: The contents will be stored at the location of the container. This location is 
+                        either a block, an item stack, or a <a href="string host.html">string host</a>. The items can be seen and taken by
+                        any player that can access the same location. This is similar to a chest and a furnace.
+                    </li>
+                    <li>
+                        <b>PER_PLAYER</b>: The contents will be stored and can be accessed by the <b>same</b> player from
+                        any <b>container of the same type</b>, regardless of the location. This is similar to an ender chest.
+                    </li>
+                    <li>
+                        <b>GLOBAL</b>: The contents will be stored and can be accessed by <b>any</b> player from any
+                        <b>container of the same type</b>, regardless of the location.
+                    </li>
+                </ul>
+            </li>
+            <li>
+                The <i>Overlay texture</i> is optional, but when present, will be drawn on top of the entire custom
+                container. It can be used to customize the appearance of the custom container completely. Clicking the
+                <i>Overlay texture...</i> button will take you to the 
+                <a href="overlay texture.html">container overlay texture menu</a>, where you can choose one.
             </li>
             <li>
                 The 'Recipes...' button will take you to the 

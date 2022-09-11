@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8" />
+        <title>Container recipe energy menu</title>
+    </head>
+    <body>
+        <p>
+            The container recipe energy menu can be used to configure whether a container recipe requires, generates,
+            or drains energy from its custom container. This menu should look like this:
+        </p>
+        <img src="energy.png" width="50%" />
+        <p>
+            In this menu, you can configure a list of energy entries, where each energy entry has the following properties:
+        </p>
+        <ul>
+            <li>
+                An <b>energy type</b>: the stored energy from this energy type will be used.
+            </li>
+            <li>
+                An <b>operation</b>: the operation determines what happens with the stored energy. 
+                There are 4 possible operations:
+                <ul>
+                    <li>
+                        <b>Require at least</b>: the container recipe can only happen when its container has at least
+                        <b>value</b> energy of the <b>energy type</b>.
+                    </li>
+                    <li>
+                        <b>Require at most</b>: the container recipe can only happen when its container has at most
+                        <b>value</b> energy of the <b>energy type</b>.
+                    </li>
+                    <li>
+                        <b>Decrease</b>: the containers energy of the <b>energy type</b> will be decreased by
+                        <b>value</b>. If this would cause the energy to go below the minimum value of <b>energy type</b>,
+                        it will be set to the minimum value instead.
+                    </li>
+                    <li>
+                        <b>Increase</b>: the containers energy of the <b>energy type</b> will be increased by
+                        <b>value</b>. If this would cause the energy to go over the maximum value of <b>energy type</b>,
+                        it will be set to the maximum value instead.
+                    </li>
+                </ul>
+                Note: when you use <b>Decrease</b>, you would normally also want to use <b>Require at least</b> with
+                the same value and energy type to ensure that there is enough energy to drain. (And similarly, you would
+                also want to use <b>Require at most</b> if you use <b>Increase</b>).
+            </li>
+            <li>
+                The <b>value</b>: this is the value/amount that is required or will be increased/decreased.
+            </li>
+        </ul>
+    </body>
+</html>
