@@ -18,14 +18,23 @@
         </p>
         <h3>Tree shape</h3>
         <p>
-            The tree shape determines the shape of the tree, as well as on which blocks the tree can be
-            spawned (most tree shapes can only be spawned on grass or dirt).
+            The tree shape determines the shape of the tree. In minecraft 1.17 and earlier, it also determines on which 
+            blocks the tree can be spawned (most tree shapes can only be spawned on grass or dirt).
         </p>
         <h3>Allowed biomes</h3>
         <p>
             The biomes in which the tree can be spawned. Note: the plug-in only ensures that the <i>log</i> of the
             tree will be in one of the allowed biomes, but the leaves may be placed in another biome if the log is
             very close to another biome.
+        </p>
+        <h3>Allowed terrain</h3>
+        <p>
+            The blocks on which the tree can be spawned. Note 1: when using a tree whose log is wider than 1 block,
+            only 1 of the root log blocks needs to be above allowed terrain. Note 2: in minecraft 1.17 and earlier,
+            Spigot will ensure that trees can <b>not</b> be spawned on unnatural terrain (for instance, they won't
+            grow on stone or water). Including stone or water in the allowed terrain will <b>not</b> change this.
+            In minecraft 1.18 and later, Spigot is much less strict and even allows you to spawn trees on top of the
+            ocean (at least, if you add <i>Water</i> to the allowed terrain).
         </p>
         <h3>Log material</h3>
         <p>
