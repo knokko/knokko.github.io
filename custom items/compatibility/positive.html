@@ -76,6 +76,8 @@ MobName:
         <ul>
             <li>give [a] kci %string% to %player%</li>
             <li>give %integer% kci %string% to %player%</li>
+            <li>give [a] kci %string% to %inventory%</li>
+            <li>give %integer% kci %string% to %inventory%</li>
             <li>place kci %string% at %block%</li>
             <li>put [a] kci %string% in %slot%</li>
             <li>put %integer% kci %string% in %slot%</li>
@@ -138,6 +140,8 @@ on rightclick on a pig:
             <li>kci place [block_name:&lt;string&gt;] (at destination:&lt;location&gt;)</li>
             <li>kci_container [player_name:&lt;player&gt;] opens [container_name:&lt;string&gt;] at [host_string:&lt;string&gt;]</li>
             <li>kci_container destroy [container_name:&lt;string&gt;] at [host_string:&lt;string&gt;] (and drop items at [drop_location:&lt;location&gt;])</li>
+            <li>kci_give ([amount:&lt;int&gt;]) [item_name:&lt;string&gt;] to [player:&lt;player&gt;]</li>
+            <li>kci_give ([amount:&lt;int&gt;]) [item_name:&lt;string&gt;] to [inventory:&lt;inventory&gt;]</li>
         </ul>
         <h4>Examples</h4>
         <textarea readonly cols="150" rows="30">
