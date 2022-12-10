@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8" />
+        <title>Export menu</title>
+    </head>
+    <body>
+        <p>
+            The Export menu is needed to <b>export</b> your items. Exporting means moving your items and textures
+            to your server. In this menu, you can customize the export options and click <b>Continue</b> when you
+            are satisfied. Each of the export options will be explained below. The export menu should look like this:
+        </p>
+        <img src="export.png" width="50%" />
+        <h3>MC version</h3>
+        <p>The minecraft version of your server</p>
+        <h3>Export mode</h3>
+        <p>
+            The export mode determines how complicated the export procedure will be. The 3 options are:
+        </p>
+        <ul>
+            <li>
+                <b>Automatic:</b> The easiest export mode and the default export mode. If you choose this mode and
+                click <b>Continue</b>, you need to copy a command from the Editor and paste it in your server, after
+                which the plug-in will take care of the rest. This export mode doesn't allow you to modify your
+                resource pack.
+            </li>
+            <li>
+                <b>Mixed:</b> This export mode is more complicated than <b>Automatic</b>, but easier than
+                <b>Manual</b>. If you choose this mode and click <b>Continue</b>, the Editor will store your item
+                data in a file called <i>items.cis.txt</i> and store your resource pack in <i>resource-pack.zip</i>.
+                You should copy both of these files to <i>YourServer/plugins/CustomItems</i>, after optionally
+                modifying your resource pack. <b>Note:</b> you can only use this export mode if you have access to
+                the file system of your server (some server hosting services like Aternos might deny this).
+            </li>
+            <li>
+                <b>Manual:</b> The most complicated export mode. If you choose this mode and click <b>Continue</b>, 
+                the Editor will store your item data in a file called <i>items.cis.txt</i> and store your resource 
+                pack in <i>resource-pack.zip</i>. You should copy <i>items.cis.txt</i> to 
+                <i>YourServer/plugins/CustomItems</i>. Furthermore, if you want your players to see the custom
+                textures, you need to ensure that your players use the resource pack. How you do this, is up to you.
+            </li>
+        </ul>
+        <p>
+            If you choose <b>Automatic</b> or <b>Mixed</b>, your resource pack will be hosted on a free and shared 
+            hosting server provided by me (the author of this plug-in). If you are not satisfied with the
+            network speed of this hosting server, you should choose <b>Manual</b> and host the resource pack
+            yourself, for instance using Dropbox.
+        </p>
+        <h3>The other settings</h3>
+        <p>The other settings are only applicable when using the <b>Automatic</b> or <b>Mixed</b> export mode.</p>
+        <h3>Reload message</h3>
+        <p>
+            This message will be broadcasted to all online players whenever the resource pack has been changed.
+        </p>
+        <h3>Kick players who reject the resource pack</h3>
+        <p>
+            Whether the plug-in should kick all players who reject the server resource pack. Enable this if you
+            really want everyone to use the resource pack.
+        </p>
+        <h3>Warning message</h3>
+        <p>
+            If you do <b>not</b> enable <i>Kick players who reject the resource pack</i>, this message will be
+            sent to all players who reject the server resource pack. Unless you leave this field empty, in
+            which case no messages will be sent.
+        </p>
+        <h3>Kick message</h3>
+        <p>
+            If you <b>enable</b> <i>Kick players who reject the resource pack</i>, this message will be
+            sent as 'reason' to players who are kicked because they rejected the resource pack.
+        </p>
+        <h3>Kick players who fail to download the resource pack</h3>
+        <p>
+            Whether the plug-in should kick all players who fail to download the server resource pack. This will
+            probably only happen if something is wrong with the server resource pack, so I would only use this
+            if the resource pack is extremely important.
+        </p>
+        <h3>Warning message</h3>
+        <p>
+            If you do <b>not</b> enable <i>Kick players who fail to download the resource pack</i>, this message will be
+            sent to all players who fail to download the server resource pack. Unless you leave this field empty, in
+            which case no messages will be sent.
+        </p>
+        <h3>Kick message</h3>
+        <p>
+            If you <b>enable</b> <i>Kick players who fail to download the resource pack</i>, this message will be
+            sent as 'reason' to players who are kicked because they failed to download the resource pack.
+        </p>
+    </body>
+</html>
