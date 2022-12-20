@@ -12,8 +12,8 @@
         <img src="miningspeed.png" width="50%" />
         <h2>Mining speed value</h2>
         <p>
-            The <i>mining speed value</i> must be an integer between -4 and 25, where a value of -4 makes the block
-            nearly unbreakable, and a value of 25 lets the player break it instantly. When you choose a negative
+            The <i>mining speed value</i> must be an integer between -5 and 25, where a value of -5 makes the block
+            completely unbreakable and a value of 25 lets the player break it instantly. When you choose a negative
             value, the player will get mining fatique while breaking the block. When you choose a positive value,
             the player will get haste while breaking the block. When the value is 0, the player won't get any
             potion effects. The value directly corresponds to the level of fatique/haste: using value = -3 will give
@@ -21,6 +21,11 @@
             block break times are given below:
         </p>
         <ul>
+            <li>
+                Value = -5: the block becomes unbreakable. (Due to minecraft limitations, the mining speed will be
+                the same as value -4, but in case a player is patient enough to break it anyway, the plug-in will
+                just place the block back.)
+            </li>
             <li>
                 Value = -4: the block becomes nearly unbreakable (like breaking obsidian without diamond pickaxe)
             </li>
@@ -66,6 +71,19 @@
         <p>
             The right column is designated to the mining speed for custom items. This is equivalent to the vanilla item
             mining speed column, except that it is for custom items rather than vanilla items.
+        </p>
+        <h3>Axe behavior</h3>
+        <p>
+            Since all custom blocks are technically mushroom blocks, players can break them much quicker by using
+            an axe, which would allow them to bypass the very long break time associated with mining speeds of -3
+            and -4.
+            <b>
+                To circumvent this, the plug-in will forbid players from breaking custom blocks with a negative
+                default mining speed with axes, unless you explicitly add mining speed for the corresponding (custom) axe.
+            </b>
+            If you don't care about the axe mining speed, you can just ignore this. If you really want your custom
+            block to have a custom axe mining speed, you need to configure this explicitly, but note that you need to
+            assign extra low mining speeds to achieve the same break speed as another item.
         </p>
     </body>
 </html>
