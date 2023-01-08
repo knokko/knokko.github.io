@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8" />
+        <title>Upgrade edit menu</title>
+    </head>
+    <body>
+        <p>
+            The upgrade edit menu can be used to create or edit an <i>upgrade</i>. See <a href="overview.html">this page</a>
+            for general information about upgrades. This page will give more in-depth information. The upgrade edit
+            menu should look like this:
+        </p>
+        <img src="edit.png" width="50%" />
+        <h3>Name</h3>
+        <p>
+            The name of the upgrade. This name doesn't serve any in-game purpose: it just makes it easier to distinguish
+            upgrades from each other.
+        </p>
+        <h3>Enchantments</h3>
+        <p>
+            The enchantments that will be added to the upgraded item. If the item already has an enchantment, its level
+            will be increased by the corresponding upgrade enchantment level.
+        </p>
+        <h3>Attribute modifiers</h3>
+        <p>
+            The attribute modifiers that will be added to the upgraded item. They will be merged with existing attribute
+            modifiers.
+        </p>
+        <h3>Damage resistances (only for armor)</h3>
+        <p>
+            The damage resistances that will be added to the upgraded item. Damage resistances can reduce incoming damage
+            from specific damage sources. They will be stacked on top of existing damage resistances. For instance, if an
+            item has 2 upgrades that both add 50% fall damage reduction, equipping that item will make players immune to
+            falling damage.
+        </p>
+        <h3>Variables</h3>
+        <p>
+            Variables can be referenced by <a href="../constraints/edit.html">ingredient constraints</a>. For instance,
+            you can use variables to prevent items from getting upgrades more than once or to require items to get
+            another upgrade first. Each variable upgrade entry will increase the value of the given variable by the
+            given amount.
+        </p>
+    </body>
+</html>

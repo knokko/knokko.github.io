@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8" />
+        <title>Upgrade result menu</title>
+    </head>
+    <body>
+        <p>
+            The upgrade result menu can be used to create or edit <i>upgrade results</i>. Upgrade results can add 0 or
+            more <a href="overview.html">upgrades</a> to an ingredient of the recipe. Furthermore, upgrade results can
+            optionally repair the item, remove previous enchantments/upgrades, or turn the ingredient into something else.
+            The upgrade result menu should look like this:
+        </p>
+        <img src="result.png" width="50%" />
+        <h3>Upgrades (optional)</h3>
+        <p>
+            Click the <b>Upgrades...</b> button to choose which <a href="overview.html">upgrades</a> should be added to
+            the ingredient. You can choose 0 or more upgrades.
+        </p>
+        <h3>Repair (optional)</h3>
+        <p>
+            How much the ingredient should be repaired when it is upgraded. Use a positive percentage to repair the item,
+            use a negative percentage to damage the ingredient, and use 0 to keep the durability the same. This is ignored
+            for unbreakable items (and simple items that don't have durability).
+        </p>
+        <h3>New type (optional)</h3>
+        <p>
+            The new item type of the ingredient. You can use this to turn the ingredient into a different item, while
+            keeping properties like enchantments or durability. By default, the new type is <b>null</b>, which will
+            cause the ingredient to keep its own item type.
+        </p>
+        <h3>Keep old upgrades</h3>
+        <p>
+            Whether the ingredient should keep its existing upgrades. If you uncheck this, the ingredient will lose all of
+            its previous upgrades (including enchantments). This can be useful if you want some 'exclusive' upgrades.
+        </p>
+        <h3>Keep old enchantments</h3>
+        <p>
+            Whether the ingredient should keep its <b>non-KCI</b> enchantments (the enchantments that were for instance
+            added by an enchanting table). If you uncheck this, the ingredient will only keep the enchantments given by
+            previous upgrades (if <i>Keep old enchantments</i> is still checked) and the <i>default enchantments</i>
+            (only applicable to custom items).
+        </p>
+        <h3>Choose ingredient (required)</h3>
+        <p>
+            Click the <i>Choose ingredient...</i> to choose which ingredient should be upgraded.
+        </p>
+    </body>
+</html>
