@@ -65,15 +65,28 @@
                         and 'Hot floor'.
                     </li>
                     <li>
-                        When the resistance against a damage source is 100% or higher, the player will no longer
-                        become red, play hurt sounds or lose armor durability upon 'taking damage' from that damage source.
-                        When players take damage normally, they can temporarily not take any other damage (roughly half a second),
-                        so when players are swimming in lava, this causes the player to survive much longer because they only take 
-                        damage once or twice per second instead of the 20 times per second if that short damage immunity wouldn't exist.
-                        When the resistance against a damage cause is 100% or higher, that brief damage immunity will <b>not</b> be 
-                        given.
-                        So when the resistance against lava would be above 100%, the player will heal from it 20 times per second,
-                        which will heal very fast.
+                        When the resistance against a damage source is 100% or higher, the behavior will depend on the value
+                        of <b>Cancel attacks when custom armor damage resistance is at least 100 percent</b> in the config.
+                        <ul>
+                            <li>
+                                If it is <b>true</b> (the default value), the player will no longer become red, play hurt 
+                                sounds or lose armor durability upon 'taking damage' from that damage source.
+                                When players take damage normally, they can temporarily not take any other damage 
+                                (roughly half a second), so when players are swimming in lava, this causes the player to 
+                                survive much longer because they only take damage once or twice per second instead of the 20 
+                                times per second if that short damage immunity wouldn't exist.
+                                When the resistance against a damage cause is 100% or higher, that brief damage immunity will 
+                                <b>not</b> be given.
+                                So when the resistance against lava would be above 100%, the player will heal from it 20 
+                                times per second, which will heal very fast.
+                            </li>
+                            <li>
+                                If it is <b>false</b>, the player will become red, play hurt sounds, and lose armor
+                                durability as usual. The only difference is that the player won't lose any health
+                                (when resistance is exactly 100%) or even regains health (when resistance is larger than
+                                100%).
+                            </li>
+                        </ul>
                     </li>
                     <li>
                         The /kill command uses the 'Void' damage source. 
