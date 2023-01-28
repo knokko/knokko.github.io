@@ -7,15 +7,34 @@
     <body>
         <p>
             In the back-up selection menu, you can load a back-up of an item set on your computer.
-            If you have quite some back-ups of an item set called 'armor_test', it could look like this:
+            If you have a single item set called <i>damage_source_test</i>, it should look like this:
         </p>
         <img src="backup.png" width="50%" />
         <p>
-            Whenever you save an item set with the editor, it will automatically create a back-up for the item set
-            you're saving as well. Currently, there is no bound on the number of back-ups that are made and they will
-            not be deleted automatically. If this starts taking too much disk space (shouldn't happen that soon), you
-            can go to YourDocumentsFolder/Custom Item Sets/backups and delete some back-up files (or just delete the entire backups folder).
+            When you click on the name of an item set, all of its back-ups should be shown on the right,
+            which should look like this:
         </p>
+        <img src="backup saves.png" width="50%" />
+        <p>
+            In the list on the right, you can see which back-ups of your item set are available. The timestamps
+            show when that particular back-up was made. By clicking the corresponding <b>Load</b> button, you
+            can load the corresponding back-up. When you load a back-up, you can make changes to your items
+            (just like when you edit an item set). If you <b>Save</b> or <b>Export</b>, the back-up version
+            will become your 'default' version.
+        </p>
+        <p>
+            Whenever you save an item set with the editor, it will automatically create a back-up for the item set
+            you're saving as well. Old back-ups will automatically be removed after some time. More precisely:
+        </p>
+        <ul>
+            <li>Back-ups less than 24 hours old will not be deleted</li>
+            <li>
+                When back-ups are between 1 and 30 days old, only the most recent back-up of each day will be kept.
+            </li>
+            <li>
+                When back-ups are older than 30 days, only the most recent back-up of each week will be kept.
+            </li>
+        </ul>
         <p>
             The back-up system has 2 purposes:
             <ul>
@@ -24,23 +43,10 @@
             </ul>
             I must admit that the latter case was my primary motivation for adding this back-up system.
         </p>
-        <p>
-            This menu has 2 basic buttons 'Refresh' and 'Back' as well as a button for every back-up that has been made.
-            Note that you can 'scroll' with the up/down array key and the mouse wheel, which you will need when you have
-            a lot of back-ups.
-            The 'Back' button will bring you back to the <a href="selection.html">item set selection menu</a> and the 'Refresh'
-            button will refresh the list of back-ups.
-            
-        </p>
-        <p>
-            Each back-up button consists of an item set and the time at which the back-up was made.
-            Clicking on any of the back-up buttons will bring you to the <a href="../../edit menu/index.html">item set edit menu</a>
-            for the chosen item set at the time the chosen back-up was made. 
-            Then, you can make changes to the item set if you would like to.
-            If you quit without clicking on the Save button or any Export button, loading the back-up won't have any effect.<br>
-            If you do Save or Export the (possibly modified) back-up, it will become the new 'latest' version of the item set,
-            so whenever you open the Editor, click 'Edit item set' and then click the item set, you will load that back-up instead
-            of the 'original latest' version.
-        </p>
+        <b>
+            Note: all these automatic back-ups are stored on YOUR computer, so they won't help you if your entire
+            disk gets corrupted. If you want to protect your content from being lost when your disk is damaged, you
+            should copy your .cis<i>b</i> file to some service like Onedrive or Dropbox.
+        </b>
     </body>
 </html>
