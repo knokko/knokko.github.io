@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8" />
+        <title>Script slot menu</title>
+    </head>
+    <body>
+        <p>
+            The script slot menu can be used to create script slots. Script slots will fire <i>events</i>
+            when they are clicked. If you use the Skript or Denizen plug-in, you can listen for these
+            events. Alternatively, you can write your own minecraft plug-in that can listen for it.
+            <b>Scripting slots are useless for you if you can't write scripts or plug-ins.</b>
+            This menu should look like this:
+        </p>
+        <img src="script.png" width="50%" />
+        <h2>Properties</h2>
+        <h3>Action ID</h3>
+        <p>
+            The <b>Action ID</b> distinguishes this event/action from other events. You should typically give
+            every script slot a distinct Action ID. When you use Skript or Denizen, the Action ID also determines
+            how you should listen for this action/event.
+        </p>
+        <h3>Display</h3>
+        <p>
+            The <b>Display</b> determines what the slot looks like. For instance, you could create a custom item
+            with a 'button texture' and display that.
+        </p>
+        <h2>Skript usage</h2>
+        <h3>Listening</h3>
+        To listen for the event, use <b>on kci container action "ActionID":</b><br>
+        The double quotes are required and you should replace <b>ActionID</b> with the right action ID.
+        <h3>Expressions</h3>
+        <ul>
+            <li>
+                <b>event-player</b>: yields the player that clicked on the slot
+            </li>
+            <li>
+                <b>event-inventory</b>: yields the inventory of the custom container
+            </li>
+            <li>
+                <b>event-item</b>: yields the item stack on the cursor of the player who clicked
+            </li>
+            <li>
+                <b>event-clicktype</b>: yields the click-type of the event
+            </li>
+            <li>
+                <b>crafting progress of event-kcicontainer</b>: yields the crafting progress (in ticks) of the container
+                recipe that is currently in progress, or 0 if no container recipe is in progress
+            </li>
+            <li>
+                <b>fuel "fuel_slot_name" of event-kcicontainer</b>: yields the item stack that is currently stored in
+                the fuel slot with name <i>fuel_slot_name</i>
+            </li>
+            <li>
+                <b>burn time of fuel "fuel_slot_name" of event-kcicontainer</b>: yields the remaining time (in ticks) until
+                the fuel slot with name <i>fuel_slot_name</i> stops burning, or 0 if the slot is currently not burning
+            </li>
+            <li>
+                <b>input "input_slot_name" of event-kcicontainer</b>: yields the item stack that is currently stored in
+                the input slot with name <i>input_slot_name</i>
+            </li>
+            <li>
+                <b>output "output_slot_name" of event-kcicontainer</b>: yields the item stack that is currently stored in
+                the output slot with name <i>output_slot_name</i>
+            </li>
+            <li>
+                <b>storage storage_slot_index of event-kcicontainer</b>: yields the item stack that is currently stored
+                in the storage slot with index <i>storage_slot_index</i>: the <i>storage_slot_index</i> must be an integer
+                that is at least 0 and smaller than the number of storage slots of the container
+            </li>
+            <li>
+                <b>stored experience of event-kcicontainer</b>: yields the amount of experience that is currently stored
+                in the custom container, which will be claimed whenever a player clicks on an output slot
+            </li>
+        </ul>
+        <h3>Effects</h3>
+        <ul>
+            <li>
+                <b>set fuel "fuel_slot_name" of event-kcicontainer to new_fuel_item</b>: Puts the item stack 
+                <i>new_fuel_item</i> in the fuel slot named <i>fuel_slot_name</i>
+            </li>
+            <li>
+                <b>set burn time of fuel "fuel_slot_name" of event-kcicontainer to new_burn_time</b>: Lets the fuel
+                slot named <i>fuel_slot_name</i> burn for <i>new_burn_time</i> ticks, without needing any fuel
+            </li>
+            <li>
+                <b>set input "input_slot_name" of event-kcicontainer to new_input_item</b>: Puts the item stack
+                <i>new_input_item</i> in the input slot named <i>input_slot_name</i>
+            </li>
+            <li>
+                <b>set output "output_slot_name" of event-kcicontainer to new_output_item</b>: Puts the item stack
+                <i>new_output_item</i> in the output slot named <i>output_slot_name</i>
+            </li>
+            <li>
+                <b>set storage storage_slot_index of event-kcicontainer to new_storage_item</b>: Puts the item stack
+                <i>new_storage_item</i> in the storage slot with index <i>storage_slot_index</i>, where
+                <i>storage_slot_index</i> is an integer that is at least 0 and smaller than the total number of storage
+                slots of the container
+            </li>
+            <li>
+                <b>set stored experience of event-kcicontainer to new_amount</b>: Stores <i>new_amount</i>
+                experience in the custom container, which will be given to the next player who clicks on an
+                output slot
+            </li>
+            <li>
+                <b>switch container of event-player to "other_container_name"</b>: Lets the player close this
+                custom container and open the custom container with name <i>other_container_name</i>. This
+                is basically the same as what a <a href="link.html">link slot</a> does, and carries the same
+                restrictions (e.g. the containers must have the same hosts).
+            </li>
+        </ul>
+        <h2>Denizen usage</h2>
+        <h3>Listening</h3>
+        To listen for the event, use <b>on kci container action action_id:</b>, where <i>action_id</i>
+        is the Action ID of this slot.
+        <h3>Context properties</h3>
+        <ul>
+            <li><b>context.cursor_item</b>: The item stack on the cursor of the player who clicked the action slot</li>
+            <li><b>context.click_type</b>: The name of the click type</li>
+            <li><b>context.is_shift_click</b>: Whether the player was holding shift while clicking the action slot</li>
+            <li><b>context.container_name</b>: The name of the custom container whose action slot was clicked</li>
+            <li><b>context.container_inventory</b>: The inventory of the clicked custom container</li>
+            <li>
+                <b>context.inputs</b>: A <i>MapTag</i> that maps the names of all input slots to the item stacks stored
+                in each input slot
+            </li>
+            <li>
+                <b>context.inputs(input_slot_name)</b>: The item stack that is stored in the input slot
+                named <i>input_slot_name</i>
+            </li>
+            <li>
+                <b>context.outputs</b>: A <i>MapTag</i> that maps the names of all output slots to the item stacks stored
+                in each output slot
+            </li>
+            <li>
+                <b>context.outputs(output_slot_name)</b>: The item stack that is stored in the output slot
+                named <i>output_slot_name</i>
+            </li>
+            <li>
+                <b>context.fuel</b>: A <i>MapTag</i> that maps the names of all fuel slots to the item stack stored
+                in each fuel slot
+            </li>
+            <li>
+                <b>context.fuel(fuel_slot_name)</b>: The item stack that is stored in the fuel slot
+                named <i>fuel_slot_name</i>
+            </li>
+            <li><b>context.storage</b>: A <i>ListTag</i> containing the contents of all storage slots</li>
+            <li>
+                <b>context.storage(storage_slot_index)</b>: The item stack that is stored in the storage slot
+                with index <i>storage_slot_index</i>, where <i>storage_slot_index</i> is an integer that is
+                at least 0 and smaller than the number of storage slots of the container
+            </li>
+            <li>
+                <b>context.fuel_burn_times</b>: A <i>MapTag</i> that maps each fuel slot name of the container to its
+                remaining burn time (in ticks), or 0 for each fuel slot that is not burning
+            </li>
+            <li>
+                <b>context.fuel_burn_time(fuel_slot_name)</b>: The remaining burn time of the fuel slot named
+                <i>fuel_slot_name</i>, or 0 if the slot is not burning
+            </li>
+            <li>
+                <b>context.crafting_progress</b>: The progress of the current container recipe (in ticks),
+                or 0 if no container recipe is currently in progress
+            </li>
+            <li>
+                <b>context.stored_experience</b>: The amount of experience that is currently stored in the
+                custom container, which players can claim by clicking on an output slot
+            </li>
+        </ul>
+        <h3>Context determinations</h3>
+        Note: the action IDs and slot names of custom containers are case sensitive, but Denizen seems to 
+        automatically convert your determinations to lowercase (probably because Denizen scripts are not meant to be 
+        case sensitive). If you would like to manipulate your container slots via Denizen, I recommend using only lowercase
+        characters for your action IDs and slot names.
+        <ul>
+            <li>
+                <b>determine inputs.input_slot_name:itemstack</b>: Put <i>itemstack</i> in the input slot named
+                <i>input_slot_name</i>
+            </li>
+            <li>
+                <b>determine outputs.output_slot_name:itemstack</b>: Put <i>itemstack</i> in the output slot named
+                <i>output_slot_name</i>
+            </li>
+            <li>
+                <b>determine fuel.fuel_slot_name:itemstack</b>: Put <i>itemstack</i> in the fuel slot named
+                <i>fuel_slot_name</i>
+            </li>
+            <li>
+                <b>determine storage.storage_slot_index:itemstack</b>: Put <i>itemstack</i> in the storage slot
+                with index <i>storage_slot_index</i>, where <i>storage_slot_index</i> is an integer that is at
+                least 0 and smaller than the number of storage slots of the custom container
+            </li>
+            <li>
+                <b>determine fuel_burn_time.fuel_slot_name:duration</b>: Lets the fuel slot named
+                <i>fuel_slot_name</i> burn for <i>duration</i> ticks, which does <b>not</b> consume or require
+                any fuel item stacks
+            </li>
+            <li>
+                <b>determine switch_container:new_container_name</b>: Lets the player close this
+                custom container and open the custom container with name <i>new_container_name</i>. This
+                is basically the same as what a <a href="link.html">link slot</a> does, and carries the same
+                restrictions (e.g. the containers must have the same hosts).
+            </li>
+        </ul>
+        <h2>Java usage</h2>
+        <h3>Listening</h3>
+        <p>
+            To listen for the Bukkit/Java event, you need to create a plug-in that listens for the
+            <b>nl.knokko.customitems.plugin.events.CustomContainerActionEvent</b> event. To import
+            this, you will need to add CustomItems.jar to your classpath.
+        </p>
+        <h3>Properties</h3>
+        <p>
+            <li>
+                <b>actionID</b>: The Action ID of the clicked action slot. If you have multiple action slots, you
+                should compare this with the Action ID of the slot you are interested it.
+            </li>
+            <li>
+                <b>container</b>: The <i>ContainerInstance</i> of the custom container whose slot was clicked.
+                You can call its methods to query and/or modify the state of the custom container. You can use
+                your tab completions to discover the possibilities.
+            </li>
+            <li>
+                <b>clickEvent</b>: The <i>InventoryClickEvent</i> that caused this event. You can use this event to
+                query the cursor item or the click type.
+            </li>
+            <li>
+                <b>itemSet</b>: The <i>ItemSetWrapper</i> of your item set. You can use this to query your own
+                item set. Also check out its <b>get()</b> method, which you can use to query even more data.
+            </li>
+        </p>
+    </body>
+</html>
