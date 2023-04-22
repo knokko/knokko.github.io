@@ -37,7 +37,7 @@
             allowed to copy ingredients from your minecraft server. 
             (Because such ingredients could suddenly change slightly due to minor 
             internal changes, which would make the recipe unusable.)
-            See <a href="choose ingredient.html">this page</a> for more information.
+            See <a href="edit ingredient.html">this page</a> for more information.
         </p>
         <h3>Hotkeys</h3>
         <p>
@@ -83,6 +83,32 @@
             certain permission. By default, this field is empty, which will allow any player to use this recipe. If you
             type anything in this field, this recipe can only be used by players who have that permission or the
             <b>customitems.craftall</b> permission.
+        </p>
+        <h3>Ignore displacement</h3>
+        <p>
+            Whether players can ignore the <i>displacement</i> of this recipe. Consider the following recipe:
+        </p>
+        <table>
+            <tbody>
+                <tr><td>empty</td><td><b>flint</b></td><td>empty</td></tr>
+                <tr><td>empty</td><td><b>stick</b></td><td>empty</td></tr>
+                <tr><td>empty</td><td>empty</td><td>empty</td></tr>
+            </tbody>
+        </table>
+        <p>
+            You can always craft the result by placing flint in the top-middle slot and a stick in the middle slot.
+            If you enable <i>Ignore displacement</i>, you can <b>also</b> craft the result by e.g. putting
+            flint in the top-left slot and a stick in the middle-left slot.
+        </p>
+        <table>
+            <tbody>
+                <tr><td><b>flint</b></td><td>empty</td><td>empty</td></tr>
+                <tr><td><b>stick</b></td><td>empty</td><td>empty</td></tr>
+                <tr><td>empty</td><td>empty</td><td>empty</td></tr>
+            </tbody>
+        </table>
+        <p>
+            This is consistent with vanilla minecraft recipes, there are for instance many ways to craft a torch.
         </p>
     </body>
 </html>

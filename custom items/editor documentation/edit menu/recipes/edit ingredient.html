@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8" />
+        <title>Edit ingredient menu</title>
+    </head>
+    <body>
+        <p>
+            The Edit ingredient menu can be used to select an ingredient for a 
+            crafting recipe, container recipe, or the repair item of a custom tool 
+            (the repair item of a tool is technically very similar to the ingredient 
+            of a recipe, so the same menu can be used for both). It should look like
+            this:
+        </p>
+        <img src="edit ingredient.png" width="50%" />
+        <p>
+            An ingredient consists of 3 parts:
+        </p>
+        <ul>
+            <li>The type (custom item or vanilla item)</li>
+            <li>The remaining item (for instance an empty bucket when the type is a lava bucket)</li>
+            <li>The constraints (for instance durability requirements)</li>
+        </ul>
+        <p>
+            Each type is explained in more detail below. Note: the remaining item and constraints are not available for
+            <b>empty</b> ingredients.
+        </p>
+        <h3>Type</h3>
+        <p>
+            The most important part of an ingredient is its type. The type can be a vanilla item (possibly with data value
+            in minecraft 1.12), a custom item (either from this plug-in or from a third-party plug-in with either ItemBridge
+            or Mimic integration), or empty (this option is not always available).
+        </p>
+        <p>
+            The currently selected type is shown at the top of the page ("Currently Stone" in the screenshot above).
+            To change it, you need to click one of the following buttons:
+        </p>
+        <ul>
+            <li><i>from this plug-in</i>: choose a custom item from this plug-in</li>
+            <li>
+                <i>from another plug-in with Mimic integration</i>: choose a custom item from a third-party plug-in
+                that has <a href="https://www.spigotmc.org/resources/mimic.82515/">Mimic</a> integration
+            </li>
+            <li>
+                <i>from another plug-in with ItemBridge integration</i>: choose a custom item from a third-party plug-in
+                that has 
+                <a href="https://www.spigotmc.org/resources/itembridge-save-items-and-use-them-wherever-you-want-including-other-plugins-best-w-customitems.77080/">ItemBridge</a>
+                integration
+            </li>
+            <li><i>simple</i>: choose an item from vanilla minecraft</li>
+            <li>
+                <i>with data value (1.12)</i>: choose an item from vanilla minecraft with a data value
+                (in minecraft 1.12 and earlier, data values were used for things like wool colors and wood types)
+            </li>
+            <li><i>Set empty</i>: the slot that corresponds to this ingredient must be empty</li>
+        </ul>
+        <h3>Remaining item</h3>
+        <p>
+            The <i>Remaining item</i> can be used to replace the ingredient with 
+            another item rather than removing it upon crafting. For instance,
+            you can choose a bucket as the remaining item of a lava bucket
+            ingredient. When the result item is crafted, the lava bucket will be 
+            replaced with an empty bucket rather than disappearing entirely.<br>
+            The currently selected remaining item is displayed around the bottom-right
+            of the page ("Currently none" in the screenshot above).<br>
+            <b>Note: the Remaining item is basically a <i>result</i>, so when you click on the Change button,
+            you can configure it in the <a href="choose result.html">Choose result menu</a>.</b><br>
+            Empty ingredients can <b>not</b> have a remaining item.<br>
+        </p>
+        <h3>Constraints</h3>
+        <p>
+            The <i>Constraints</i> can be used to add extra requirements to the ingredient. For instance,
+            you can require the ingredient to have enough remaining durability or require it to have a
+            specific enchantment. Constraints are most useful for tools. Click the <i>Constraints...</i>
+            button to start configuring them.
+        </p>
+    </body>
+</html>

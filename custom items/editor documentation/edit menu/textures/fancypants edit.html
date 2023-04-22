@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8" />
+        <title>FancyPants armor edit menu</title>
+    </head>
+    <body>
+        <p>
+            The FancyPants armor edit menu can be used to create
+            <a href="https://github.com/Ancientkingg/fancyPants">FancyPants</a> custom armor textures. This allows
+            you to create custom leather armor textures in minecraft 1.17 and later, and optionally animate it or let it
+            emit light. In it simplest form, it should look like this:
+        </p>
+        <img src="fancypants edit simple.png" width="50%" />
+        <h3>Name</h3>
+        <p>
+            The distinct name of this armor texture. Currently, the name is only shown in the Editor, but is not
+            really used anywhere.
+        </p>
+        <h3>RGB</h3>
+        <p>
+            The leather color RGB value that will be claimed for this armor texture. Every piece of leather armor
+            in minecraft has an RGB value that normally determines its color. FancyPants makes it possible to
+            completely change the texture, animation, and emissivity of leather armor with a specific RGB value.
+            By default, the Editor will automatically assign a fresh RGB value to each custom armor texture.
+            Most users won't need to change this field.
+        </p>
+        <h3>Emissivity</h3>
+        <p>
+            The emissivity determines whether this armor texture will emit light. There are 3 possible options:
+        </p>
+        <ul>
+            <li><b>NONE</b>: this armor texture does <b>not</b> emit light.</li>
+            <li><b>FULL</b>: this armor texture has maximum light emissivity.</li>
+            <li>
+                <b>PARTIAL</b>: this armor texture emits light at <i>some</i> pixels. You need to specify
+                an extra texture where the <b>alpha</b> components of the pixels determine the emissivity
+                at their respective locations.
+            </li>
+        </ul>
+        <h3>Leather tint</h3>
+        <p>
+            Whether the 'default' leather texture coloring should be applied. You probably don't want this,
+            but you are free to enable it.
+        </p>
+        <h3>Frames</h3>
+        <p>
+            The animation frames of this armor texture. Every armor texture needs to have 1 or more frames.
+            If you use only 1 frame, the texture won't have an animation. Every frame needs a layer1 texture
+            and a layer2 texture. If you are using <b>PARTIAL</b> emissivity, every frame also needs an
+            emissivity texture for each of the two layers. For reference, the default layer1 of diamond
+            armor is <img src="./diamond_layer_1.png" /> and the default layer2 of diamond armor is
+            <img src="./diamond_layer_2.png" />. If you have at least 2 frames, two more fields should
+            appear:
+        </p>
+        <img src="fancypants edit complex.png" width="50%" />
+        <h3>Animation speed</h3>
+        <p>
+            The animation speed determines how quickly the frames will be displayed after each other. An
+            animation speed of 24 is approximately 1 frame per second.
+        </p>
+        <h3>Interpolate animations</h3>
+        <p>
+            Whether the animation frames should be interpolated. Without interpolation, the frames will be
+            swapped abruptly. When you enable interpolation, the transition between animation frames will be smooth.
+        </p>
+    </body>
+</html>
