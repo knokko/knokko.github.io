@@ -84,11 +84,13 @@ MobName:
             <li>%player% opens kci %string% at %string%</li>
             <li>destroy kci %string% at %string%</li>
             <li>destroy kci %string% at %string% and drop its items at %location%</li>
+            <li>kci remove %integer% %string% from %inventory%</li>
         </ul>
         <h4>Expressions</h4>
         <ul>
             <li>kci name of %block%</li>
             <li>kci name of %itemstack%</li>
+            <li>count of kci %string% in %inventory%</li>
         </ul>
         <h4>Examples</h4>
         <textarea readonly cols="150" rows="30">
@@ -115,11 +117,14 @@ on leftclick:
 on rightclick on a pig:
     if event-item is stick:
         event-player opens kci "per_location" at uuid of clicked entity
+        broadcast count of kci "fast_wand" in event-player's inventory
+        kci remove 2 "fast_wand" from event-player's inventory
     if event-item is cactus:
         destroy kci "per_location" at uuid of clicked entity
     if event-item is sand:
         destroy kci "per_location" at uuid of clicked entity and drop its items at event-location
         </textarea>
+
         <h3><a href="https://github.com/DenizenScript/Denizen">Denizen</a></h3>
         Custom items and custom blocks can be used in Denizen scripts. Unfortunately, the Denizen VS Code extensions
         doesn't recognize them, so you will get some warnings and errors, which you should ignore.
@@ -132,6 +137,11 @@ on rightclick on a pig:
                 LocationTag.kci_block_name: returns the name of the custom block at the location, 
                 or null if there is no custom block at the location
             </li>
+            <li>
+                InventoryTag.kci_count[custom_item_name]: counts the number of occurrences of the custom item with the
+                given name in the inventory. If the inventory has 1 stack of 4 custom items and 2 stacks of 3 custom items,
+                this would return 10
+            </li>
             <li>&lt;kci_items[custom_item_name]&gt;: creates and returns a custom item (stack) from the custom item with the given name</li>
             <li>&lt;kci_items[custom_item_name*amount]&gt;: creates a custom item stack of <b>amount</b> custom items with the given name</li>
         </ul>
@@ -142,6 +152,7 @@ on rightclick on a pig:
             <li>kci_container destroy [container_name:&lt;string&gt;] at [host_string:&lt;string&gt;] (and drop items at [drop_location:&lt;location&gt;])</li>
             <li>kci_give ([amount:&lt;int&gt;]) [item_name:&lt;string&gt;] to [player:&lt;player&gt;]</li>
             <li>kci_give ([amount:&lt;int&gt;]) [item_name:&lt;string&gt;] to [inventory:&lt;inventory&gt;]</li>
+            <li>kci_remove [amount:&lt;int&gt;] [item_name:&lt;string&gt;] from [player:&lt;player&gt;]|[inventory:&lt;inventory&gt;]</li>
         </ul>
         <h4>Examples</h4>
         <textarea readonly cols="150" rows="30">
@@ -169,6 +180,8 @@ test_event_handler:
             - kci_container &lt;player&gt; opens per_location at &lt;context.entity.uuid&gt;
         after player right clicks pig with:cactus:
             - kci_container destroy per_location at &lt;context.entity.uuid&gt;
+            - narrate "#wands: &lt;player.inventory.kci_count[fast_wand]&gt;"
+            - kci_remove 2 fast_wand from &lt;player&gt;
         after player right clicks pig with:sand:
             - kci_container destroy per_location at &lt;context.entity.uuid&gt; and drop items at &lt;context.location&gt;
         </textarea>
