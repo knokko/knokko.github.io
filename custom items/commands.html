@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8" />
+        <title>Knokko's Custom Item commands</title>
+    </head>
+    <body>
+        <h1>Commands</h1>
+        <p>
+            The required arguments will be surrounded by &lt;&gt; and the optional arguments will be
+            surrounded by []. Furthermore, the optional words are surrounded by (). For instance,
+            <i>/kci (disableoutput) tag</i> means that you can either execute
+            <i>/kci disableoutput tag</i> or just <i>/kci disableoutput tag</i>.
+        </p>
+        <h2>/kci debug</h2>
+        <p>
+            This command checks your KCI installation for common problems and shows some information in the
+            chat. For instance, it shows you how many items you have (if this is not the amount you expected,
+            you probably forgot to save or export).
+        </p>
+        <p>
+            Required permission: customitems.debug
+        </p>
+        <h2>/kci list</h2>
+        <p>
+            This command shows the names of all your custom items and custom blocks in the chat.
+        </p>
+        <p>
+            Required permission: customitems.list
+        </p>
+        <h2>/kci give &lt;custom item name&gt; [player name] [amount]</h2>
+        <p>
+            Checks if you defined a custom item named <b>custom item name</b>. If so, it gives <b>amount</b>
+            of them to the player named <b>player name</b>.
+        </p>
+        <ul>
+            <li>If you didn't define such a custom item, an error will be shown instead.</li>
+            <li>If no player is specified, you will give the item to yourself.</li>
+            <li>If no amount is specified, it will default to 1.</li>
+        </ul>
+        <p>
+            Required permissions: customitems.give or customitems.give.<b>custom item name</b>
+        </p>
+        <h2>/kci take [page] [player name]</h2>
+        <p>
+            Lets the player named <b>player name</b> open an in-game GUI with one of your custom items in each slot.
+            The player can take any item they want, after which the GUI closes. If you have more than 54 custom items,
+            you need to specify a <b>page</b> to see custom item 55 and later.
+        </p>
+        <ul>
+            <li>If <b>page</b> is not specified, it will default to 1.</li>
+            <li>If <b>player name</b> is not specified, you will open the GUI yourself.</li>
+        </ul>
+        <p>
+            Required permission: customitems.take
+        </p>
+        <h2>/kci setblock &lt;block name&gt; [x] [y] [z] [world name]</h2>
+        <p>
+            Places the custom block named <b>block name</b> at coordinates (<b>x</b>, <b>y</b>, <b>z</b>) in
+            world <b>world name</b>.
+        </p>
+        <ul>
+            <li>If no <b>world name</b> is specified, the block will be placed in the world where you are.</li>
+            <li>If no coordinates are specified, the block will be placed at your position.</li>
+        </ul>
+        <p>Required permission: customitems.setblock</p>
+        <h2>/kci playsound &lt;sound name&gt; [x] [y] [z] [world name] [volume] [pitch]</h2>
+        <p>
+            Plays the custom sound named <b>sound name</b> at coordinates (<b>x</b>, <b>y</b>, <b>z</b>) in
+            world <b>world name</b>. The sound will be played with the given <b>volume</b> and <b>pitch</b>.
+        </p>
+        <ul>
+            <li>If no <b>pitch</b> is specified, it will default to 1</li>
+            <li>If no <b>volume</b> is specified, it will default to 1</li>
+            <li>If no <b>world name</b> is specified, the sound will be played in the world where you are.</li>
+            <li>If no coordinates are specified, the sound will be played at your position.</li>
+        </ul>
+        <p>Required permission: customitems.playsound</p>
+        <h2>/kci reload [export hash]</h2>
+        <p>
+            Reloads your <i>config.yml</i> and <i>lang.yml</i> files. If the <b>export hash</b> is specified, it will
+            also update your custom items and your resourcepack. The Editor will give you the <b>export hash</b> when
+            you export.
+        </p>
+        <p>Required permission: customitems.reload</p>
+        <h2>/kci repair &lt;amount&gt; [player name]</h2>
+        <p>
+            Increases the durability of the custom tool in the main hand of the player named <b>player name</b>
+            by <b>amount</b>. If no player name is specified, it will default to you.
+        </p>
+        <p>Required permission: customitems.repair</p>
+        <h2>/kci damage &lt;amount&gt; [player name]</h2>
+        <p>
+            Decreases the durability of the custom tool in the main hand of the player named <b>player name</b>
+            by <b>amount</b>. The tool will break if the durability is decreased to 0 (or even lower).
+            If no player name is specified, it will default to you.
+        </p>
+        <p>Required permission: customitems.damage</p>
+        <h2>/kci tag</h2>
+        <p>
+            This is a debug command that shows the NBT tag of the item in your main hand (via the chat).
+        </p>
+        <p>
+            This command does not require a permission.
+        </p>
+        <h2>/kci encode</h2>
+        <p>
+            Creates a text representation of the item in your main hand, and prints it to the server console.
+            This command is needed to create <i>Copied from server</i> custom crafting recipe ingredients
+            in the Editor. The text representation does <i>not</i> have any other purpose.
+        </p>
+        <p>Required permission: customitems.encode</p>
+        <h2>/kci container open &lt;container name&gt; &lt;x&gt; &lt;y&gt; &lt;z&gt; (force) [player name] [world name]</h2>
+        <p>
+            Lets the player named <b>player name</b> to open a custom container named <b>container name</b>
+            at coordinates (<b>x</b>, <b>y</b>, <b>z</b>) in world <b>world name</b>. If you specify <b>force</b>,
+            the <i>host</i> of the custom container is ignored (allowing you to open e.g. custom containers 
+            that are stored in air).
+        </p>
+        <ul>
+            <li>If <b>world name</b> is not specified, it will be the world where the target player is in</li>
+            <li>If <b>player name</b> is not specified, you will open the container yourself</li>
+            <li>If <b>container name</b> contains spaces, you need to surround it with single quotes, e.g. 'turbo furnace'</li>
+        </ul>
+        <p>Required permissions:</p>
+        <ul>
+            <li>If <b>force</b> is specified, customitems.containercommand.force</li>
+            <li>If used on another player, customitems.containercommand.openother</li>
+            <li>
+                If used on yourself, customitems.containercommand.openself.* 
+                or customitems.containercommand.openself.<b>container name</b>
+            </li>
+        </ul>
+        <h2>/kci container open &lt;container name&gt; &lt;host string&gt; [player name]</h2>
+        <p>
+            Lets the player named <b>player name</b> open the custom container named <b>container name</b>
+            at string host <b>host string</b>. If <b>player name</b> is not specified, you will open the
+            container yourself.
+        </p>
+        <p>Required permissions:</p>
+        <ul>
+            <li>If used on another player, customitems.containercommand.openother</li>
+            <li>
+                If used on yourself, at least one of the following permissions is required:
+                <ul>
+                    <li>customitems.containercommand.openself.*.*</li>
+                    <li>customitems.containercommand.openself.<b>container name</b>.*</li>
+                    <li>customitems.containercommand.openself.*.<b>host string</b></li>
+                    <li>customitems.containercommand.openself.<b>container name</b>.<b>host string</b></li>
+                </ul>
+            </li>
+        </ul>
+        <h2>/kci container destroy &lt;container name&gt; &lt;host string &gt; [&lt;drop world name&gt; &lt;drop x&gt; &lt;drop y&gt; &lt;drop z&gt;]</h2>
+        <p>
+            Destroys the custom container named <b>container name</b> at string host <b>host string</b>.
+            If the <b>drop location</b> is specified, the items in the container inventory will be dropped at
+            the <b>drop location</b>. If not, the items will be destroyed as well.
+        </p>
+        <p>At least 1 of the following permissions is required:</p>
+        <ul>
+            <li>customitems.containercommand.destroy.*.*</li>
+            <li>customitems.containercommand.destroy.<b>container name</b>.*</li>
+            <li>customitems.containercommand.destroy.*.<b>host string</b></li>
+            <li>customitems.containercommand.destroy.<b>container name</b>.<b>host string</b></li>
+        </ul>
+        <h2>/kci disableoutput &lt;rest of the command&gt;</h2>
+        <p>
+            Executes <i>/kci <b>rest of the command</b></i>, but disables (ignores) all command feedback/output.
+            This is useful for commands that are automatically executed (e.g. projectile effects or other plug-ins)
+        </p>
+        <p>Required permission: whatever is required to execute <i>/kci <b>rest of the command</b></i></p>
+    </body>
+</html>
