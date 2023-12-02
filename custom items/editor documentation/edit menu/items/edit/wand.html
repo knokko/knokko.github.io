@@ -7,8 +7,9 @@
     <body>
         <p>
             The wand edit menu can be used to modify or create (custom) wands. 
-            Please note that you need to create a <b>custom projectile</b> before you can create a wand.
-            If you just started creating a new wand, it should look like this:
+            Please note that you need to create a <b>custom projectile</b> before you can create a wand
+            (unless you installed the Magic plug-in). If you just started creating a new wand, 
+            it should look like this:
         </p>
         <img src="wand.png" width="50%" />
         <p>
@@ -58,11 +59,24 @@
         <p>
             As long as any of those is not satiesfied, the player won't be able to fire.
         </p>
+        <h3>Mana cost [MAGIC]</h3>
+        <p>
+            This wand requires mana from the <a href="https://www.spigotmc.org/resources/magic.1056/">Magic</a> plug-in.
+            If you don't install this plug-in and the mana cost is higher than 0, the wand is unusable.
+            If you additionally install the <a href="https://www.spigotmc.org/resources/actionbarapi-1-8-1-19.86006/">Action Bar API</a> 
+            plug-in, the current mana of the player will be shown in their action bar.
+        </p>
         <h3>Requires permission</h3>
         <p>
             Whether players need a permission to shoot projectiles with this wand. If this is unchecked, any player
             can shoot projectiles with this wand. If this is checked, only players with the <b>customitems.shoot.WAND_NAME</b>
             or the <b>customitems.shootall</b> permission can shoot projectiles with this wand.
+        </p>
+        <h3>Spells... [MAGIC]</h3>
+        <p>
+            Lets the wand cast spells from the <a href="https://www.spigotmc.org/resources/magic.1056/">Magic</a> plug-in.
+            You need to insert the name of the spell(s) that you want the wand to cast. This does nothing when the Magic
+            plug-in is not installed. You can use <b>/kci magic</b> to see the list of spells.
         </p>
     </body>
 </html>
