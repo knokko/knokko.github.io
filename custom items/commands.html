@@ -76,11 +76,13 @@
             <li>If no coordinates are specified, the sound will be played at your position.</li>
         </ul>
         <p>Required permission: customitems.playsound</p>
-        <h2>/kci reload [export hash]</h2>
+        <h2>/kci reload [export hash] [resource pack host ip]</h2>
         <p>
             Reloads your <i>config.yml</i> and <i>lang.yml</i> files. If the <b>export hash</b> is specified, it will
             also update your custom items and your resourcepack. The Editor will give you the <b>export hash</b> when
-            you export.
+            you export. If you specify a <b>resource pack host ip</b>, the plug-in will download the resource pack
+            from the custom resource pack hosting service at the given address. If you don't specify it, the default
+            resource pack host will be used.
         </p>
         <p>Required permission: customitems.reload</p>
         <h2>/kci repair &lt;amount&gt; [player name]</h2>
