@@ -7,75 +7,21 @@
     <body>
         <p>
             The item nbt menu can be used to configure the NBT tags of custom 
-            items. If you haven't done anything yet, it should look like this:
+            items. It should look like this:
         </p>
         <img src="nbt.png" width="50%" />
-        <h3>Basic buttons</h3>
         <ul>
             <li>
-                The 'Cancel' button will take you back to the item edit menu you 
-                came from, without keeping any changes you made to the NBT.
+                Use the <i>Back</i> button to go back. If you made any changes, they will be kept.
             </li>
             <li>
-                The 'Apply' button will keep the changes you made to the item 
-                NBT and then take you back to the item edit menu you came from.
-            </li>
-            <li>
-                The 'Add integer' button will add a new empty key-value pair of
-                type integer. After clicking this button, you should configure it
-                by clicking the new buttons and changing the values in the new 
-                edit fields.
-            </li>
-            <li>
-                The 'Add string' button will add a new empty key-value pair of
-                type string (text). After clicking this button, you should 
-                configure it by clicking the new buttons and changing the values 
-                in the new edit fields.
-            </li>
-            <li>
-                Currently, only integer and string tags are supposed, but this 
-                might change in the future.
-            </li>
-        </ul>
-        <h3>Configuring entries</h3>
-        <p>
-            After you click on the 'Add integer' or 'Add string' button, the 
-            following elements should appear:
-        </p>
-        <img src="nbt pair.png" width="100%" />
-        <ul>
-            <li>
-                The edit field on the left is to define the <i>key</i> of the nbt 
-                pair/entry. Initially, it will have only 1 part, but you can add 
-                more parts by clicking on the green + button. See the example a 
-                bit below to see how these parts work. <b>You can use the right arrow
-                key to scroll sidewards if you have many parts.</b>
-            </li>
-            <li>
-                The edit field on the right is to define the <i>value</i> of the nbt 
-                pair/entry. Unlike the key, this can only have 1 part. If you clicked
-                on the 'Add string' button, you can insert any string as value. If 
-                you clicked on the 'Add integer' button, you can only insert integers
-                as value.
-            </li>
-            <li>
-                Clicking the red cross will remove its corresponding pair/entry.
+                Use the <i>Configure...</i> button to configure additional NBT of your custom item.
+                An example is shown below.
             </li>
         </ul>
         <p>
-            To understand how the parts work, consider the configuration in the 
-            following image:
+            Note that NBT is a rather advanced topic in minecraft, so you should only use it if you know what you're doing.
         </p>
-        <img src="nbt example.png" width="100%" />
-        <p>
-            If you use this configuration, the item nbt would get the following 
-            NBT: {<b>DummyTag: {hello: "creeper"}</b>, KnokkosCustomItems: {
-                Name: "example_item", <i>some other internal nbt stuff</i>
-            }}
-        </p>
-        <p>
-            If you add multiple entries and these entries share their first part(s)
-            then will share their parent tag(s).
-        </p>
+        <img src="nbt example.png" width="50%" />
     </body>
 </html>
