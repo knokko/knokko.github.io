@@ -343,5 +343,29 @@
             you hit someone. By default this is <b>None</b>, which means it deals normal damage. Because minecraft
             internals changed in 1.19.4, this feature is only supported on minecraft 1.18 and earlier.
         </p>
+        <h3>Translations</h3>
+        <p>
+            Translations allow items to have a different display name and/or lore, 
+            <i>depending on the language of each player</i> (as configured in their minecraft client settings).
+            When your server has players who speak different languages, each player will see the lore and display name
+            of this item in their own language. Note that:
+        </p>
+        <ul>
+            <li>
+                You still need to provide the translations yourself after clicking 
+                the <b>Translations [1.14+]...</b> button.
+            </li>
+            <li>
+                This feature is only supported in minecraft 1.14 and later.
+            </li>
+            <li>
+                When you provide at least 1 translation, the regular display name and/or lore
+                of this item will be ignored.
+            </li>
+            <li>
+                When you provide at least 1 lore translation, the durability of custom tools
+                and ammo of guns will no longer be shown in their lore.
+            </li>
+        </ul>
     </body>
 </html>
