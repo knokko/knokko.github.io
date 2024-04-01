@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Throwable edit menu</title>
+</head>
+<body>
+    <p>
+        The throwable edit menu can be used to create throwable custom items.
+        Please note that you need to create a <b>custom projectile</b> before you can create a throwable custom item.
+        If you just started creating a new throwable, it should look like this:
+    </p>
+    <img src="throwable.png" width="50%" />
+    <p>
+        This menu has everything the <a href="base.html">base item edit menu</a> has, but a little more.
+        Throwable items are basically simple custom items that can be thrown.
+        Before you can create a throwable, you need to create at least 1 custom projectile at the
+        <a href="../../projectiles/index.html">'Projectiles' section</a> of the Editor
+        (just like there is a 'Textures', 'Items', 'Recipes' and 'Drops' section).
+    </p>
+    <h3>Projectile</h3>
+    <p>
+        This determines which custom projectile players can throw with this item.
+        The button on the right of 'Projectile:' displays the name of the currently
+        selected custom projectile, or 'None' if you haven't chosen one yet.
+        To change the custom projectile, you should click on that button, which will take you to the
+        <a href="projectile selection.html">projectile selection menu</a> where you can choose which
+        custom projectile this item will throw.
+    </p>
+    <h3>Maximum stacksize</h3>
+    <p>
+        As the name suggests, this determines the maximum stacksize of this throwable item. You can choose any
+        integer between 1 and 64, but the stacking may be less 'smooth' if it doesn't match the 'natural' stacksize
+        of the internal item type.
+    </p>
+    <h3>Amount per shot</h3>
+    <p>
+        The amount of projectiles players will launch each time they throw the item.
+        The amount does <b>not</b> have any effect on the cooldown or the stacksize:
+        If you change the 'Amount per shot' to 2, players will always fire 2 instances
+        of the Projectile at each throw, but that will only decrease the stacksize by 1 and will
+        put the throwable on the exact same Cooldown as if you kept the 'Amount per shot' 1.
+    </p>
+    <h3>Cooldown</h3>
+    <p>
+        The time in ticks players must wait after throwing the item before it can be thrown again.
+        Whenever a player throws the item, the player won't be able to throw again
+        until the Cooldown has passed.
+    </p>
+    <h3>Requires permission</h3>
+    <p>
+        Whether players need a permission to throw this item. If this is unchecked, any player
+        can throw this item. If this is checked, only players with the <b>customitems.shoot.ITEM_NAME</b>
+        or the <b>customitems.shootall</b> permission can throw this item.
+    </p>
+</body>
+</html>
