@@ -87,6 +87,15 @@
             I think the exact meaning of the value for the Gravity is too complex to understand for most
             people, so I will leave that out.
         </p>
+        <h3>Maximum number of entities to pierce</h3>
+        <p>
+            By default, custom projectiles will be destroyed whenever they hit an entity or block.
+            When you set this to something greater than 0, the projectile will pierce through 1 or more
+            entities instead. For instance, when <b>Maximum number of entities to pierce</b> is 2, the
+            projectile can pierce through 2 entities, and will only be destroyed upon hitting the third
+            entity (or after hitting 1 block). The two entities through which the projectile pierced will
+            take the same damage as the last entity.
+        </p>
         <h3>Effects</h3>
         <p>
             Custom projectiles can be configured to perform special effects like spawning particles, accellerating
@@ -142,6 +151,19 @@
         <p>
             Which type of <a href="../items/damage source/overview.html">custom damage</a> this projectile should deal.
             By default, this is <b>None</b>, which causes this projectile to deal normal damage.
+        </p>
+        <h3>Activate impact effects when lifetime runs out</h3>
+        <p>
+            By default, the impact effects will only be activated when the projectile hits a block or entity. But, when
+            you check this box, the impact effects will also be activated when the projectile dies because its lifetime
+            expired.
+        </p>
+        <h3>Activate impact effects while piercing</h3>
+        <p>
+            When <b>Maximum number of entities to pierce</b> is larger than 0, the projectile can pierce through entities.
+            By default, the impact effects will be activated each time an entity is pierced. If you uncheck this box,
+            the impact effects will only be activated when the projectile hits a block, or it hits an entity after
+            piercing the maximum number of entities.
         </p>
     </body>
 </html>
