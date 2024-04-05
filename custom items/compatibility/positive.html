@@ -99,6 +99,9 @@ MobName:
             </li>
             <li>destroy kci %string% at %string% and drop its items at %location%</li>
             <li>kci remove %integer% %string% from %inventory%</li>
+            <li>drop [a] kci %string% at %location%</li>
+            <li>drop %integer% kci %string% at %location%</li>
+            <li>%entity% launches kci %string%</li>
         </ul>
         <h4>Expressions</h4>
         <ul>
@@ -125,6 +128,11 @@ on rightclick:
     if event-block is cobblestone:
         place kci "custom_block" at event-block
         broadcast "Right-clicking cobblestone replaces it with custom_block"
+
+kci player eats:
+    send "you ate %kci name of event-item%" to player
+    drop kci "fooddd" at player's location
+    player launches kci "test"
 
 on leftclick:
     if event-block is kci block:
@@ -170,6 +178,8 @@ on rightclick on a pig:
             <li>kci_give ([amount:&lt;int&gt;]) [item_name:&lt;string&gt;] to [player:&lt;player&gt;]</li>
             <li>kci_give ([amount:&lt;int&gt;]) [item_name:&lt;string&gt;] to [inventory:&lt;inventory&gt;]</li>
             <li>kci_remove [amount:&lt;int&gt;] [item_name:&lt;string&gt;] from [player:&lt;player&gt;]|[inventory:&lt;inventory&gt;]</li>
+            <li>kci_drop ([amount:&lt;int&gt;]) [item_name:&lt;string&gt;] at [location:&lt;location&gt;]</li>
+            <li>kci_launch [projectile_name:&lt;string&gt;] from [shooter:&lt;entity&gt;]</li>
         </ul>
         <h4>Examples</h4>
         <textarea readonly cols="150" rows="30">
@@ -201,6 +211,10 @@ test_event_handler:
             - kci_remove 2 fast_wand from &lt;player&gt;
         after player right clicks pig with:sand:
             - kci_container destroy per_location at &lt;context.entity.uuid&gt; and drop items at &lt;context.location&gt;
+        after kci player eats:
+            - narrate "you just ate &lt;context.food_stack.kci_item_name&gt;"
+            - kci_drop fooddd at &lt;player.location&gt;
+            - kci_launch "test" from &lt;player&gt;
         </textarea>
         <h3><a href="https://www.spigotmc.org/resources/ultra-chests-an-interactive-reward.44360/">Ultra Chest</a></h3>
         <p>
