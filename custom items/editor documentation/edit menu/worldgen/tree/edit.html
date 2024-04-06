@@ -34,13 +34,23 @@
         </p>
         <h3>Allowed terrain</h3>
         <p>
-            The blocks on which the tree can be spawned. Note 1: when using a tree whose log is wider than 1 block,
-            only 1 of the root log blocks needs to be above allowed terrain. Note 2: in minecraft 1.17 and earlier,
-            Spigot will ensure that trees can <b>not</b> be spawned on unnatural terrain (for instance, they won't
-            grow on stone or water). Including stone or water in the allowed terrain will <b>not</b> change this.
-            In minecraft 1.18 and later, Spigot is much less strict and even allows you to spawn trees on top of the
-            ocean (at least, if you add <i>Water</i> to the allowed terrain).
+            The blocks on which the tree can be spawned. Note:
         </p>
+        <ul>
+            <li>
+                When using a tree whose log is wider than 1 block,
+                only 1 of the root log blocks needs to be above allowed terrain.
+            </li>
+            <li>
+                In minecraft 1.17 and earlier, Spigot refuses to spawn trees on unnatural terrain 
+                (for instance, they won't grow on stone or water). Including stone or water in the allowed terrain will 
+                <b>not</b> change this.
+            </li>
+            <li>
+                In minecraft 1.18 and later, Spigot is much less strict and even allows you to spawn trees on top of the
+                ocean (at least, if you add <i>Water</i> to the allowed terrain).
+            </li>
+        </ul>
         <h3>Log material</h3>
         <p>
             The block(s) that will be used to create the <i>log</i> of the tree.
@@ -69,6 +79,31 @@
             <li>There is no space for the tree. (For instance, there is a house or another tree nearby.)</li>
             <li>The location is not in one of the <i>Allowed biomes</i>.</li>
             <li>Maybe there are other causes of which I'm not aware.</li>
+        </ul>
+        <h3>Minimum/maximum depth in water</h3>
+        <p>
+            These properties determine whether this tree can be spawned underwater, and if so, how deep.
+            This feature is only available in MC 1.17 and later because Spigot refuses to spawn trees
+            underwater in MC 1.16 and earlier.
+        </p>
+        <ul>
+            <li>
+                By default, both the minimum and maximum depth are 0, which means that the tree can <b>not</b>
+                be spawned under water.
+            </li>
+            <li>
+                When you change the maximum depth to X, the tree can only be spawned if there are at most X
+                water blocks above the block below the lowest log. Note that the block at the bottom of the 
+                sea must still be in the <b>Allowed terrain</b>.
+            </li>
+            <li>
+                When you change the minimum depth to X, the tree can only be spawned if there are at least X
+                water blocks above the block below the lowest log. When X is larger than 0, the tree can 
+                <b>only</b> be spawned underwater.
+            </li>
+            <li>
+                When the <b>Allowed terrain</b> includes water, the tree can float in the middle of the ocean.
+            </li>
         </ul>
     </body>
 </html>
