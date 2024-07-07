@@ -248,5 +248,33 @@ test_event_handler:
             this plug-in. You can turn this behavior off by putting <i>default_resource_pack: ""</i> in their
             <i>config.yml</i>.
         </p>
+        <h3><a href="https://www.spigotmc.org/resources/silkspawners-%E2%98%85-ready-to-rock-1-8-8-1-21-supported-%E2%98%85.7811/">SilkSpawners</a></h3>
+        <p>
+            The SilkSpawners plug-in allows players with the right permissions to mine mob spawners blocks when they
+            are using the right pickaxe with the silk touch enchantment. In their config, you can configure the allowed
+            pickaxes like this:
+        </p>
+        <textarea readonly cols="100" rows="4">
+# Allowed set of tools which can mine a spawner. IDs are supported, too
+allowedTools:
+- STONE_PICKAXE
+- knokkoscustomitems:silk_pickaxe
+        </textarea>
+        <p>
+            This would allow players to either mine mob spawners with a stone pickaxe, or with a custom pickaxe
+            from this plug-in called <b>silk_pickaxe</b> (when it has the silk touch enchantment). Note:
+        </p>
+        <ul>
+            <li>
+                Players with the <b>silkspawners.nosilk.*</b> permission can mine mob spawners with any pickaxe, 
+                with or without silk touch. <b>When you are OP, you have this permission.</b> So, when you want to
+                test this feature, make sure to deop yourself first.
+            </li>
+            <li>
+                Players without the <b>silkspawners.silkdrop.*</b> permission can't mine any mob spawners at all,
+                regardless of whether they have the right pickaxe and silk touch. So, when you want to test this
+                feature, make sure that you give yourself this permission.
+            </li>
+        </ul>
     </body>
 </html>
