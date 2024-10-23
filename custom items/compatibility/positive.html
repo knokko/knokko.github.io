@@ -148,7 +148,18 @@ on rightclick on a pig:
         destroy kci "per_location" at uuid of clicked entity
     if event-item is sand:
         destroy kci "per_location" at uuid of clicked entity and drop its items at event-location
+
+on kci container recipe starts:
+    broadcast duration of event-kcicontainerrecipe
+    cancel event
+    
+on kci container recipe ends:
+    broadcast "and so it ends"
         </textarea>
+        <p>
+            See <a href="../editor documentation/edit menu/containers/slots/script.html">this page</a> for more information about
+            expressions and effects for kci containers, which you can use in e.g. <i>on kci container recipe starts</i>
+        </p>
 
         <h3><a href="https://github.com/DenizenScript/Denizen">Denizen</a></h3>
         Custom items and custom blocks can be used in Denizen scripts. Unfortunately, the Denizen VS Code extensions
@@ -215,7 +226,16 @@ test_event_handler:
             - narrate "you just ate &lt;context.food_stack.kci_item_name&gt;"
             - kci_drop fooddd at &lt;player.location&gt;
             - kci_launch "test" from &lt;player&gt;
+        on kci container recipe starts:
+            - determine inputs.in:obsidian
+            - narrate context.recipe_experience
+        on kci container recipe ends:
+            - narrate context.recipe_duration
         </textarea>
+        <p>
+            See <a href="../editor documentation/edit menu/containers/slots/script.html">this page</a> for more information about
+            determinations and tags about kci containers, which you can use in e.g. <i>on kci container recipe starts</i>
+        </p>
         <h3><a href="https://www.spigotmc.org/resources/ultra-chests-an-interactive-reward.44360/">Ultra Chest</a></h3>
         <p>
             This plug-in has small changes that allow users to use custom items from this plug-in in 
